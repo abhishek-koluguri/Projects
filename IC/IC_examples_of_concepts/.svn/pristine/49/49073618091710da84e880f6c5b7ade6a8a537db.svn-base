@@ -1,7 +1,0 @@
-<!doctype html>
-<html>
-	<body>
-		A Canvas example.
-		<canvas id="mycanvas">You see this if canvas not supported</canvas>
-	</body>
-</html>
