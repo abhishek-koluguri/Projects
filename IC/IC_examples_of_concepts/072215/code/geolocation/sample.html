@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+	<body>
+		<span id="info">Location details</span>
+		<button id="stopButton">Stop Watching the Location</button>
+	</body>
+	<script src="geolocation.js"></script>
+	<script>
+		getGeoLocation(
+			document.getElementById('info'),
+			document.getElementById('stopButton'));
+	</script>
+</html>

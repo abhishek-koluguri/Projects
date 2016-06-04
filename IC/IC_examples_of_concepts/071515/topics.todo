@@ -1,0 +1,44 @@
+CoffeeScript:
+✓ What's CoffeeScript?
+  ✓ It is a language that
+  ✓ makes JavaScript suck less
+  ✓ makes JavaScript feel like Ruby
+  ✓ removes ceremonies and surprises from JavaScript
+  ✓ allows you to code JavaScript and stay sane
+  ✓ allows you to write better JavaScript with concise syntax
+✓ Writing CoffeeScript
+✓ Running CoffeeScript coffee filename
+✓ Printing JavaScript -p command
+✓ Compiling to JavaScript -c command
+✓ String literals
+✓ String Expressions
+✓ heredocs for multiline strings
+	✓ literals
+	✓ expressions
+✓ equality operator
+	'is' - strict comparison (and ==) map to === of JavaScript
+  try 0 == '', 0 == '0', and '' == '0' in JavaScript and CoffeeScript
+✓ if condition - significant white space
+✓ if and unless
+✓ Writing functions
+✓ lexical scoping
+✓ arguments in JavaScript and their deficiencies
+✓ splat (...) to the rescue
+✓ extracting using splat
+✓ array, ranges
+✓ list comprehension
+  ✓ x for x in collection when ...
+  ✓ double of even values
+	✓ gotcha with ()
+✓ JSON representations 
+	✓{} 
+	✓indentation
+✓ Creating classes
+✓ object context using @
+✓ accessing prototype from outside the class using ::
+✓ automatic assignment of properties using @parameter
+✓ using inheritance
+✓ looping through properties
+  ✓ for key, value of object
+✓ for prop of object
+✓ for own prop of object

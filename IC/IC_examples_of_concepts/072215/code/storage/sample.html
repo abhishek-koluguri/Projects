@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<body>
+		First: <input type="text" id="first"></input>
+		Last: <input type="text" id="last"></input>
+		Email: <input type="email" id="email"></input>
+		<button id="save">save</button>
+		<button id="load">load</button>
+	</body>
+	<head>
+		<script src="functions.js"></script>
+		<script>
+		  var saveData = function() {
+				var person = {};
+				var populatePerson = function(tag) {					
+					person[tag.id] = tag.value;
+				}
+				var tags = document.getElementsByTagName('input');
+				for(var i = 0; i < tags.length; i++) {
+					populatePerson(tags[i]);
+				}
+				save(person);
+			}
+			var loadData = function() {
+				load(document.getElementsByTagName('input'));
+			}
+			document.getElementById('save').onclick = saveData;
+			document.getElementById('load').onclick = loadData;
+			
+			window.addEventListener('storage', loadData, false);
+		</script>
+	</head>
+</html>

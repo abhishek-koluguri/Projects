@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script>
+			var displayName = function(name) {
+				document.getElementById('greet').innerHTML =
+					'Hello ' + name;
+			}
+		</script>
+	</head>
+	<body>
+		Enter your name:
+		<input type="text" onkeyup="displayName(this.value);"></input>
+		<p>
+			<span id="greet"></span>
+		</p>
+	</body>
+</html>

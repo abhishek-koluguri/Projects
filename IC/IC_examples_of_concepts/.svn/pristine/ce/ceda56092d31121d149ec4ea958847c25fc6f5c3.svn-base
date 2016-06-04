@@ -1,0 +1,51 @@
+HTML5 and RichWeb:
+✓ What was lacking
+✓ What does Canvas provide
+
+Creating a Canvas:
+✓ canvas element and browsers
+✓ canvas and context
+  ✓ getContext('2d');
+
+Using a Context:
+✓ drawing text 
+  ✓textAlign = 'center'
+  ✓fillStyle = 'orange'
+    ✓ also fillStyle = "rgb(#, #, #);"
+  ✓font = '32pt Ariel'
+	✓fillText('text', x, y)
+✓ transparency 
+	✓globalAlpha = '0.5'
+
+Drawing on canvas:
+✓ drawing lines 
+  ✓moveTo
+  ✓lineTo
+  ✓strokeStyle = 'red'
+  ✓lineWidth = 5
+  ✓stroke()
+✓beingPath
+✓ arc(x, y, r, startAnglePI, endAnglePI, boolAntiClockwise)
+  ✓ angles 0, 0.5PI, 1PI, 1.5PI, 2PI
+✓drawing more shapes
+  ✓ point on a circle 
+			x + radius * Math.cos(0.75 * Math.PI)
+			y + radius * Math.sin(0.75 * Math.PI)
+✓ filling shapes: fillStyle = 'blue', fill()
+✓ problem with state of context
+✓ save and restore
+
+Events:
+✓ mouse events
+  ✓ document.onmouseup
+  ✓ mouseEvent, mouseEvent.clientX, mouseEvent.clientY
+  ✓ document.addEventListener('mouseup', draw);
+  ✓ offsetLeft and OffsetTop
+✓decoupling function from mouse event
+  ✓ preventDefault()
+✓ touch events
+  ✓touchend, touchmove,...
+  ✓ changedTouches[i].clientX, ...
+
+Animation:
+✓ let's create a simple game

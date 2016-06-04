@@ -1,0 +1,37 @@
+karma init
+
+When Jasmine is presented, hit tab to see mocha.
+Then hit return.
+
+no for require.js (hit return)
+
+When Chrome is presented, hit tab until you get
+PhantomJS and then hit return.
+
+Hit return without selecting any additional browsers.
+
+Continue to hit return (to take defaults) and finish.
+
+Once done, open the file karma.conf.js and edit the
+following:
+
+Change
+
+frameworks: ['mocha'],
+
+to
+
+frameworks: ['mocha', 'chai'],
+
+
+Then change,
+
+files: [
+],
+
+to
+
+files: [
+  './javascripts/*.js',
+  './test/**/*.js'
+],

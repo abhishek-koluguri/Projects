@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  form(method='post', action='/greet')
+    span Hello #{name}, please enter your name
+    input(type='text', name="name")
+    input(type='submit')

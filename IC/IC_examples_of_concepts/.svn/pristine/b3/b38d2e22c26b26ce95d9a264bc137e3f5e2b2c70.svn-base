@@ -1,0 +1,26 @@
+We have <%= @tasks.count %> tasks.
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Completion Date</th>
+		<th>Pending</th>
+	</tr>
+	<% @tasks.each do |task| %>
+	<tr>
+		<td><%= task.name %></td>
+		<td><%= task.completion_date.to_s %></td>
+		<td><%= task.pending %></td>
+	</tr>
+	<% end %>
+</table>
+
+<p>
+	Create a new task:
+	<%= form_tag(action: 'create', method: 'post') do %>
+		<label>Name</label><%= text_field_tag('name') %><br/>
+		<label>Completion Date</label><%= text_field_tag('completion_date') %><br/>
+		<label>Pending</label><%= check_box_tag('pending') %><br/>
+		<input type="submit"></input>
+	<% end %>
+</p>

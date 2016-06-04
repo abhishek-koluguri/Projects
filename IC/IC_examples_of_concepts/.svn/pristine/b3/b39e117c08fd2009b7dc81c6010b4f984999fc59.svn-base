@@ -1,0 +1,30 @@
+{
+  "name": "assign1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "assign1",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "nodeunit": "^0.9.1",
+    "grunt-contrib-nodeunit": "^0.4.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-exec": "^0.4.6",
+    "grunt-install-dependencies": "^0.2.0",
+    "istanbul": "^0.3.13"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,60 @@
+Test Driving AngularJS
+
+✓ JavaScript and testing
+✓ Principles behind AngularJS
+✓ Principles vs. Practice
+✓ Let's take a look at an example
+✓ Analyze it
+✓ how easy or hard would it be to write automated tests for client code?
+	✓ Dependencies
+	✓ Complexity
+	✓ Coupling
+	✓ Logic in the UI
+✓ Let's approach this Test First—we'll only focus on the client side
+✓ Start with the app, delete the tasksController.js file, keep the rest.
+✓ install tools
+  ✓ npm install -g karma-cli
+  ✓ npm install --save-dev karma karma-mocha karma-chai karma-phantomjs-launcher
+  ✓ npm install --save angular
+  ✓ npm install --save-dev angular-mocks
+  ✓ npm install karma-clear-screen-reporter --save-dev
+✓ setup Karma
+✓ karma init
+	✓take mocha (later add chai), no for Require.js, PhantomJS, default for rest.
+✓ Edit karma.conf.js
+	frameworks: ['mocha', 'chai'],
+  ...
+  files: [
+    'node_modules/angular/angular.js',
+    'node_modules/angular-mocks/angular-mocks.js',
+    './public/javascripts/*.js',
+    './test/**/*.js'
+  ],  
+✓ add coverage to karma.conf.js
+  preprocessors: {
+    '**/javascripts/*.js': 'coverage'
+  },
+  
+  and
+
+  reporters: ['progress', 'coverage'],
+✓ npm install karma karma-coverage --save-dev
+✓ mkdir test
+✓ create test/tasksContollerTest.js
+✓ Let's start with a canary test
+✓ run the canary test
+  ✓karma start --reporters clear-screen,dots,coverage
+✓ controller should have empty tasks on create
+  ✓var controller
+	✓beforeEach(module('todoApp'));
+  ✓beforeEach(inject(function() {
+    controller = $controller('TasksController');
+  }));
+✓ getTasks should return tasks from the server
+✓ We don't want to deal with ajax call and server dependency right now
+✓ angular provides a nice mock for this
+  - inject _$httpBackend_
+  ✓expectGET, respond, flush
+✓ tasks returned should be in sorted order
+	✓ use caution here
+- getTask should be called on document ready

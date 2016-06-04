@@ -1,0 +1,82 @@
+header#navigation nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header#navigation nav ul li {
+  display: inline;
+}
+
+section {
+  clear: both;
+}
+section#speakerslist {
+  width: 40%;
+  clear: both;
+}
+
+section#speakerslist article {
+  float: left;
+  width: 75%;
+}
+
+section#speakerslist aside {
+  float: right;
+  width: 25%;
+}
+
+footer#copyright {
+  clear: both;
+}
+
+table#topics tr:nth-of-type(even) {
+  background-color: #F1F1F1;
+}
+
+table#topics tr:nth-of-type(odd) {
+  background-color: #C1C1C1;
+}
+
+table#topics tr:last-child td:last-child {
+  font-weight: bold;
+  background-color: #F1C1D1;
+}
+
+section#speakerslist article:nth-of-type(even) {
+  background-color: #FF2233;
+}
+
+section#speakerslist article:nth-of-type(odd) {
+  background-color: #33FF33;
+}
+
+form#addSpeaker fieldset label {
+  display: block;
+}
+
+fieldset {
+  border-radius: 10px;
+  background-color: #FF0000;
+  box-shadow: 15px 15px 15px #00FF00
+}
+
+input {
+  border-radius: 10px;
+  background-color: rgba(0, 255, 0, 0.50); 
+}
+
+.special {
+ -moz-transform: rotate(-10deg);
+ -webkit-transform: rotate(-10deg);
+ transform: rotate(-10deg);
+
+ -moz-shadow: 2px 2px 7px #FF00FF;
+ -webkit-box-shadow: 2px 2px 7px #FF00FF;
+ -box-shadow: 2px 2px 7px #FF00FF;
+}
+
+
+
+
+
