@@ -1,0 +1,97 @@
+[Venkat 04/15/15 06:55 AM MDT]
+review: move forward.
+
+StringWriter:
+Make fields private.
+Don't use underscore for parameter names, Java convention mixed case
+with no underscore.
+
+Write tests to mix converters.
+
+------------------------------------------------------------------------------
+[Venkat 04/14/15 05:25 AM MDT]
+review: Decouple, check OCP
+
+StringWriterWithLowerCaseConverterTest:
+writeAStringAndConvertItToLowercase:
+Avoid coupling the StringWriter with the LowerCaseConverter directly.
+
+LowerCaseConverterTest:
+Don't need that many tests, keep the tests useful.
+
+StringWriter:
+stringWriterWithLowerCaseConverter:
+This leads to failure of OCP, if we add a new transformation, we have to
+change the StringWriter. Decouple StringWriter from LowerCaseConverter,
+reduce the coupling.
+
+------------------------------------------------------------------------------
+[Venkat 04/13/15 05:37 AM MDT]
+review: build failed
+
+.../assign4/writer/src/application/StringWriter.java:3: warning: Operators is internal proprietary API and may be removed in a future release
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Operators;
+                                                      ^
+1 warning
+.../assign4/writer/test/application/ToLowerCaseTest.java:8: error: class LowerCaseConverterTest is public, should be declared in a file named LowerCaseConverterTest.java
+public class LowerCaseConverterTest {
+       ^
+1 error
+
+Ensure to fix the warnings as well.
+
+------------------------------------------------------------------------------
+[Venkat 04/11/15 07:00 AM CDT]
+review: take small steps, get one thing done before moving to the next.
+
+StringWriterTest:
+writeWritesAStringToStringWriter:
+Change
+assertEquals("Hello", stringWriter.getContent().toString());
+to
+assertEquals("Hello", stringWriter.getContent());
+
+StringWriter:
+No need to import java.lang classes.
+
+ToLowerCaseTest:
+change to
+LowerCaseConverterTest.
+
+UpperCaseConverter:
+Remove, let's get one thing done well before moving to the next.
+
+Now we have StringWriter and LowerCaseConverter. Let's write test to
+put them together.
+
+------------------------------------------------------------------------------
+[Venkat 04/10/15 14:30 PM EEST]
+review: Keep an eye on SRP and OCP.
+
+StringWriterTest:
+
+StringWriterClass stringWriterClass;
+to
+StringWriter stringWriter;
+
+writerWritesAStringToStringWriter:
+Noisy.
+call write first. Make this a void method. Then check the content
+from the StringWriter object.
+
+getStringWriter
+to
+getContent
+
+convertToLowerCaseConvertsContentsInStringWriterToLowerCase:
+This test takes the test class away from its main focus, making it
+less cohesive, fails SRP. Move this to another test class.
+
+convertToUpperCaseConvertsContentsInStringWriterToUpperCase: 
+We just started with lowercase and ran off to another method without
+writing more tests for what we started with.
+
+StringWriterClass:
+Fails OCP, we have to change this class to add another transformation.
+
+------------------------------------------------------------------------------

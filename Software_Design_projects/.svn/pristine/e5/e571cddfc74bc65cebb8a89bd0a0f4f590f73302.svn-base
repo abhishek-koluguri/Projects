@@ -1,0 +1,58 @@
+[Venkat 03/30/15 05:00 AM MDT]
+review: Keep an eye on SRP and DRY. Reduce noise in code.
+
+FibonacciNumberTest:
+This test violates SRP, working with two implementations instead of one.
+Keep tests for one implementation in this test and move tests for the
+other implementation to a different class. After that, remove the duplication
+of tests.
+
+FibonacciNumber:
+Noisy. See refactoring suggestion in code.
+
+SimpleRecursion:
+FibonacciRecursive.
+
+fibonacciAtPosition:
+Avoid else where possible. See suggestion in FibonacciNumber.
+
+------------------------------------------------------------------------------
+[Venkat 03/27/15 05:51 AM MDT]
+review: Take small steps, don't rush. Address what's mentioned in review.
+
+FibonacciNumberTest:
+Don't rush. Focus on one implementation at a time.
+We are not done with the iterative solution, don't run off to recursion 
+at this time. Remove all code and tests related to recursion.
+
+FibonacciNumber:
+Too much code, imperative for loop, instead use functional style.
+Did you read the email on the mailing list where I discuss Stream, iterate,
+array, etc.? This was mentioned in the previous review, either address
+that or ask for help. Ignoring review suggestion and running off to do
+something else will not help us move forward.
+
+------------------------------------------------------------------------------
+[Venkat 03/25/15 05:32 AM PDT]
+review: convert to functional style
+
+FibonacciNumberTest:
+Good.
+
+FibonacciNumber:
+Instead of imperative for with mutability, use functional style with
+immutability. Did you read the emails on this topic on the mailing list?
+
+------------------------------------------------------------------------------
+
+[Venkat 03/24/15 05:50 AM PDT]
+review: good start, refactor.
+
+FibonacciNumberTest:
+Good
+
+FibonacciNumber:
+Too much code. Only write one function. Use functional style.
+
+------------------------------------------------------------------------------
+

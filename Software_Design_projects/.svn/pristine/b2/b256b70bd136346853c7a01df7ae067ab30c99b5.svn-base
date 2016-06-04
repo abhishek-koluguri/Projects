@@ -1,0 +1,28 @@
+HW3 Due 11:59PM Friday May 1st 
+
+1. Suppose you're given three different drones (Drone1, Drone2, Drone3) - 
+each drone represents a particular model of drone, but none of them share a 
+common or consistent API or interface. You are asked to design a TrackDrone in 
+a way that it can uniformly use all these three without changing any of them. 
+What design pattern is useful to achieve this goal?
+
+- As classes are compatible and only interfaces are incompatible, we can use the Adapter pattern here.  
+
+2. What classes would participate in the use of the above named pattern?
+
+- The classes we are going to use are : Drone1, Drone2, Drone3, TrackDrone, Drone1Adapter, Drone2Adapter, Drone3Adapter.
+  We will also be using an interface, Drone. TrackDrone has a Drone.
+  DroneAdapters have their respective Drones(Drone1Adapter has Drone1, Drone2Adapter has Drone2, Drone3Adapter has Drone3) and these DroneAdapters implement the Drone interface.
+
+3. Why would you choose to use this pattern?
+
+- We will be using Adapter Pattern because we want to use already existing third party classes. 
+  As these classes cannot be changed as they belong to third party, we need to them as they are and the things preventing us from using these classes are incompatible interfaces.
+  Adapter Pattern helps us to make these classes adapt to a single interface and making it possible to use the functionalities of these classes without modifying the classes. 
+
+4. Are there any variations of this pattern? If so, what are those and discuss why you'd choose one over the other.
+- There are two variations of this pattern, Class Pattern and Object Pattern.
+  If these third-party classes are final, we will choose Object pattern over Class pattern because 
+   Class pattern fails to extend from these classes because it uses inheritance, where as Object pattern uses association, so we can handle these final classes also.
+  If these classes are not final, we can Object pattern or Class pattern in this case.
+

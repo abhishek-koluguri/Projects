@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'ruby'
+sourceSets.main.java.srcDirs = ['minesweepergame/src']
+sourceSets.test.java.srcDirs = ['minesweepergame/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+}
+
+repositories {
+  mavenCentral()
+}
+
+tasks.withType(JavaCompile) { 
+  options.compilerArgs << '-Xlint:unchecked'
+} 
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "build/reports/coverageHtml"
+    }
+}
+
+defaultTasks 'clean', 'test', 'jacocoTestReport'

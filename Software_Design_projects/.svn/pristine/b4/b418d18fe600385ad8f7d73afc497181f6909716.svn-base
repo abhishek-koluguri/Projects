@@ -1,0 +1,46 @@
+Assignment 2: Due 11:59PM March 13th
+
+The openweathermap.org site provides weather data. We can access, for example,
+the weather in Houston, by sending a request to
+
+http://api.openweathermap.org/data/2.5/weather?q=Houston,us&units=imperial
+
+Write a program that will read from a file a list of cities. It will then
+get the temperature and the current condition (for example, sunny or cloudy)
+from the webservice mentioned above. The program will then display, in sorted order of 
+the city name, the current temperature and the weather condition. 
+It will also report the hottest city and the coldest city.
+
+Grading:
+Total [100]: 78
+
+Program runs [20]:
+All tests pass [20]:
+Test quality [10]:
+
+Code coverage [10]: -10
+When build is run, the generated coverage report does not show any coverage at all.
+
+Code quality [20]: -2
+Remove commented out dead code. Found this bad practice in multiple files.
+
+Design quality [20]: -10
+
+WeatherReport: 
+No need for two fields here.
+Increased coupling.
+
+WeatherServiceUI:
+Too much code, need to use better constructs than do - while.
+
+WeatherServiceAPI: Hard coded URL in the wrong place.
+
+OpenWeatherMapInteract:
+println in arbitrary code, this code is now not usable anywhere
+except in a console - fails OCP, high coupling, low cohesion, not
+extensible.
+
+This is disconnected from the interface that we built - need to
+implement that interface so WeatherReport can depend only on the
+interface. Lack of understanding of how these things are suppose
+to relate as the design evolves.

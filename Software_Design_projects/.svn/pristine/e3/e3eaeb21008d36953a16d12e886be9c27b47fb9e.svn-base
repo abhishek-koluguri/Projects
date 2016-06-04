@@ -1,0 +1,34 @@
+package application;
+
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class FileWriterWithDuplicateRemoverTest {
+
+    FileWriter fileWriter;
+    DuplicateRemover duplicateRemover;
+
+    @Before
+    public void setUp()
+    {
+
+        fileWriter = new FileWriter("./src\\File.txt");
+        duplicateRemover = new DuplicateRemover();
+    }
+
+
+    @Test
+    public void writeAStringUsingDuplicateRemover()
+    {
+
+        FileWriter.setOperators( duplicateRemover::RemoveDuplicateWords );
+
+        fileWriter.write( "hello hello" );
+
+        assertEquals( "hello", fileWriter.getContent() );
+    }
+
+}

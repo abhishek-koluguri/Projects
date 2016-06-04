@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+sourceSets.main.java.srcDirs = ['writer/src']
+sourceSets.test.java.srcDirs = ['writer/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+  compile 'org.mockito:mockito-all:1.9.5'
+}
+
+repositories {
+  mavenCentral()
+}
+
+tasks.withType(JavaCompile) { 
+  options.compilerArgs << '-Xlint:unchecked'
+} 
+
+jacocoTestReport {
+    doFirst{
+        classDirectories = files('./build/classes/main/application')
+    }
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "build/reports/coverageHtml"
+    }
+}
+
+defaultTasks 'clean', 'test', 'jacocoTestReport'

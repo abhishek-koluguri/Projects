@@ -1,0 +1,24 @@
+package report;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Comparator;
+import java.util.Iterator;
+
+
+
+   public class WeatherReport {
+
+
+
+           // List<City> cities = new ArrayList<City>();
+
+
+           public static void sortCities(ArrayList<City> cities) {
+
+               ArrayList<String> CityName = new ArrayList<String>()
+
+           }
+   }

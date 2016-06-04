@@ -1,0 +1,42 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class UpperCaseConverterTest {
+
+    UpperCaseConverter upperCaseConverter;
+
+    @Before
+    public void setUp()
+    {
+        upperCaseConverter = new UpperCaseConverter();
+    }
+
+    @Test
+    public void convertToUpperCaseConvertsStingToLowerCase()
+    {
+        assertEquals("HELLO", upperCaseConverter.convertToUpperCase("hello"));
+    }
+
+    @Test
+    public void convertToUpperCaseDoesNotChangeStringAlreadyInLowerCase()
+    {
+        assertEquals("HELLO", upperCaseConverter.convertToUpperCase("HELLO"));
+    }
+
+    @Test
+    public void convertToUpperCaseConvertsAllUpperCaseCharactersToLowerCase()
+    {
+        assertEquals("HELLO", upperCaseConverter.convertToUpperCase("hello"));
+    }
+
+    @Test
+    public void convertToUpperCaseDoesNotChangeSpecialCharactersInString()
+    {
+        assertEquals("HELLO@!", upperCaseConverter.convertToUpperCase("hello@!"));
+    }
+
+}

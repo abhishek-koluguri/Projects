@@ -1,0 +1,33 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StringWriterWithLowerCaseConverterTest {
+
+    StringWriter stringWriter;
+    LowerCaseConverter lowerCaseConverter;
+
+    @Before
+    public void setUp()
+    {
+        stringWriter = new StringWriter();
+    }
+
+    @Test
+    public void writeUsingStringWriter(){
+
+        stringWriter.write("Hello");
+        assertEquals("Hello", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeAStringAndConvertItToLowercase()
+    {
+        stringWriter.stringWriterWithLowerCaseConverter("HELLO");
+
+        assertEquals("hello", stringWriter.getContent());
+    }
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MineSweeper.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assign1</a> &gt; <a href="index.source.html" class="el_package">game</a> &gt; <span class="el_source">MineSweeper.java</span></div><h1>MineSweeper.java</h1><pre class="source lang-java linenums">package game;
+
+import java.util.Random;
+
+public class MineSweeper {
+
+<span class="fc" id="L7">    final public int SIZE = 10;</span>
+
+<span class="fc" id="L9">    public Status[][] cells = new Status[SIZE][SIZE];</span>
+
+<span class="fc" id="L11">    public boolean[][] mines = new boolean[SIZE][SIZE];</span>
+
+<span class="pc" id="L13">    public enum Status {EXPOSED, UNEXPOSED, SEALED}</span>
+
+<span class="pc" id="L15">    public enum GameStatus { PROGRESS, LOST, WON}</span>
+
+<span class="fc" id="L17">    MineSweeper(){</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">        for (int i = 0; i &lt; SIZE; i++) {</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">            for (int j = 0; j &lt; SIZE ; j++) {</span>
+
+<span class="fc" id="L22">                cells[i][j] = Status.UNEXPOSED;</span>
+<span class="fc" id="L23">                mines[i][j] = false;</span>
+            }
+        }
+
+<span class="fc" id="L27">    }</span>
+
+    public static MineSweeper create() {
+
+<span class="fc" id="L31">        MineSweeper mineSweeper = new MineSweeper();</span>
+<span class="fc" id="L32">        mineSweeper.placeMines();</span>
+
+<span class="fc" id="L34">        return mineSweeper;</span>
+    }
+
+
+    public Status cellStatus(int row, int column) {
+
+<span class="fc" id="L40">        return cells[row][column];</span>
+    }
+
+    public void expose(int row, int column) {
+
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        if(cells[row][column] == Status.UNEXPOSED) {</span>
+
+<span class="fc" id="L47">            cells[row][column] = Status.EXPOSED;</span>
+
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            if(isEmpty(row, column))</span>
+
+            {
+<span class="fc" id="L52">                tryToExposeNeighbor(row-1, column-1);</span>
+<span class="fc" id="L53">                tryToExposeNeighbor(row-1, column);</span>
+<span class="fc" id="L54">                tryToExposeNeighbor(row-1, column+1);</span>
+<span class="fc" id="L55">                tryToExposeNeighbor(row, column-1);</span>
+<span class="fc" id="L56">                tryToExposeNeighbor(row, column+1);</span>
+<span class="fc" id="L57">                tryToExposeNeighbor(row+1, column-1);</span>
+<span class="fc" id="L58">                tryToExposeNeighbor(row+1, column);</span>
+<span class="fc" id="L59">                tryToExposeNeighbor(row+1, column+1);</span>
+            }
+        }
+<span class="fc" id="L62">    }</span>
+
+    public void tryToExposeNeighbor(int row, int column) {
+
+<span class="fc bfc" id="L66" title="All 8 branches covered.">        if (row &gt; -1 &amp;&amp; row &lt; 10 &amp;&amp; column &gt; -1 &amp;&amp; column &lt; 10) {</span>
+
+<span class="fc" id="L68">            expose(row, column);</span>
+        }
+<span class="fc" id="L70">    }</span>
+
+    public void seal(int row, int column) {
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        if (cells[row][column] == Status.UNEXPOSED) {</span>
+
+<span class="fc" id="L76">            cells[row][column] = Status.SEALED;</span>
+        }
+<span class="fc" id="L78">    }</span>
+
+    public void unSeal(int row, int column){
+
+<span class="pc bpc" id="L82" title="1 of 2 branches missed.">        if(cells[row][column] == Status.SEALED)</span>
+        {
+<span class="fc" id="L84">            cells[row][column] = Status.UNEXPOSED;</span>
+        }
+<span class="fc" id="L86">    }</span>
+
+    public boolean isMine(int row, int column){
+
+<span class="pc bpc" id="L90" title="3 of 8 branches missed.">        if(row &gt; -1 &amp;&amp; row &lt; 10 &amp;&amp; column &gt; -1 &amp;&amp; column &lt; 10) {</span>
+<span class="fc" id="L91">            return mines[row][column];</span>
+        }
+<span class="fc" id="L93">        return false;</span>
+    }
+
+    public boolean isAdjacentCell(int row, int column) {
+
+<span class="fc bfc" id="L98" title="All 8 branches covered.">        if(row &gt; -1 &amp;&amp; row &lt; 10 &amp;&amp; column &gt; -1 &amp;&amp; column &lt; 10) {</span>
+<span class="pc bpc" id="L99" title="1 of 4 branches missed.">            if (countAdjacentMines(row, column) == 0 &amp;&amp; !isMine(row, column))</span>
+<span class="fc" id="L100">                return false;</span>
+<span class="fc" id="L101">            return true;</span>
+        }
+<span class="fc" id="L103">        return false;</span>
+    }
+
+
+    public int countAdjacentMines(int row, int column){
+
+<span class="fc" id="L109">        int count = 0;</span>
+
+<span class="fc bfc" id="L111" title="All 8 branches covered.">        if(row &gt; -1 &amp;&amp; row &lt; 10 &amp;&amp; column &gt; -1 &amp;&amp; column &lt; 10) {</span>
+
+<span class="fc bfc" id="L113" title="All 2 branches covered.">            for (int i = row - 1; i &lt;= (row + 1) ; i++) {</span>
+
+<span class="fc bfc" id="L115" title="All 2 branches covered.">                for (int j = column - 1; j &lt;= (column + 1); j++) {</span>
+<span class="fc bfc" id="L116" title="All 8 branches covered.">                    if (i &gt; -1 &amp;&amp; i &lt; 10 &amp;&amp; j &gt; -1 &amp;&amp; j &lt; 10) {</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">                        if (isMine(i, j)) {</span>
+<span class="fc" id="L118">                            count++;</span>
+                        }
+                    }
+                }
+            }
+
+<span class="fc bfc" id="L124" title="All 2 branches covered.">            if(isMine(row, column))</span>
+<span class="fc" id="L125">                return count - 1;</span>
+<span class="fc" id="L126">            else return count;</span>
+
+        }
+
+<span class="fc" id="L130">        return count;</span>
+    }
+
+    public boolean isEmpty(int row, int column)
+    {
+
+<span class="fc bfc" id="L136" title="All 4 branches covered.">        return !(isMine(row, column) || isAdjacentCell(row, column));</span>
+    }
+
+
+    public void placeMines() {
+
+<span class="fc" id="L142">        Random random = new Random();</span>
+
+        int randomNumber;
+
+<span class="fc" id="L146">        int count = 0;</span>
+
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        while(count &lt; 10) {</span>
+
+<span class="fc" id="L150">            randomNumber = random.nextInt(99);</span>
+            int row, column;
+<span class="fc" id="L152">            column = randomNumber % 10;</span>
+<span class="fc" id="L153">            row = randomNumber / 10;</span>
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">            if (!isMine(row, column)){</span>
+
+<span class="fc" id="L157">                mines[row][column] = true;</span>
+<span class="fc" id="L158">                count++;</span>
+            }
+<span class="fc" id="L160">        }</span>
+<span class="fc" id="L161">    }</span>
+
+
+    public GameStatus gameStatus()
+    {
+
+<span class="fc bfc" id="L167" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">            for (int j = 0; j &lt; 10; j++) {</span>
+
+<span class="fc bfc" id="L170" title="All 4 branches covered.">                if (mines[i][j] &amp;&amp; cells[i][j] == Status.EXPOSED) {</span>
+<span class="fc" id="L171">                    return GameStatus.LOST;</span>
+                }
+            }
+        }
+
+<span class="fc bfc" id="L176" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++)</span>
+        {
+<span class="fc bfc" id="L178" title="All 2 branches covered.">            for (int j = 0; j &lt; 10; j++)</span>
+            {
+<span class="pc bpc" id="L180" title="1 of 8 branches missed.">                if((!mines[i][j] &amp;&amp; cells[i][j] == Status.UNEXPOSED) || (!mines[i][j] &amp;&amp; cells[i][j] == Status.SEALED) )</span>
+                {
+<span class="fc" id="L182">                    return GameStatus.PROGRESS;</span>
+                }
+<span class="pc bpc" id="L184" title="1 of 4 branches missed.">                else if(mines[i][j] &amp;&amp; cells[i][j] == Status.UNEXPOSED) {</span>
+
+<span class="nc" id="L186">                    return GameStatus.PROGRESS;</span>
+                }
+            }
+        }
+<span class="fc" id="L190">        return GameStatus.WON;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

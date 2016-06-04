@@ -1,0 +1,86 @@
+package report;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Comparator.*;
+
+import java.util.*;
+
+public class WeatherReport {
+
+    WeatherService theWeatherService;
+    ReturnWeatherReport returnWeatherReport;
+
+    public List<WeatherData> sortByCity(List<WeatherData> cityData)
+    {
+
+        return cityData.stream()
+                       .sorted(comparing(WeatherData::getCity))
+                       .collect(toList());
+    }
+
+    public List<String> findColdestCity(List<WeatherData> cityData) {
+
+        List<String> coldestCityList = new ArrayList<>();
+
+        if (!cityData.isEmpty()) {
+
+            double coldestTemperature =
+                    cityData.stream()
+                            .mapToDouble(WeatherData::getTemperature)
+                            .min()
+                            .orElse(0.0);
+
+            return cityData.stream()
+                           .filter(data -> data.getTemperature() == coldestTemperature)
+                           .map(WeatherData::getCity)
+                           .collect(toList());
+        }
+
+        return coldestCityList;
+    }
+
+    public List<String> findHottestCity(List<WeatherData> cityData)
+    {
+
+        List<String> hottestCityList = new ArrayList<>();
+
+        if (!cityData.isEmpty()) {
+
+            double hottestTemperature =
+                    cityData.stream()
+                            .mapToDouble(WeatherData::getTemperature)
+                            .max()
+                            .orElse(0.0);
+
+            return cityData.stream()
+                           .filter(data -> data.getTemperature() == hottestTemperature)
+                           .map(WeatherData::getCity)
+                           .collect(toList());
+        }
+        return hottestCityList;
+    }
+
+    public ReturnWeatherReport getWeatherReport(List<String> cityList){
+
+       List<WeatherData> cityData = new ArrayList<>();
+
+       for (int i = 0; i < cityList.size() ; i++) {
+
+           WeatherData weatherData = theWeatherService.getCityData(cityList.get(i));
+           cityData.add(weatherData);
+       }
+
+        List<WeatherData> sortedByCity = sortByCity(cityData);
+        List<String> coldestCitiesList = findColdestCity(cityData);
+        List<String> hottestCitiesList = findHottestCity(cityData);
+
+       returnWeatherReport = new ReturnWeatherReport(sortedByCity, coldestCitiesList, hottestCitiesList);
+
+        return returnWeatherReport;
+   }
+
+    public void setWeatherService(WeatherService weatherService)
+    {
+        theWeatherService = weatherService;
+    }
+}

@@ -1,0 +1,52 @@
+HW4 Due 11:59PM May 8th
+
+***There will be no reviews for this Homework***
+
+Write your answer in this file. No extra files will be graded.
+Give a collective answer as a pair, however, where needed, feel free to mention
+something specific to one person.
+
+1. What did you essentially learn in this course about design?
+
+- We have learnt how to approach to design a software. We have learnt how to use test cases as a design tool for creating a good design.
+
+	Design with coding allows us to evolve around the design. We get a better design whenever we evolve and re-factor the design. We also learnt how to make a simple design.
+	
+	
+Wherein, a simple design is design which is easy to evolve, easy to understand, easy to make changes and easy to maintain. Moreover, we also learnt about different design 
+patterns. Design patterns have many benefits. It systematically explains and evaluates an important recurring design. it makes easier to reuse successful design.
+	
+
+Initially we used to make BUFD(Big Up Front Design), which was misleading because we had to change whole design whenever there is a new requirement. But in this course,
+we learnt benefits of designing with coding. We learnt how we can make JID(Just In time Design), how it is helpful in whole development process.
+	
+
+
+2. When asked to design a software application, how would you approach it?
+
+First we would start with requirements and user stories, which can help us to understand what will happen in different cases.
+We will find out value of stories from user point of view. Then we will find impact of those stories. 
+We will focus only on stories with higher value and higher impact.
+Once we have user stories, we would go with UML diagrams, because UML diagrams gives us good platform to work on.
+We would create a simple design that meets our most valuable requirements. Then we will check whether the design complies with the design principles. 
+Once we have a simple design, we will start with writing unit tests first. Eventually the code will get developed as we write different tests.
+During this whole process, we would keep eye on design principles. We will make sure that we are not violating any principle.
+It would be good idea to ask someone to review our code. 
+
+create a simple design that comes meets our requirements. Then we will check whether the design complies with the design principles. 
+If it doesn't, we will make the necessary changes.
+
+3. What are some of the general guidelines you would follow when designing?
+
+Some of the guidelines that we would follow when designing are: 
+
+- Firstly, we will create a prototype and evolve it.
+- For given requirements, we will start with strategic design and will go through the tactical design 
+  while implementation using test cases.
+- We will make use of the test cases as a designing tool for creating a good design.
+- We will use various forms of feedback like feedback from customers, colleagues excreta to improve our design.
+- We will not forcibly apply the design patterns but make the patterns emerge from the design 
+  by complying to the design principles.
+- We will avoid unnecessary complexity except the complexities that emerge from the problem.
+- We will make sure the design has high cohesion, low coupling and is extensible.
+- We also make sure that the design is complete, sufficient, primitive and efficient.

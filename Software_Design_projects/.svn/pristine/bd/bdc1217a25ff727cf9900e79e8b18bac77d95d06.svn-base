@@ -1,0 +1,296 @@
+package report;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class WeatherReportTest {
+
+    public WeatherReport weatherReport;
+    public WeatherData weatherData;
+
+    public List<WeatherData> cityData = new ArrayList<>();
+    public List cityList = new ArrayList<>();
+    public List sortedList = new ArrayList<>();
+
+    @Before
+    public void setUp(){
+
+        weatherReport = new WeatherReport();
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+
+    @Test
+    public void tryToSortByCity(){
+
+        cityData.clear();
+        cityList.clear();
+        sortedList.clear();
+
+        cityList.add("Houston");
+        cityList.add("Mumbai");
+        cityList.add("Perth");
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Houston", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.sortByCity(cityData);
+
+        sortedList.add(cityData.get(0).getCity());
+        sortedList.add(cityData.get(1).getCity());
+        sortedList.add(cityData.get(2).getCity());
+
+        assertEquals(cityList, sortedList);
+    }
+
+    @Test
+    public void tryToSortEmptyList(){
+
+        cityData.clear();
+        cityList.clear();
+
+        cityData = weatherReport.sortByCity(cityData);
+
+        assertEquals(cityList, cityData);
+    }
+
+    @Test
+    public void tryToSortListContainingCitiesWithSameInitial(){
+
+        cityData.clear();
+        cityList.clear();
+        sortedList.clear();
+
+        cityList.add("Mississippi");
+        cityList.add("Missouri");
+        cityList.add("Mumbai");
+        cityList.add("Perth");
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Missouri", 10, "Cool");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Mississippi", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.sortByCity(cityData);
+
+        sortedList.add(cityData.get(0).getCity());
+        sortedList.add(cityData.get(1).getCity());
+        sortedList.add(cityData.get(2).getCity());
+        sortedList.add(cityData.get(3).getCity());
+
+        assertEquals(cityList, sortedList);
+    }
+
+
+    @Test
+    public void tryToSortListWithOnlyOneCity(){
+
+        cityData.clear();
+        cityList.clear();
+        sortedList.clear();
+
+        cityList.add("Mississippi");
+
+        weatherData = new WeatherData("Mississippi", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.sortByCity(cityData);
+
+        sortedList.add(cityData.get(0).getCity());
+
+        assertEquals(cityList, sortedList);
+    }
+
+    @Test
+    public void tryToSortByTemperature(){
+
+        cityData.clear();
+        cityList.clear();
+
+
+        cityList.add("Houston");
+        cityList.add("Perth");
+        cityList.add("Mumbai");
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Houston", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.sortByTemperature(cityData);
+
+        sortedList.add(cityData.get(0).getCity());
+        sortedList.add(cityData.get(1).getCity());
+        sortedList.add(cityData.get(2).getCity());
+
+        assertEquals(cityList, sortedList);
+    }
+
+    @Test
+    public void tryToSortCitiesWithSameTemperature(){
+
+        cityData.clear();
+        cityList.clear();
+        sortedList.clear();
+
+        cityList.add("Missouri");
+        cityList.add("Mississippi");
+        cityList.add("Perth");
+        cityList.add("Mumbai");
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Missouri", 10, "Cool");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Mississippi", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.sortByTemperature(cityData);
+
+        sortedList.add(cityData.get(0).getCity());
+        sortedList.add(cityData.get(1).getCity());
+        sortedList.add(cityData.get(2).getCity());
+        sortedList.add(cityData.get(3).getCity());
+
+        assertEquals(cityList, sortedList);
+    }
+
+    @Test
+    public void tryToFindColdestCity(){
+
+        cityData.clear();
+        cityList.clear();
+
+        cityList.add("Missouri");
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Missouri", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.findColdestCity(cityData);
+
+        assertEquals(cityList.get(0), cityData.get(0).getCity());
+    }
+
+    @Test
+    public void tryToFindHottestCity(){
+
+        cityData.clear();
+        cityList.clear();
+
+        cityList.add("Mumbai");
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Mumbai", 30, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Missouri", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.findHottestCity(cityData);
+
+        assertEquals(cityList.get(0), cityData.get(0).getCity());
+    }
+
+    @Test
+    public void tryToFindColdestCitiesWithSameTemperature(){
+
+        cityData.clear();
+        cityList.clear();
+        List coldestCitiesList = new ArrayList<>();
+
+        cityList.add("Houston");
+        cityList.add("Missouri");
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Houston", 10, "Cloudy");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Missouri", 10, "Cool");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.findColdestCity(cityData);
+
+        for (int i = 0; i < cityData.size(); i++) {
+
+            coldestCitiesList.add(cityData.get(i).getCity());
+        }
+
+        assertEquals(cityList, coldestCitiesList);
+    }
+
+
+    @Test
+    public void tryToFindHottestCitiesWithSameTemperature(){
+
+        cityData.clear();
+        cityList.clear();
+        List hottestCitiesList = new ArrayList<>();
+
+        cityList.add("Arizona");
+        cityList.add("Mumbai");
+
+        weatherData = new WeatherData("Perth", 20, "Sunny");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Mumbai", 40, "Hot");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Houston", 10, "Cloudy");
+        cityData.add(weatherData);
+
+        weatherData = new WeatherData("Arizona", 40, "Hot");
+        cityData.add(weatherData);
+
+        cityData = weatherReport.findHottestCity(cityData);
+
+        for (int i = 0; i < cityData.size(); i++) {
+
+            hottestCitiesList.add(cityData.get(i).getCity());
+        }
+
+        assertEquals(cityList, hottestCitiesList);
+    }
+}

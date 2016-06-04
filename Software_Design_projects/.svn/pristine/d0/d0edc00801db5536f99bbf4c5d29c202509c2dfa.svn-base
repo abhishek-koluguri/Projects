@@ -1,0 +1,28 @@
+package report;
+
+import java.util.List;
+
+public class WeatherData {
+
+    public final String cityName;
+    public final int temperature;
+    public final String condition;
+
+    public WeatherData(String theCity, int theTemperature, String theCondition){
+
+        cityName = theCity;
+        temperature = theTemperature;
+        condition = theCondition;
+    }
+
+    public String getCity()
+    {
+        return cityName;
+    }
+
+    public int getTemperature()
+    {
+        return temperature;
+    }
+
+}

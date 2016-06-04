@@ -1,0 +1,41 @@
+package report;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Comparator.*;
+
+import java.util.*;
+
+
+public class WeatherReport {
+
+
+    public List sortByCity(List<WeatherData> cityData)
+    {
+
+      return cityData.stream()
+                .sorted(comparing(WeatherData::getCity))
+                .collect(toList());
+    }
+
+
+    public List sortByTemperature(List<WeatherData> cityData)
+    {
+
+        return cityData.stream()
+                .sorted(comparing(WeatherData::getTemperature))
+                .collect(toList());
+    }
+
+    public Object findColdestCity(List<WeatherData> cityData)
+    {
+        List sortedList = sortByTemperature(cityData);
+        return sortedList.get(0);
+    }
+
+    public Object findHottestCity(List<WeatherData> cityData)
+    {
+        List sortedList = sortByTemperature(cityData);
+
+        return sortedList.get(sortedList.size()-1);
+    }
+}

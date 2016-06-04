@@ -1,0 +1,62 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StringOperationsTest {
+
+    StringWriter stringWriter;
+    LowerCaseConverter lowerCaseConverter;
+
+    @Before
+    public void setUp()
+    {
+        stringWriter = new StringWriter();
+        lowerCaseConverter = new LowerCaseConverter();
+    }
+
+    @Test
+    public void writeAStringAndConvertItToLowercase()
+    {
+        stringWriter.write("HELLO");
+        String string = stringWriter.getContent();
+
+        String lowerCaseString = lowerCaseConverter.convertToLowerCase(string);
+
+        stringWriter.replace(lowerCaseString);
+
+        assertEquals("hello", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeATwoStringsAndConvertItToLowercase()
+    {
+        stringWriter.write("HELLO");
+        stringWriter.write("WORLD");
+
+        String string = stringWriter.getContent();
+
+        String lowerCaseString = lowerCaseConverter.convertToLowerCase(string);
+
+        stringWriter.replace(lowerCaseString);
+
+        assertEquals("helloworld", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeTwoStringsWithSpaceAndConvertItToLowercase()
+    {
+        stringWriter.write("HELLO");
+        stringWriter.write(" World");
+
+        String string = stringWriter.getContent();
+
+        String lowerCaseString = lowerCaseConverter.convertToLowerCase(string);
+
+        stringWriter.replace(lowerCaseString);
+
+        assertEquals("hello world", stringWriter.getContent());
+    }
+}

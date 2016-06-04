@@ -1,0 +1,11 @@
+package application;
+
+//change to public interface LowerCaseConverter {
+public class LowerCaseConverter {
+
+//make method static
+    public String convertToLowerCase(String string)
+    {
+        return string.toLowerCase();
+    }
+}

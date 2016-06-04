@@ -1,0 +1,74 @@
+[Venkat 03/08/15 08:55 AM MDT]
+review: refactor
+
+WeatherReportTest:
+tryToSortByCity: Nothing to try, remove the word try from this.
+
+cityData Don't change the input reference. Keep the separate.
+List<WeatherData> result = ...
+assertEquals(expected, result);
+
+tryToSortListWithOnlyOneCity:
+change
+List<WeatherData> city = new ArrayList<>();
+city.add(cityData.get(2));
+to
+List<WeatherData> cityData = Arrays.asList(arizona);
+
+Also, reduce noise.
+List<WeatherData> result = ...
+assertEquals(expected, result);
+instead of al that get calls.
+
+tryToSortByTemperature: We don't need sorting by temperature. Remove this test.
+
+tryToFindColdestCity:
+Good, again avoid calls to get, they are noisy.
+We want to get the city names for coldest cities, not the entire data.
+
+We started with findColdestCity, stay with it, don't run off to findHottestCity
+until we have more tests for findColdestCity.
+
+Write test where there is no coldest city, there is one coldest city, there is
+two.
+
+tryToGetWholeWeatherReport:
+Let's take a look at this test. The getWeatherReport takes cityData. Now we
+don't want that. We want to send a list of cities and get the three pieces of
+data out of this funtion.
+
+WeatherData:
+No need for so many blank lines before the first fieled.
+
+Avoid use of this.something, it's a noise.
+
+WeatherReport:
+Vertically line up the dots.
+
+findColdestCity: use stream, map, min, collect.
+
+------------------------------------------------------------------------------
+
+[Venkat 03/07/15 06:17 AM CST]
+review: build failed
+
+>gradle
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '.../assign2/build.gradle' line: 23
+
+* What went wrong:
+A problem occurred evaluating root project 'assign2'.
+> Could not find method jacocoTestReport() for arguments [build_vij8blfi1h0iacnfqhl1vfptk$_run_closure5@554cd74a] on root project 'assign2'.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1.812 secs
+
+------------------------------------------------------------------------------
+

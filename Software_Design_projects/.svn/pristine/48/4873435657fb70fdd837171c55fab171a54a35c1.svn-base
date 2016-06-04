@@ -1,0 +1,25 @@
+package application;
+
+import java.util.stream.Stream;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
+
+public class FibonacciNumber {
+
+    public int fibonacciValueAtAPosition(int input) {
+
+        ist<Integer> result = Stream.iterate((1, 1), (previousValue, value, temp )  -> { temp = value;
+                                                                                         value = previousValue + value;
+                                                                                         previousValue = temp;
+                                                                                         return (previousValue, value);})
+                                    .limit(input)
+                                    .map(value)
+                                    .collect(toList());
+        return result.get(input);
+        }
+
+    }
+
+}
+

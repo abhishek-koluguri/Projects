@@ -1,0 +1,34 @@
+package application;
+
+import java.util.function.Function;
+import java.util.stream.Stream;
+
+public class StringWriter {
+
+    private Function<String, String> stringConverter;
+
+    private StringBuilder stringBuilder = new StringBuilder();
+
+    public StringWriter()
+    {
+        setOperators();
+    }
+
+    public void write(String string) {
+
+        stringBuilder.append(stringConverter.apply(string));
+    }
+
+    public String getContent() {
+
+        return stringBuilder.toString();
+    }
+
+    public final void setOperators(Function<String, String>... theStringConverters)
+    {
+
+        stringConverter = Stream.of(theStringConverters)
+                                .reduce(Function.identity(), Function::andThen);
+    }
+
+}

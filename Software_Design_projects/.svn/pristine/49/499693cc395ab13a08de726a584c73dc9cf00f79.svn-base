@@ -1,0 +1,60 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class FibonacciNumberTest {
+
+    FibonacciNumber fibonacciNumber;
+
+    @Before
+    public void setUp(){
+
+        fibonacciNumber = new FibonacciNumber();
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionZero(){
+
+        assertEquals(1,fibonacciNumber.fibonacciValueAtAPosition(0));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionOne(){
+
+        assertEquals(1,fibonacciNumber.fibonacciValueAtAPosition(1));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionTwo(){
+
+        assertEquals(2,fibonacciNumber.fibonacciValueAtAPosition(2));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionEight(){
+
+        assertEquals(34,fibonacciNumber.fibonacciValueAtAPosition(8));
+
+    }
+
+    @Test
+    public void forInvalidInput(){
+
+        assertEquals(0,fibonacciNumber.fibonacciValueAtAPosition(-1));
+    }
+
+
+}
+

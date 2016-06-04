@@ -1,0 +1,18 @@
+package application;
+
+public class SimpleRecursion {
+
+
+    public int fibonacciAtPosition(int position) {
+
+
+        if(position < 0)
+            return 0;
+        if(position == 0)
+            return 0;
+        else if(position == 1)
+            return 1;
+        else
+            return fibonacciAtPosition(position - 1) + fibonacciAtPosition(position - 2);
+    }
+}

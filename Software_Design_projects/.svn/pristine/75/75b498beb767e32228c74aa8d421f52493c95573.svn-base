@@ -1,0 +1,114 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class FibonacciNumberTest {
+
+    FibonacciNumber fibonacciNumber;
+
+    SimpleRecursion simpleRecursion;
+
+    @Before
+    public void setUp(){
+
+        fibonacciNumber = new FibonacciNumber();
+
+        simpleRecursion = new SimpleRecursion();
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionZero(){
+
+        assertEquals(1,fibonacciNumber.fibonacciValueAtAPosition(0));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionOne(){
+
+        assertEquals(1,fibonacciNumber.fibonacciValueAtAPosition(1));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionTwo(){
+
+        assertEquals(2,fibonacciNumber.fibonacciValueAtAPosition(2));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionFive(){
+
+        assertEquals(8,fibonacciNumber.fibonacciValueAtAPosition(5));
+
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionEight(){
+
+        assertEquals(34,fibonacciNumber.fibonacciValueAtAPosition(8));
+
+    }
+
+    @Test
+    public void forInvalidInput(){
+
+        assertEquals(0,fibonacciNumber.fibonacciValueAtAPosition(-1));
+    }
+
+
+    @Test
+    public void getFibonacciNumberAtPositionZeroUsingSimpleRecursion()
+    {
+        assertEquals(1, simpleRecursion.fibonacciAtPosition(0));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionOneUsingSimpleRecursion()
+    {
+        assertEquals(1, simpleRecursion.fibonacciAtPosition(1));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionTwoUsingSimpleRecursion()
+    {
+        assertEquals(2, simpleRecursion.fibonacciAtPosition(2));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionThreeUsingSimpleRecursion()
+    {
+        assertEquals(3, simpleRecursion.fibonacciAtPosition(3));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionFiveUsingSimpleRecursion()
+    {
+        assertEquals(8, simpleRecursion.fibonacciAtPosition(5));
+    }
+
+
+    @Test
+    public void getFibonacciNumberAtPositionNineUsingSimpleRecursion()
+    {
+        assertEquals(34, simpleRecursion.fibonacciAtPosition(8));
+    }
+
+
+    @Test
+    public void forInvalidInputUsingSimpleRecursion(){
+
+        assertEquals(0, simpleRecursion.fibonacciAtPosition(-1));
+    }
+}
+

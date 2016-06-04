@@ -1,0 +1,58 @@
+package application;
+
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.StringWriter;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class StringWriterTest {
+
+    StringWriterClass stringWriterClass;
+
+    String input = "Hello World";
+
+    @Before
+    public void setUp()
+    {
+        stringWriterClass = new StringWriterClass();
+    }
+
+    @Test
+    public void canary()
+    {
+        assertTrue(true);
+    }
+
+    @Test
+    public void writerWritesAStringToStringWriter()
+    {
+        assertEquals(input, stringWriterClass.writer(input).toString());
+    }
+    
+
+    @Test
+    public void convertToLowerCaseConvertsContentsInStringWriterToLowerCase()
+    {
+        StringWriter stringWriter = new StringWriter();
+
+        stringWriter.write(input);
+
+        assertEquals("hello world", stringWriterClass.convertToLowerCase(stringWriter).toString());
+    }
+
+    @Test
+    public void convertToUpperCaseConvertsContentsInStringWriterToUpperCase()
+    {
+
+        StringWriter stringWriter = new StringWriter();
+
+        stringWriter.write(input);
+
+        assertEquals("HELLO WORLD", stringWriterClass.convertToUpperCase(stringWriter).toString());
+
+    }
+}

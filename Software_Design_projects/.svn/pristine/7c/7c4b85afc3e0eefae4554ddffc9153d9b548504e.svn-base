@@ -1,0 +1,23 @@
+[Venkat 03/25/15 05:32 AM PDT]
+review: convert to functional style
+
+FibonacciNumberTest:
+Good.
+
+FibonacciNumber:
+Instead of imperative for with mutability, use functional style with
+immutability. Did you read the emails on this topic on the mailing list?
+
+------------------------------------------------------------------------------
+
+[Venkat 03/24/15 05:50 AM PDT]
+review: good start, refactor.
+
+FibonacciNumberTest:
+Good
+
+FibonacciNumber:
+Too much code. Only write one function. Use functional style.
+
+------------------------------------------------------------------------------
+

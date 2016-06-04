@@ -1,0 +1,268 @@
+package report;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class WeatherReportTest {
+
+    public WeatherReport weatherReport;
+    public WeatherData arizona, mumbai, missouri, mississippi, perth, gotham, dreamland, jurasicpark;
+
+    public List<WeatherData> cityData;
+    public List<WeatherData> expected;
+
+    @Before
+    public void setUp(){
+
+        weatherReport = new WeatherReport();
+
+        mumbai = new WeatherData("Mumbai", 30, "Hot", "");
+        perth = new WeatherData("Perth", 20, "Sunny", "");
+        missouri = new WeatherData("Missouri", 10, "Cool", "");
+        mississippi = new WeatherData("Mississippi", 10, "Cool", "");
+        arizona = new WeatherData("Arizona", 30, "Hot", "");
+        gotham = new WeatherData("Gotham", 20, "", "ERROR: CITY NOT FOUND");
+        dreamland = new WeatherData("Dreamland", 30, "", "ERROR: CITY NOT FOUND");
+        jurasicpark = new WeatherData("Jurasicpark", 25, "", "ERROR: CITY NOT FOUND");
+
+        cityData = Arrays.asList(mumbai, perth, missouri, mississippi, arizona);
+        expected = Arrays.asList(arizona, mississippi, missouri, mumbai, perth);
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+
+    @Test
+    public void sortByCity(){
+
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void sortEmptyList(){
+
+        expected = Arrays.asList();
+        cityData = Arrays.asList();
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void sortListContainingCitiesWithSameInitial(){
+
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void sortListWithOnlyOneCity(){
+
+        List<WeatherData> cityData = Arrays.asList(arizona);
+        expected = Arrays.asList(arizona);
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void findColdestCity(){
+
+        cityData = Arrays.asList(mumbai, perth, missouri, arizona);
+        List<String> expected = Arrays.asList("Missouri");
+
+        List<String> result = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findGetColdestCityForEmptyList(){
+
+        List<String> expected = Arrays.asList();
+        cityData = Arrays.asList();
+        List<String> result = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findColdestCityForOneCity(){
+
+        cityData = Arrays.asList(mumbai);
+        List<String> expected = Arrays.asList("Mumbai");
+
+        List<String> result = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findColdestCitiesForTwoColdestCities(){
+
+        List<String> expected = Arrays.asList("Missouri", "Mississippi");
+
+        List<String> result = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findHottestCity(){
+
+        cityData = Arrays.asList(mumbai, perth, missouri, mississippi);
+        List<String> expected = Arrays.asList("Mumbai");
+
+        List<String> result = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void findHottestCityForEmptyList(){
+
+        List<String> expected = Arrays.asList();
+        cityData = Arrays.asList();
+        List<String> result = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findHottestCityForOneCity(){
+
+        cityData = Arrays.asList(mumbai);
+        List<String> expected = Arrays.asList("Mumbai");
+
+        List<String> result = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findHottestCitiesForTwoHottestCitiesInAList(){
+
+        List<String> expected = Arrays.asList("Mumbai", "Arizona");
+
+        List<String> result = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void getWholeWeatherReport(){
+
+        List<String> coldestCitiesList = Arrays.asList("Missouri", "Mississippi");
+        List<String> hottestCitiesList = Arrays.asList("Mumbai", "Arizona");
+        List<String> cityList = Arrays.asList("Mumbai", "Perth", "Missouri", "Mississippi", "Arizona");
+        List<String> citiesWithError = Arrays.asList();
+
+        WeatherService weatherService = Mockito.mock(WeatherService.class);
+
+        when(weatherService.getCityData(mumbai.getCity())).thenReturn(mumbai);
+        when(weatherService.getCityData(perth.getCity())).thenReturn(perth);
+        when(weatherService.getCityData(missouri.getCity())).thenReturn(missouri);
+        when(weatherService.getCityData(mississippi.getCity())).thenReturn(mississippi);
+        when(weatherService.getCityData(arizona.getCity())).thenReturn(arizona);
+
+        weatherReport.setWeatherService(weatherService);
+
+        ReturnWeatherReport returnWeatherReport = weatherReport.getWeatherReport(cityList);
+
+        assertEquals(expected, returnWeatherReport.sortedByCity);
+        assertEquals(coldestCitiesList, returnWeatherReport.coldestCitiesList);
+        assertEquals(hottestCitiesList, returnWeatherReport.hottestCitiesList);
+        assertEquals(citiesWithError, returnWeatherReport.citiesWithError);
+    }
+
+
+    @Test
+    public void getWholeWeatherReportWhenOneCityFails(){
+
+        List<String> coldestCitiesList = Arrays.asList("Missouri");
+        List<String> hottestCitiesList = Arrays.asList("Mumbai");
+        List<String> cityList = Arrays.asList("Mumbai", "Perth", "Missouri", "Gotham");
+        List<String> citiesWithError = Arrays.asList("Gotham");
+        expected = Arrays.asList(gotham, missouri, mumbai, perth);
+
+        WeatherService weatherService = Mockito.mock(WeatherService.class);
+
+        when(weatherService.getCityData(mumbai.getCity())).thenReturn(mumbai);
+        when(weatherService.getCityData(perth.getCity())).thenReturn(perth);
+        when(weatherService.getCityData(missouri.getCity())).thenReturn(missouri);
+        when(weatherService.getCityData(gotham.getCity())).thenReturn(gotham);
+
+        weatherReport.setWeatherService(weatherService);
+
+        ReturnWeatherReport returnWeatherReport = weatherReport.getWeatherReport(cityList);
+
+        assertEquals(expected, returnWeatherReport.sortedByCity);
+        assertEquals(coldestCitiesList, returnWeatherReport.coldestCitiesList);
+        assertEquals(hottestCitiesList, returnWeatherReport.hottestCitiesList);
+        assertEquals(citiesWithError, returnWeatherReport.citiesWithError);
+    }
+
+    @Test
+    public void getWholeWeatherReportWhenAllCitiesFail(){
+
+        List<String> coldestCitiesList = Arrays.asList("Gotham");
+        List<String> hottestCitiesList = Arrays.asList("Dreamland");
+        List<String> cityList = Arrays.asList("Gotham", "Dreamland", "Jurasicpark");
+        List<String> citiesWithError = Arrays.asList("Gotham", "Dreamland", "Jurasicpark");
+
+        expected = Arrays.asList(dreamland, gotham, jurasicpark);
+
+        WeatherService weatherService = Mockito.mock(WeatherService.class);
+
+        when(weatherService.getCityData(gotham.getCity())).thenReturn(gotham);
+        when(weatherService.getCityData(dreamland.getCity())).thenReturn(dreamland);
+        when(weatherService.getCityData(jurasicpark.getCity())).thenReturn(jurasicpark);
+
+        weatherReport.setWeatherService(weatherService);
+
+        ReturnWeatherReport returnWeatherReport = weatherReport.getWeatherReport(cityList);
+
+        assertEquals(expected, returnWeatherReport.sortedByCity);
+        assertEquals(coldestCitiesList, returnWeatherReport.coldestCitiesList);
+        assertEquals(hottestCitiesList, returnWeatherReport.hottestCitiesList);
+        assertEquals(citiesWithError, returnWeatherReport.citiesWithError);
+    }
+
+    @Test
+    public void getWholeWeatherReportWhenCityListIsEmpty(){
+
+        List<String> coldestCitiesList = Arrays.asList();
+        List<String> hottestCitiesList = Arrays.asList();
+        List<String> cityList = Arrays.asList();
+        List<String> citiesWithError = Arrays.asList();
+
+        expected = Arrays.asList();
+
+        ReturnWeatherReport returnWeatherReport = weatherReport.getWeatherReport(cityList);
+
+        assertEquals(expected, returnWeatherReport.sortedByCity);
+        assertEquals(coldestCitiesList, returnWeatherReport.coldestCitiesList);
+        assertEquals(hottestCitiesList, returnWeatherReport.hottestCitiesList);
+        assertEquals(citiesWithError, returnWeatherReport.citiesWithError);
+    }
+
+}

@@ -1,0 +1,95 @@
+package report;
+
+import org.mockito.internal.matchers.Null;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Comparator.*;
+
+import java.util.*;
+
+public class WeatherReport {
+
+    WeatherService theWeatherService;
+
+    public List<WeatherData> sortByCity(List<WeatherData> cityData)
+    {
+
+        return cityData.stream()
+                       .sorted(comparing(WeatherData::getCity))
+                       .collect(toList());
+    }
+
+    public List<String> findColdestCity(List<WeatherData> cityData) {
+
+        List<String> coldestCityList = new ArrayList<>();
+
+        if (!cityData.isEmpty()) {
+
+            double coldestTemperature =
+                    cityData.stream()
+                            .mapToDouble(WeatherData::getTemperature)
+                            .min()
+                            .orElse(0.0);
+
+            return cityData.stream()
+                           .filter(data -> data.getTemperature() == coldestTemperature)
+                           .map(WeatherData::getCity)
+                           .collect(toList());
+        }
+
+        return coldestCityList;
+    }
+
+    public List<String> findHottestCity(List<WeatherData> cityData)
+    {
+
+        List<String> hottestCityList = new ArrayList<>();
+
+        if (!cityData.isEmpty()) {
+
+            double hottestTemperature =
+                    cityData.stream()
+                            .mapToDouble(WeatherData::getTemperature)
+                            .max()
+                            .orElse(0.0);
+
+            return cityData.stream()
+                           .filter(data -> data.getTemperature() == hottestTemperature)
+                           .map(WeatherData::getCity)
+                           .collect(toList());
+        }
+        return hottestCityList;
+    }
+
+    public ReturnWeatherReport getWeatherReport(List<String> cityList){
+
+        ReturnWeatherReport returnWeatherReport;
+
+        List<WeatherData> cityData = new ArrayList<>();
+        List<String> citiesWithError = new ArrayList<>();
+
+        if (!cityList.isEmpty()) {
+            for (int i = 0; i < cityList.size(); i++) {
+
+                WeatherData weatherData = theWeatherService.getCityData(cityList.get(i));
+                if (weatherData.error.equals("ERROR: CITY NOT FOUND")) {
+                    citiesWithError.add(weatherData.getCity());
+                }
+                cityData.add(weatherData);
+            }
+        }
+
+        List<WeatherData> sortedByCity = sortByCity(cityData);
+        List<String> coldestCitiesList = findColdestCity(cityData);
+        List<String> hottestCitiesList = findHottestCity(cityData);
+
+        returnWeatherReport = new ReturnWeatherReport(sortedByCity, coldestCitiesList, hottestCitiesList, citiesWithError);
+
+        return returnWeatherReport;
+   }
+
+    public void setWeatherService(WeatherService weatherService)
+    {
+        theWeatherService = weatherService;
+    }
+}

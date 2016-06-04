@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.WeatherReportTest" tests="19" skipped="0" failures="0" errors="0" timestamp="2015-09-10T05:14:52" hostname="SubbaRao" time="0.593">
+  <properties/>
+  <testcase name="getWholeWeatherReportWhenOneCityFails" classname="report.WeatherReportTest" time="0.359"/>
+  <testcase name="getWholeWeatherReport" classname="report.WeatherReportTest" time="0.002"/>
+  <testcase name="getWholeWeatherReportWhenCityListIsEmpty" classname="report.WeatherReportTest" time="0.001"/>
+  <testcase name="sortEmptyList" classname="report.WeatherReportTest" time="0.006"/>
+  <testcase name="findColdestCity" classname="report.WeatherReportTest" time="0.001"/>
+  <testcase name="findHottestCity" classname="report.WeatherReportTest" time="0.0"/>
+  <testcase name="canary" classname="report.WeatherReportTest" time="0.0"/>
+  <testcase name="findHottestCitiesForTwoHottestCitiesInAList" classname="report.WeatherReportTest" time="0.0"/>
+  <testcase name="sortByCity" classname="report.WeatherReportTest" time="0.0"/>
+  <testcase name="findHottestCityForOneCity" classname="report.WeatherReportTest" time="0.0"/>
+  <testcase name="readTextFileAndGetDataForOneCityUsingJsonParser" classname="report.WeatherReportTest" time="0.162"/>
+  <testcase name="findColdestCityForOneCity" classname="report.WeatherReportTest" time="0.001"/>
+  <testcase name="readEmptyTextFileAndGetDataForOneCityUsingJsonParser" classname="report.WeatherReportTest" time="0.027"/>
+  <testcase name="findGetColdestCityForEmptyList" classname="report.WeatherReportTest" time="0.002"/>
+  <testcase name="findColdestCitiesForTwoColdestCities" classname="report.WeatherReportTest" time="0.001"/>
+  <testcase name="findHottestCityForEmptyList" classname="report.WeatherReportTest" time="0.002"/>
+  <testcase name="getWholeWeatherReportWhenAllCitiesFail" classname="report.WeatherReportTest" time="0.009"/>
+  <testcase name="sortListWithOnlyOneCity" classname="report.WeatherReportTest" time="0.001"/>
+  <testcase name="sortListContainingCitiesWithSameInitial" classname="report.WeatherReportTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,458 @@
+[Venkat 02/26/15 13:31 PM MST]
+review: build failed
+
+Error: Could not find or load main class game.ui.MineSweeperBoard
+
+FAILURE: Build failed with an exception.
+
+------------------------------------------------------------------------------
+
+[Venkat 02/25/15 07:22 AM MST]
+review: A few things to fix
+
+GUI:
+Don't report 0 if it is an empty cell.
+
+MineSweeperTest:
+exposeCellOutOfRowLowerBound:
+Did you notice so much code has been duplicated in these tests:
+exposeCellOutOfRowLowerBound, exposeCellOutOfRowUpperBound, exposeCellOutOfColumnLowerBound, exposeCellOutOfColumnUpperBound.
+
+To remove that duplication I wrote checkBounds and showed how to use it
+in the previous review. You got rid of that! Why?
+
+checkIfMinesAreInRandomLocation:
+combine the loops.
+
+MineSweeper:
+
+isMine: 
+Write a test for isMine when row = -1. For this check that it return
+false instead of an exception. This will remove unnecessary if in
+countAdjacentMines method.
+
+isAdjacentCell: Call countAdjacentMines here instead of duplicating
+so much code here. Think about what makes a cell an adjacent mine.
+It is a cell with no mine and number of neighboring mines == 0.
+
+countAdjacentMines: smelly.
+Remove the while. Too many if. This has to be a simple
+for
+	for
+		if(mine at )
+			count++
+			
+if(mine at row, column) return count - 1 else count;
+
+No need for any other if.
+
+placeMines:
+One while loop. Reduce code a lot.
+Minimize local variables. 
+
+count = 0;
+while(count < 10) {
+  get a random row, random column
+  if(no mine at row, column) {
+ 		place mine at row, column
+    count++
+  }
+}
+
+gameStatus:
+Return a enum instead of String.
+Reduce complexity here. No counts needed. Do minimum work.
+
+Write a test for countAdjacentMines for a cell on the edge.
+Write a test for countAdjacentMines for a cell in a corner.
+
+MineSweeperBoard:
+private static final int SIZE = 10;
+Use MineSweeper.SIZE instead. Make that public final in MineSweeper.
+
+For
+mineSweeper = new MineSweeper();
+mineSweeper.placeMines();
+see <https://groups.google.com/d/msg/uhcss15sd/uvk9ryhPWMg/mEM78uJwujAJ>
+
+BUTTON3: There is no BUTTON3 on the macs. See the mailing list for
+function to use.
+
+Why "F" instead of "S" for sealed?
+
+private class eventHandler implements MouseListener {
+to
+private class EventHandler extends MouseAdapter {
+Remove empty methods after that.
+
+
+	
+
+------------------------------------------------------------------------------
+
+[Venkat 02/24/15 07:11 AM MST]
+review: good progress
+
+MineSweeperTest:
+import java.util.Arrays;import java.util.List;
+split into two lines.
+
+public boolean gameLostCalled = false; remove
+
+setUp:
+Change
+mineSweeper = new MineSweeper(){
+
+    @Override
+    public void gameLost()
+    {
+        gameLostCalled = true;
+    }
+
+};
+to
+mineSweeper = new MineSweeper();
+
+exposeCellOutOfRowLowerBound: has a lot of duplication with other
+tests like this. See the refactoring. Use that for other exception tests
+also.
+
+countAdjacentMines:
+change name to countAdjacentMinesWith8Neighbors.
+
+gameNotLostWhenMinedCellIsSealed:
+start with a test for game in progress.
+Then write test for game lost
+Then for game won.
+
+Design a game status method through these above tests.
+
+gameNotLostWhenMinedCellIsSealed:
+This test does not make sense. If a sealed cell is exposed, it remains
+sealed. The game will still be in progress after this. No point checking
+if game lost was called. Remove this test.
+
+Instead do
+set mine at 8, 8
+expose 8, 8
+check game status to be lost.
+
+gameWonIfAllCellsAreExposedExceptMinedCells:
+This is wrong. We need to seal the mines also for a game to be won.
+
+MineSweeper:
+expose: This method is failing the single responsibility principle.
+It is not dealing with both exposing and also checking game loss/win.
+
+Remove logic related to loss or win from here. Instead write a separate
+method that checks the game status.
+
+Notice the violation of the DRY principles, so much duplication between
+isAdjacentCell and countAdjacentMines. One can use the other.
+
+isEmpty:
+if(condition) 
+  return false;
+return true;
+change to
+return !(condition);
+
+Don't write code without tests failing and teasing the code out.
+
+gameLost: Remove
+
+isGameWon: Not a true of false, progress, lost, won.
+
+Write tests to check there are 10 mines.
+Then test to check if the mines are in random locations.
+
+Then proceed to immplement the GUI.
+
+------------------------------------------------------------------------------
+
+[Venkat 02/23/15 07:34 AM MST]
+review: rework and move forward
+
+MineSweeperTest:
+MineSweeper mineSweeperPlaceMines; - remove
+
+public boolean tryToExposeNeighborCalled = false; - Remove
+
+Change
+MineSweeper mineSweeper;
+to
+MineSweeper mineSweeper;
+MineSweeper mineSweeperToDesignExpose.
+
+In setup:
+Change
+mineSweeper = new MineSweeper(){
+
+    @Override
+    public void tryToExposeNeighbor(int row, int column) {
+
+        listOfNeighbors.add(row);
+        listOfNeighbors.add(column);
+    }
+
+    @Override
+    public void placeMineAtCell(int row, int column){}
+};
+
+to
+mineSweeper = new MineSweeper();
+
+mineSweeperToDesignExpose = new MineSweeper(){
+    @Override
+    public void tryToExposeNeighbor(int row, int column) {
+
+        listOfNeighbors.add(row);
+        listOfNeighbors.add(column);
+    }
+};
+
+Remove the part mineSweeperPlaceMines = new MineSweeper() {... from setup.
+
+change
+}
+@Test
+public void exposeCellOutOfColumnUpperBound(){
+
+to
+}
+
+@Test
+public void exposeCellOutOfColumnUpperBound(){
+
+
+(add blank line)
+
+Change
+listOfNeighbors = new ArrayList<Integer>();
+to
+listOfNeighbors.clear();
+
+tryToSealAnUnExposedCell - not try, just seal
+mineSweeper.tryToSeal(1, 2);
+to
+mineSweeper.seal(1, 2);
+
+Write a test when a sealed cell is exposed, try to expose neighbor is not called.
+
+whenAMinedCellIsExposedItDoesNotCallTryToExposeNeighbor:
+change
+mineSweeperPlaceMines.placeMineAtCell(2, 2);
+to
+mineSweeperToDesignExpose.cells[2][2] = true;
+mineSweeperToDesignExpose.expose(2, 2);
+assert that listOfNeighbors is empty
+
+whenAnAdjacentCellIsExposedItDoesNotCallTryToExposeNeighbor:
+Big jump. We have no clue at this time how to find if a cell is
+adjacent. We have to walk through tests to evolve the code before
+we come to this test.
+
+Here's a good progression of tests:
+...
+seal a cell
+unseal a cell
+exposing a sealed cell does not propagate a call to try to expose neighbor
+is there a mine
+count adjacent mines
+is this an adjacent cell
+is this an empty cell
+exposing an adjacent cell does not propagate a call to try to expose neighbor
+check if game lost because a mine was sealed
+check if game won because...
+place mines at random locations
+
+MineSweeper:
+public boolean[][] adjacent = new boolean[SIZE][SIZE];
+remove, redundant.
+
+placeMineAtCell: Remove
+
+setAdjacent: Remove
+
+------------------------------------------------------------------------------
+
+[Venkat 02/22/15 08:10 AM MST]
+review: Fix and move forward
+
+Check for warnings in code. Don't check in code with warning.
+
+MineSweeperTest:
+change
+public ArrayList listOfNeighbors = new ArrayList();
+to
+private List<Integer> listOfNeighbors;
+
+setUp:
+Change to
+listOfNeighbors = new ArrayList<>();
+mineSweeper = new MineSweeper(){
+  public void tryToExposeNeighbor(int row, int column) {
+  	listOfNeighbors.add(row);
+    listOfNeighbors.add(column);
+  }
+};
+
+exposeACellForTheFirstTime: good
+exposeAlreadyExposedCell: good
+exposeCellOutOfRowLowerBound: oops, don't put multiple asserts/fail in
+one test, write separate tests. If one assert fails, it will not
+get to the next one.
+
+exposeCallsTryToExposeNeighbor:
+Change this test to:
+mineSweeper.expose(1, 2);
+List<Integer> expected = Arrays.asList(0, 1, 0, 2, 0, 3, 1, 1, 1, 3, 2, 1, 2, 2, 2, 3);
+assertEquals(expected, listOfNeighbors);
+
+exposeOnAlreadyExposedCellDoesNotCallTryToExposeNeighbor:
+change this test to
+mineSweeper.expose(1, 2);
+listOfNeighbors = new ArrayList<>();
+
+mineSweeper.expose(1, 2);
+List<Integer> empty = new ArrayList<>();
+assertEquals(empty, listOfNeighbors);
+
+Make sure all tests pass and check in code.
+
+Then start with the following test:
+
+tryToExposeNeighborWillCallExposeForValidCell.
+
+This test can't be run on the mineSweeper test instance since the method
+tryToExposeNeighbor is mocked out on it. We need a new instance, so do the
+following in the setUp:
+
+mineSweeperToDesignTryToExposeNeighbors = new MineSweeper() {
+  public void expose(int row, int column) {
+		exposeCalled = true;
+  }
+};
+
+Then in the test do
+mineSweeperToDesignTryToExposeNeighbors.tryToExposeNeighbor(2, 3);
+assertTrue(exposeCalled);
+
+Then write a test for tryToExposeNeighborWillNotCallExposeForRowOutOfLowerBounds.
+In that do
+mineSweeperToDesignTryToExposeNeighbors.tryToExposeNeighbor(-1, 0);
+assertFalse(exposeCalled);
+
+Write similar test for other bounds.
+
+Make sure all tests pass and check in code.
+
+Then, move to the following tests:
+seal a cell
+...negative tests
+unseal a cell
+expose a sealed cell
+when expose is called on a sealed cell, it does not call tryToExpose
+when an adjacent cell is exposed it does not call tryToExpose
+when a mined cell is exposed it does not call tryToExpose
+Keep in mind, minimum code.
+
+------------------------------------------------------------------------------
+
+[Venkat 02/21/15 14:44 PM MST]
+review: Rework some test and code and then move forward as recommended
+
+MineSweeperTest:
+
+done - remove
+
+gameNotWonAtStart - remove
+
+exposeACellForTheFirstTime:
+change to
+mineSweeper.expose(0, 1);
+assertEquals(Status.EXPOSED, mineSweeper.cellStatus(0, 1));
+
+exposeAlreadyExposedCell:
+change to
+mineSweeper.expose(0, 1);
+mineSweeper.expose(0, 1);
+assertEquals(Status.EXPOSED, mineSweeper.cellStatus(0, 1));
+
+clickedOutOfRange:
+change test name to exposeCellOutOfRowLowerBound:
+
+In this test, change the line
+mineSweeper.tryToExpose(9, 12);
+to
+mineSweeper.expose(-1, 0);
+
+Now write three more test, for cells (10, 0), (0, -1), (0, 10).
+
+tryToExposeNeighbor - remove
+tryToExposeOutOfBoundNeighbor - remove
+
+MineSweeper:
+change
+private int size = 10;
+to
+final private int SIZE = 10;
+
+private Status statusOfCell; - remove
+
+public String gameWon() { - remove
+
+tryToExpose - remove.
+tryToExposeNeighbor - remove.
+
+Write minimum code for the expose method to pass.
+
+Make sure all the test pass at this time.
+
+Once all the tests pass. Write the test
+
+exposeCallsTryToExposeNeighbor.
+
+For this test to work, do the following:
+
+change setUp to
+mineSweeper = new MineSweeper() {
+	protected void tryToExposeNeighbor(int row, int column) {
+	  ...store the row and column in a data structure within the test...
+	}
+}
+
+Switch over to the MineSweeper class now and write
+void tryToExposeNeighbor(int row, int column) {
+  throw new RuntimeException("Not implemented yet");
+}
+
+Now get back to the test class and write:
+public void exposeCallsTryToExposeNeighbor() {
+	mineSweeper.expose(3, 2);
+	
+	...assert that the values stored in the data structure mentioned above are the neighbors of cells 3, 2...
+}
+
+After this test passes, write a test for exposeOnAlreadyExposedCellDoesNotCallTryToExposeNeighbor.
+
+Make sure all tests pass. Next review will be tomorrow morning.
+
+I've created a build file to run the tests from the command prompt.
+Type gradle to run the tests and make sure all tests are passing before
+checking in any code change. You need to download Gradle from http://www.gradle.org
+and set the path to it before you can run gradle.
+
+------------------------------------------------------------------------------
+
+[Venkat 02/21/15 07:57 AM MST]
+review: One copy of code, not multiple copies.
+
+Within assign1, keep one version of code. Write some, then wait for feedback,
+evolve code based on that feedback. You don't rush through, start early,
+and learn to design based on the feedbacks.
+
+Keep one directory under assign1 and delete the other version.
+
+------------------------------------------------------------------------------
+

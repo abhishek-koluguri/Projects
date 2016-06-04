@@ -1,0 +1,176 @@
+[Venkat 03/11/15 05:51 AM EDT]
+review: refactor and move forward.
+
+WeatherReportTest:
+getWholeWeatherReportWhenOneCityFails:
+Ensure the exception details, of what actually went wrong, are
+available.
+
+WeatherReport:
+sortByCity: Make non-public (default access).
+
+findColdestCity:
+if (!cityData.isEmpty()) { - remove this check. Redundant. Tests pass
+without this code.
+
+getWeatherReport:
+Use stream, map to get the data and errors into a list. Then use stream filter
+to get only the data and not the errors. Then use stream filter again to get the errors only. Avoid using for and add.
+
+WeatherData:
+public final String error;
+to
+public final Exception error;
+
+That way we can have the details preserved and available instead of
+prematurely converting to a string.
+
+ReturnWeatherReport:
+public final List<String> citiesWithError;
+to
+public final List<WeatherData> citiesWithError;
+so the details of city and the exception in it are available.
+
+Move forward to implement the service.
+
+------------------------------------------------------------------------------
+
+[Venkat 03/10/15 08:48 AM MDT]
+review: Continue with more tests.
+
+WeatherReportTest:
+
+getWholeWeatherReport:
+In addition to getting three list, for sorted, highest, and coldest, also
+get a 4th list with only errors if request were to fail for any city.
+That list would be empty in this test.
+
+Then write more tests, where one city fails, all cities fail, city list
+is empty, ...
+
+WeatherReport:
+ReturnWeatherReport returnWeatherReport; Remove, don't pollute object with 
+unnecessary state.
+
+findColdestCity:
+Reduce, see code.
+
+getWeatherReport:
+Capture any error from the getCityData and send it to the caller as a 4th list
+of error.
+
+WeatherData:
+Add a 4th property to keep track of any exceptions.
+
+ReturnWeatherReport:
+Add a 4th list of WeatherData with exceptions.
+
+------------------------------------------------------------------------------
+
+[Venkat 03/09/15 07:29 AM MDT]
+review: refactor, move forward.
+
+WeatherReportTest:
+tryToGetColdestCityForEmptyList there is no try. Just do it.
+tryToGetColdestCityForEmptyList to findColdestCityForEmptyList.
+
+getWholeWeatherReport:
+Remove commented out dead code.
+
+Don't use List, always use List<SomeType>. List<List> should be
+List<List<SomeType>>. Sine these are different types, we really can't
+do that. Instead use a separate object with three properties for each
+of these lists.
+
+Change getWeatherReport to take in a list of city names (not city data).
+Then it should get data from a service for each of the cities, then
+use the three methods we already designed. It should finally return three
+pieces of data, the sorted weather data, the hottest cities, and the coldest
+cities.
+
+WeatherReport:
+sortByTemperature - remove
+
+findColdestCity:
+No commented out dead code, please.
+See refactoring suggestion in code.
+
+WeatherData:
+temperature should be double.
+
+------------------------------------------------------------------------------
+
+[Venkat 03/08/15 08:55 AM MDT]
+review: refactor
+
+WeatherReportTest:
+tryToSortByCity: Nothing to try, remove the word try from this.
+
+cityData Don't change the input reference. Keep the separate.
+List<WeatherData> result = ...
+assertEquals(expected, result);
+
+tryToSortListWithOnlyOneCity:
+change
+List<WeatherData> city = new ArrayList<>();
+city.add(cityData.get(2));
+to
+List<WeatherData> cityData = Arrays.asList(arizona);
+
+Also, reduce noise.
+List<WeatherData> result = ...
+assertEquals(expected, result);
+instead of al that get calls.
+
+tryToSortByTemperature: We don't need sorting by temperature. Remove this test.
+
+tryToFindColdestCity:
+Good, again avoid calls to get, they are noisy.
+We want to get the city names for coldest cities, not the entire data.
+
+We started with findColdestCity, stay with it, don't run off to findHottestCity
+until we have more tests for findColdestCity.
+
+Write test where there is no coldest city, there is one coldest city, there is
+two.
+
+tryToGetWholeWeatherReport:
+Let's take a look at this test. The getWeatherReport takes cityData. Now we
+don't want that. We want to send a list of cities and get the three pieces of
+data out of this funtion.
+
+WeatherData:
+No need for so many blank lines before the first fieled.
+
+Avoid use of this.something, it's a noise.
+
+WeatherReport:
+Vertically line up the dots.
+
+findColdestCity: use stream, map, min, collect.
+
+------------------------------------------------------------------------------
+
+[Venkat 03/07/15 06:17 AM CST]
+review: build failed
+
+>gradle
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '.../assign2/build.gradle' line: 23
+
+* What went wrong:
+A problem occurred evaluating root project 'assign2'.
+> Could not find method jacocoTestReport() for arguments [build_vij8blfi1h0iacnfqhl1vfptk$_run_closure5@554cd74a] on root project 'assign2'.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1.812 secs
+
+------------------------------------------------------------------------------
+

@@ -1,0 +1,65 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+public class FileWriterTest {
+
+    FileWriter fileWriter;
+
+    @Before
+    public void setUp() {
+
+        fileWriter = new FileWriter("./File.txt");
+    }
+
+    @Test
+    public void writeWritesAStringToPrintWriter()
+    {
+        try {
+
+            PrintWriter printWriterMock = Mockito.spy(new PrintWriter("./File.txt"));
+
+            fileWriter.setPrintWriter(printWriterMock);
+
+            fileWriter.write("Hello World");
+
+            verify( printWriterMock, times(1) ).write("Hello World");
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testPath() throws IOException
+    {
+
+        try {
+
+            PrintWriter printWriterMock = Mockito.spy(new PrintWriter("/File.txt"));
+
+            fileWriter.setPrintWriter(printWriterMock);
+
+            //fileWriter.write("Hello World");
+
+            fail("Expected IO exception");
+
+        }catch (IOException e)
+        {
+           assertTrue(true);
+        }
+        
+    }
+}

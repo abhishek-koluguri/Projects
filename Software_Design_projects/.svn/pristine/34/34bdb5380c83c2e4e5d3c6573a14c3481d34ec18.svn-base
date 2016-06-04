@@ -1,0 +1,54 @@
+package report;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import report.City;
+import report.WeatherReport;
+import static org.junit.Assert.assertTrue;
+
+public class WeatherReportTest {
+
+    WeatherReport weatherReport = new WeatherReport();
+
+//    City city1 = new City("Houston", 72, "Sunny");
+//    City city2 = new City("New York", 22, "Cool");
+//    City city3 = new City("Chicago", 32, "Cool");
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+
+    @Before
+    public void setup(){
+
+        WeatherReport weatherReport  = new WeatherReport();
+    }
+    @Test
+    public void testForSortedCityList{
+
+        //give certain list of cities
+
+        ArrayList<City> cities = new ArrayList<City>();
+        cities.add(new City("Houston", 72, "Sunny"));
+        cities.add(new City("New York", 22, "Cool"));
+        cities.add(new City("Chicago", 32, "Cool"));
+
+       // weatherReport.sortCities(cities);
+        System.out.println(cities);
+
+
+        //call the sorting method of WeatherReport
+    //    assertEquals(, weatherReport.sortCities())
+
+        //check if two lists match
+
+    }
+
+
+    }
+}

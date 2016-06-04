@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="application.FibonacciMemoizedTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2015-09-10T05:15:42" hostname="SubbaRao" time="0.026">
+  <properties/>
+  <testcase name="canary" classname="application.FibonacciMemoizedTest" time="0.006"/>
+  <testcase name="getFibonacciValueAtPositionFive" classname="application.FibonacciMemoizedTest" time="0.005"/>
+  <testcase name="getFibonacciValueAtPositionZero" classname="application.FibonacciMemoizedTest" time="0.001"/>
+  <testcase name="getFibonacciValueAtPositionOne" classname="application.FibonacciMemoizedTest" time="0.001"/>
+  <testcase name="getFibonacciValueAtPositionTwo" classname="application.FibonacciMemoizedTest" time="0.0"/>
+  <testcase name="forInvalidInput" classname="application.FibonacciMemoizedTest" time="0.0"/>
+  <testcase name="getFibonacciValueAtPositionEight" classname="application.FibonacciMemoizedTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

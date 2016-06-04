@@ -1,0 +1,9 @@
+package application;
+
+public class StupidReplacer {
+
+    public String replaceStupid(String string)
+    {
+        return string.replaceAll("stupid", "s*****");
+    }
+}

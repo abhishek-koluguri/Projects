@@ -1,0 +1,21 @@
+package application;
+
+public class StringWriter {
+
+
+    StringBuilder stringBuilder = new StringBuilder();
+
+    public void write(String string) {
+
+        stringBuilder.append(string);
+    }
+
+    public String getContent() {
+        return stringBuilder.toString();
+    }
+
+    public void replace(String string)
+    {
+        stringBuilder.replace(0, getContent().length(), string);
+    }
+}

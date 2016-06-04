@@ -1,0 +1,9 @@
+package application;
+
+public class LowerCaseConverter {
+
+    public String convertToLowerCase(String string)
+    {
+        return string.toLowerCase();
+    }
+}

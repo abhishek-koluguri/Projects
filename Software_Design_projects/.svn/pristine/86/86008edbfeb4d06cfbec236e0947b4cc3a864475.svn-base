@@ -1,0 +1,62 @@
+package report;
+
+import static java.util.stream.Collectors.*;
+import static java.util.Comparator.*;
+
+import java.util.*;
+
+
+public class WeatherReport {
+
+
+    public List sortByCity(List<WeatherData> cityData)
+    {
+
+      return cityData.stream()
+                .sorted(comparing(WeatherData::getCity))
+                .collect(toList());
+    }
+
+
+    public List sortByTemperature(List<WeatherData> cityData)
+    {
+
+        return cityData.stream()
+                .sorted(comparing(WeatherData::getTemperature))
+                .collect(toList());
+    }
+
+    public List findColdestCity(List<WeatherData> cityData)
+    {
+        List<WeatherData> sortedList = sortByTemperature(cityData);
+
+        int lowestTemperature = sortedList.get(0).getTemperature();
+
+        List<WeatherData> coldestCityList = new ArrayList<>();
+
+        for (int i = 0; i < sortedList.size(); i++) {
+
+            if (sortedList.get(i).getTemperature() == lowestTemperature){
+                coldestCityList.add(sortedList.get(i));
+            }
+        }
+        return coldestCityList;
+    }
+
+    public List findHottestCity(List<WeatherData> cityData)
+    {
+        List<WeatherData> sortedList = sortByTemperature(cityData);
+
+        int highestTemperature = sortedList.get(sortedList.size()-1).getTemperature();
+
+        List<WeatherData> hottestCityList = new ArrayList<>();
+
+        for (int i = sortedList.size()-1; i > 0; i--) {
+
+            if (sortedList.get(i).getTemperature() == highestTemperature){
+                hottestCityList.add(sortedList.get(i));
+            }
+        }
+        return hottestCityList;
+    }
+}

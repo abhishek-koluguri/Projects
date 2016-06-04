@@ -1,0 +1,48 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StupidReplacerTest {
+
+    StupidReplacer stupidReplacer;
+
+    @Before
+    public void setUp()
+    {
+        stupidReplacer = new StupidReplacer();
+    }
+
+    @Test
+    public void replaceStupidReplacesWord_stupid()
+    {
+        assertEquals("s*****", stupidReplacer.replaceStupid("stupid"));
+    }
+
+    @Test
+    public void replaceStupidDoesNotReplacesWordStupid()
+    {
+        assertEquals("Stupid", stupidReplacer.replaceStupid("Stupid"));
+    }
+
+    @Test
+    public void replaceStupidReplacesWord_stupid_InASentence()
+    {
+        assertEquals("I am not a s*****...!", stupidReplacer.replaceStupid("I am not a stupid...!"));
+    }
+
+    @Test
+    public void replaceStupidReplacesWord_stupid_InASentenceWithMoreThanOneOccurrence()
+    {
+        assertEquals("s***** people don't know they are s*****...!", stupidReplacer.replaceStupid("stupid people don't know they are stupid...!"));
+    }
+
+    @Test
+    public void replaceStupidReplacesOnly_stupid_AndNot_Stupid()
+    {
+        assertEquals("Stupid ? I am not a s*****...!", stupidReplacer.replaceStupid("Stupid ? I am not a stupid...!"));
+    }
+
+}

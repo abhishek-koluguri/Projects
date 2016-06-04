@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MineSweeperBoard.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assign1</a> &gt; <a href="index.source.html" class="el_package">game.ui</a> &gt; <span class="el_source">MineSweeperBoard.java</span></div><h1>MineSweeperBoard.java</h1><pre class="source lang-java linenums">package game.ui;
+
+        import game.MineSweeper;
+
+        import javax.swing.*;
+        import java.awt.*;
+
+        import java.awt.event.MouseAdapter;
+        import java.awt.event.MouseEvent;
+
+<span class="nc" id="L11">public class MineSweeperBoard extends JFrame{</span>
+
+    MineSweeper mineSweeper;
+    public MineSweeperCell[][] cellArray;
+
+
+    @Override
+    protected void frameInit(){
+
+<span class="nc" id="L20">        super.frameInit();</span>
+
+<span class="nc" id="L22">        mineSweeper = mineSweeper.create();</span>
+
+<span class="nc" id="L24">        cellArray = new MineSweeperCell[mineSweeper.SIZE][mineSweeper.SIZE];</span>
+
+<span class="nc" id="L26">        setLayout(new GridLayout(10, 10));</span>
+
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        for (int i = 0; i &lt; mineSweeper.SIZE ; i++) {</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            for (int j = 0; j &lt; mineSweeper.SIZE; j++) {</span>
+
+<span class="nc" id="L31">                MineSweeperCell cell = new MineSweeperCell(i, j);</span>
+<span class="nc" id="L32">                getContentPane().add(cell);</span>
+
+<span class="nc" id="L34">                cell.addMouseListener(new eventHandler());</span>
+<span class="nc" id="L35">                cellArray[i][j] = cell;</span>
+            }
+        }
+<span class="nc" id="L38">    }</span>
+
+    public static void main(String[] args) {
+
+<span class="nc" id="L42">        createMineSweeperBoard();</span>
+<span class="nc" id="L43">    }</span>
+
+    public static void createMineSweeperBoard(){
+
+<span class="nc" id="L47">        JFrame board = new MineSweeperBoard();</span>
+<span class="nc" id="L48">        board.setSize(600, 600);</span>
+<span class="nc" id="L49">        board.setVisible(true);</span>
+<span class="nc" id="L50">    }</span>
+
+
+<span class="nc" id="L53">    private class eventHandler extends MouseAdapter{</span>
+
+        @Override
+        public void mouseClicked(MouseEvent mouseEvent) {
+
+<span class="nc" id="L58">            MineSweeperCell cell = (MineSweeperCell) mouseEvent.getSource();</span>
+
+<span class="nc bnc" id="L60" title="All 2 branches missed.">            if(SwingUtilities.isLeftMouseButton(mouseEvent))</span>
+            {
+
+<span class="nc" id="L63">                mineSweeper.expose(cell.row, cell.column);</span>
+
+<span class="nc bnc" id="L65" title="All 4 branches missed.">                if (mineSweeper.isMine(cell.row, cell.column) &amp;&amp; mineSweeper.cellStatus(cell.row, cell.column) != MineSweeper.Status.SEALED)</span>
+                {
+<span class="nc" id="L67">                    displayMines();</span>
+                }
+<span class="nc" id="L69">                display();</span>
+            }
+
+<span class="nc bnc" id="L72" title="All 4 branches missed.">            else if(SwingUtilities.isRightMouseButton(mouseEvent) || mouseEvent.isControlDown())</span>
+            {
+<span class="nc bnc" id="L74" title="All 2 branches missed.">                if(mineSweeper.cellStatus(cell.row, cell.column) == MineSweeper.Status.UNEXPOSED) {</span>
+
+<span class="nc" id="L76">                    mineSweeper.seal(cell.row, cell.column);</span>
+
+<span class="nc" id="L78">                    cell.setText(&quot;S&quot;);</span>
+<span class="nc" id="L79">                    cell.setForeground(Color.RED);</span>
+                }
+<span class="nc bnc" id="L81" title="All 2 branches missed.">                else if (mineSweeper.cellStatus(cell.row, cell.column)== MineSweeper.Status.SEALED ){</span>
+
+<span class="nc" id="L83">                    mineSweeper.unSeal(cell.row, cell.column);</span>
+
+<span class="nc" id="L85">                    cell.setText(&quot;&quot;);</span>
+                }
+            }
+
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            if (mineSweeper.gameStatus() == MineSweeper.GameStatus.WON) {</span>
+
+<span class="nc" id="L91">                JOptionPane.showMessageDialog(cell, &quot;YOU WON...!!! :)\n Click OK to play again&quot;);</span>
+<span class="nc" id="L92">                createMineSweeperBoard();</span>
+
+<span class="nc bnc" id="L94" title="All 2 branches missed.">            } else if (mineSweeper.gameStatus() == MineSweeper.GameStatus.LOST) {</span>
+
+<span class="nc" id="L96">                JOptionPane.showMessageDialog(cell, &quot;YOU LOST... :(\n Click OK to play again&quot;);</span>
+<span class="nc" id="L97">                createMineSweeperBoard();</span>
+            }
+<span class="nc" id="L99">        }</span>
+    }
+
+    public void display(){
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        for (int i=0;i&lt;10;i++) {</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">            for (int j=0;j&lt;10;j++) {</span>
+
+<span class="nc" id="L107">                MineSweeperCell newCell = cellArray[i][j];</span>
+
+<span class="nc bnc" id="L109" title="All 4 branches missed.">                if (!mineSweeper.mines[i][j] &amp;&amp; mineSweeper.cellStatus(i, j) == MineSweeper.Status.EXPOSED) {</span>
+
+<span class="nc" id="L111">                    int count = mineSweeper.countAdjacentMines(i, j);</span>
+
+<span class="nc bnc" id="L113" title="All 2 branches missed.">                    if (count&gt;0) {</span>
+
+<span class="nc" id="L115">                        newCell.setText(Integer.toString(count));</span>
+                    }
+
+<span class="nc" id="L118">                    newCell.setForeground(Color.blue);</span>
+<span class="nc" id="L119">                    newCell.setBackground(Color.white);</span>
+                }
+            }
+        }
+<span class="nc" id="L123">    }</span>
+
+    public void displayMines(){
+
+<span class="nc bnc" id="L127" title="All 2 branches missed.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">            for (int j = 0; j &lt; 10; j++) {</span>
+
+<span class="nc" id="L130">                MineSweeperCell newCell = cellArray[i][j];</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                if (mineSweeper.mines[i][j]) {</span>
+
+<span class="nc" id="L133">                    newCell.setForeground(Color.RED);</span>
+<span class="nc" id="L134">                    newCell.setBackground(Color.white);</span>
+
+<span class="nc" id="L136">					newCell.setText(&quot;M&quot;);</span>
+                }
+            }
+        }
+<span class="nc" id="L140">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

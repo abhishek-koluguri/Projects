@@ -1,0 +1,25 @@
+package application;
+
+public class StringWriter implements StringOperations {
+
+
+    StringBuilder stringBuilder = new StringBuilder();
+
+    public void write(String string) {
+
+        stringBuilder.append(string);
+    }
+
+    public String getContent() {
+        return stringBuilder.toString();
+    }
+
+    public void stringWriterWithLowerCaseConverter(String string){
+
+        LowerCaseConverter lowerCaseConverter = new LowerCaseConverter();
+
+        String lowerCaseString = lowerCaseConverter.convertToLowerCase(string);
+
+        write(lowerCaseString);
+    }
+}

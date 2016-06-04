@@ -1,0 +1,134 @@
+[Venkat 04/05/15 04:26 AM IST]
+review: You're done (after fixing).
+
+Make all fields private, not public.
+
+Indent code properly.
+
+After fixing these issues, you're done.
+
+------------------------------------------------------------------------------
+[Venkat 04/04/15 05:30 AM IST]
+review: refactor
+
+FibonacciRecursiveTest:
+Indent code properly.
+
+Make all fields private, not public.
+
+TimeDifferenceTest:
+Remove fields, move them locally to the test that needs them.
+
+Do we need a canary test for each test class we write. If so, please
+explain what a canary test is.
+
+Remove redundant parenthesis in return.
+
+FibonacciMemoizedRecursive:
+Reduce further.
+
+------------------------------------------------------------------------------
+[Venkat 04/04/15 01:09 AM IST]
+review: reduce
+
+Give space after comma to improve readability. This was mentioned already
+in a previous review.
+
+FibonacciMemoizedRecursive:
+Reduce code, no need for null check, the compute... function is doing
+that already internally. Just one return, no need for if and else.
+
+------------------------------------------------------------------------------
+[Venkat 04/03/15 04:51 AM IST]
+review: Don't remove the tests, remove the duplications.
+
+FibonacciRecursiveTest:
+Instead of removing the duplication, now the actual tests are gone.
+We still need to run the tests for inputs 0, 1, 2, 5, 8 like in 
+the other test class. We want to run those tests for both implementations,
+but we don't want to duplicate the tests in two classes. Find a way
+to keep the tests in one test class, but they should be run for two 
+implementations.
+
+Once you add back the tests to FibonacciRecursiveTest, you will see
+two classes have the same tests but with two different implementations.
+If two classes have the same methods, how can we remove that duplication?
+What are some of the design options to do that?
+
+fibonacciRecursiveIsRecursive: See suggestion in code.
+
+------------------------------------------------------------------------------
+[Venkat 03/31/15 04:43 AM CDT]
+review: Don't rush, evolve. Keep it DRY.
+
+FibonacciNumberTest:
+Give a space after comma to improve readability.
+
+FibonacciMemorizedRecursiveTest:
+Remove, don't rush. We are not done with the other two yet. Delete this.
+FibonacciMemorizedRecursive: Delete.
+
+FibonacciRecursiveTest:
+The tests here do the same thing as the tests in FibonacciRecursiveTest,
+except for a different instance. This is duplication of code. Remove
+the duplication between these two classes.
+
+------------------------------------------------------------------------------
+[Venkat 03/30/15 05:00 AM MDT]
+review: Keep an eye on SRP and DRY. Reduce noise in code.
+
+FibonacciNumberTest:
+This test violates SRP, working with two implementations instead of one.
+Keep tests for one implementation in this test and move tests for the
+other implementation to a different class. After that, remove the duplication
+of tests.
+
+FibonacciNumber:
+Noisy. See refactoring suggestion in code.
+
+SimpleRecursion:
+FibonacciRecursive.
+
+fibonacciAtPosition:
+Avoid else where possible. See suggestion in FibonacciNumber.
+
+------------------------------------------------------------------------------
+[Venkat 03/27/15 05:51 AM MDT]
+review: Take small steps, don't rush. Address what's mentioned in review.
+
+FibonacciNumberTest:
+Don't rush. Focus on one implementation at a time.
+We are not done with the iterative solution, don't run off to recursion 
+at this time. Remove all code and tests related to recursion.
+
+FibonacciNumber:
+Too much code, imperative for loop, instead use functional style.
+Did you read the email on the mailing list where I discuss Stream, iterate,
+array, etc.? This was mentioned in the previous review, either address
+that or ask for help. Ignoring review suggestion and running off to do
+something else will not help us move forward.
+
+------------------------------------------------------------------------------
+[Venkat 03/25/15 05:32 AM PDT]
+review: convert to functional style
+
+FibonacciNumberTest:
+Good.
+
+FibonacciNumber:
+Instead of imperative for with mutability, use functional style with
+immutability. Did you read the emails on this topic on the mailing list?
+
+------------------------------------------------------------------------------
+
+[Venkat 03/24/15 05:50 AM PDT]
+review: good start, refactor.
+
+FibonacciNumberTest:
+Good
+
+FibonacciNumber:
+Too much code. Only write one function. Use functional style.
+
+------------------------------------------------------------------------------
+

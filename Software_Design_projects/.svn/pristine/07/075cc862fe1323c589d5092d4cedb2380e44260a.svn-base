@@ -1,0 +1,35 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class FileWriterWithStupidReplacerTest implements StupidReplacer{
+
+    FileWriter fileWriter;
+
+    @Before
+    public void setUp()
+    {
+
+        fileWriter = new FileWriter("./File.txt");
+    }
+
+    @Test
+    public void writeUsingStringWriter(){
+
+        fileWriter.write( "Hello" );
+        assertEquals( "Hello", fileWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringWithStupidReplacer() {
+
+        FileWriter.setOperators(StupidReplacer::replaceStupid);
+
+        fileWriter.write("its really stupid ..!");
+
+        assertEquals("its really s***** ..!", fileWriter.getContent());
+    }
+}

@@ -1,0 +1,33 @@
+package application;
+
+public class FibonacciNumber {
+
+    public int fibonacciValueAtAPosition(int input) {
+
+        int value = 1;
+
+        if(input == 0 || input == 1){
+            return value;
+            }
+        else{
+
+            int previousValue = 1;
+            int temp = 0;
+
+            for(int i = 1; i < input; i++){
+                temp = value;
+                value += previousValue;
+                previousValue = temp;
+            }
+            return value;
+        }
+
+    }
+
+    public String errorMessage() {
+        String errorMessage = "Please Enter a valid input";
+        return errorMessage;
+    }
+
+}
+

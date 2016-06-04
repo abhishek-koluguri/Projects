@@ -1,0 +1,70 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class FibonacciMemorizedRecursiveTest {
+
+    FibonacciMemorizedRecursive fibonacciMemorizedRecursive;
+
+    @Before
+    public void setUp(){
+
+        fibonacciMemorizedRecursive = new FibonacciMemorizedRecursive();
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionZero(){
+
+        assertEquals(1, fibonacciMemorizedRecursive.fibonacci(0));
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionOne(){
+
+        assertEquals(1, fibonacciMemorizedRecursive.fibonacci(1));
+    }
+
+    @Test
+    public void getFibonacciValueAtPositionTwo(){
+
+        assertEquals(2, fibonacciMemorizedRecursive.fibonacci(2));
+    }
+
+
+    @Test
+    public void getFibonacciValueAtPositionThree(){
+
+        assertEquals(3, fibonacciMemorizedRecursive.fibonacci(3));
+    }
+
+
+    @Test
+    public void getFibonacciValueAtPositionEight(){
+
+        assertEquals(34, fibonacciMemorizedRecursive.fibonacci(8));
+    }
+
+
+    @Test
+    public void getFibonacciValueAtPosition2(){
+
+        assertEquals(2, fibonacciMemorizedRecursive.fibonacci(2));
+    }
+
+
+    @Test
+    public void getFibonacciValueAtPositionNine(){
+
+        assertEquals(55, fibonacciMemorizedRecursive.fibonacci(9));
+    }
+}

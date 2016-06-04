@@ -1,0 +1,39 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StringWriterWithUpperCaseConverterTest implements UpperCaseConverter{
+
+    StringWriter stringWriter;
+    //UpperCaseConverter upperCaseConverter;
+
+    @Before
+    public void setUp()
+    {
+      //  upperCaseConverter = new UpperCaseConverter();
+
+        stringWriter = new StringWriter();
+    }
+
+    @Test
+    public void writeUsingStringWriter(){
+
+        stringWriter.write( "Hello" );
+        assertEquals( "Hello", stringWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringAndConvertItToUpperCase()
+    {
+
+        stringWriter.setOperator( UpperCaseConverter::convertToUpperCase );
+
+        stringWriter.write( "hello" );
+
+        assertEquals( "HELLO", stringWriter.getContent() );
+    }
+
+}

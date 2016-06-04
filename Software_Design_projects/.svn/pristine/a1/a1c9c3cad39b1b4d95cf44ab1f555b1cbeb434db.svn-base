@@ -1,0 +1,80 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class StringWriterWithDifferentCombinationOfOperationsTest implements LowerCaseConverter, UpperCaseConverter, StupidReplacer{
+
+    StringWriter stringWriter;
+
+    @Before
+    public void setUp()
+    {
+        stringWriter = new StringWriter();
+    }
+
+    @Test
+    public void writeUsingStringWriter(){
+
+        stringWriter.write( "Hello" );
+        assertEquals( "Hello", stringWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringUsingLowerCaseConverterAndUpperCaseConverter()
+    {
+
+        stringWriter.setOperators( LowerCaseConverter::convertToLowerCase, UpperCaseConverter::convertToUpperCase );
+
+        stringWriter.write( "HELLO" );
+
+        assertEquals( "HELLO", stringWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringUsingUpperCaseConverterAndLowerCaseConverter()
+    {
+
+        stringWriter.setOperators( UpperCaseConverter::convertToUpperCase, LowerCaseConverter::convertToLowerCase );
+
+        stringWriter.write( "hello WORLD" );
+
+        assertEquals( "hello world", stringWriter.getContent() );
+    }
+
+
+    @Test
+    public void writeAStringUsingUpperCaseConverterAndStupidReplacerDoesNotReplaceWordstupid()
+    {
+
+        stringWriter.setOperators( UpperCaseConverter::convertToUpperCase, StupidReplacer::replaceStupid );
+
+        stringWriter.write( "it is really stupid" );
+
+        assertEquals( "IT IS REALLY STUPID", stringWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringUsingStupidReplacerAndUpperCaseConverter()
+    {
+
+        stringWriter.setOperators( StupidReplacer::replaceStupid, UpperCaseConverter::convertToUpperCase );
+
+        stringWriter.write( "it is really stupid" );
+
+        assertEquals( "IT IS REALLY S*****", stringWriter.getContent() );
+    }
+
+    @Test
+    public void writeAStringUsingStupidReplacerAndLowerCaseConverter()
+    {
+
+        stringWriter.setOperators( StupidReplacer::replaceStupid, LowerCaseConverter::convertToLowerCase );
+
+        stringWriter.write( "IT IS REALLY stupid" );
+
+        assertEquals( "it is really s*****", stringWriter.getContent() );
+    }
+}

@@ -1,0 +1,69 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class FibonacciRecursiveTest {
+
+    FibonacciRecursive fibonacciRecursive;
+
+    @Before
+    public void setUp(){
+
+        fibonacciRecursive = new FibonacciRecursive();
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionZeroUsingSimpleRecursion()
+    {
+        assertEquals(1, fibonacciRecursive.fibonacciAtPosition(0));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionOneUsingSimpleRecursion()
+    {
+        assertEquals(1, fibonacciRecursive.fibonacciAtPosition(1));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionTwoUsingSimpleRecursion()
+    {
+        assertEquals(2, fibonacciRecursive.fibonacciAtPosition(2));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionThreeUsingSimpleRecursion()
+    {
+        assertEquals(3, fibonacciRecursive.fibonacciAtPosition(3));
+    }
+
+    @Test
+    public void getFibonacciNumberAtPositionFiveUsingSimpleRecursion()
+    {
+        assertEquals(8, fibonacciRecursive.fibonacciAtPosition(5));
+    }
+
+
+    @Test
+    public void getFibonacciNumberAtPositionNineUsingSimpleRecursion()
+    {
+        assertEquals(34, fibonacciRecursive.fibonacciAtPosition(8));
+    }
+
+
+    @Test
+    public void forInvalidInputUsingSimpleRecursion(){
+
+        assertEquals(0, fibonacciRecursive.fibonacciAtPosition(-1));
+    }
+}
+

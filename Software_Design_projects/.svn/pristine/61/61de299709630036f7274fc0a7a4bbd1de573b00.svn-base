@@ -1,0 +1,23 @@
+[Venkat 03/07/15 06:17 AM CST]
+review: build failed
+
+>gradle
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '.../assign2/build.gradle' line: 23
+
+* What went wrong:
+A problem occurred evaluating root project 'assign2'.
+> Could not find method jacocoTestReport() for arguments [build_vij8blfi1h0iacnfqhl1vfptk$_run_closure5@554cd74a] on root project 'assign2'.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 1.812 secs
+
+------------------------------------------------------------------------------
+

@@ -1,0 +1,32 @@
+package application;
+
+import java.io.*;
+
+
+public class StringWriterClass {
+
+
+    StringWriter stringWriter = new StringWriter();
+
+    public StringWriter writer(String input)
+    {
+
+        stringWriter.write(input);
+
+        return stringWriter;
+    }
+
+    public StringWriter convertToLowerCase(StringWriter input)
+    {
+        stringWriter.write(input.toString().toLowerCase());
+
+        return stringWriter;
+    }
+
+    public StringWriter convertToUpperCase(StringWriter input)
+    {
+        stringWriter.write(input.toString().toUpperCase());
+
+        return stringWriter;
+    }
+}

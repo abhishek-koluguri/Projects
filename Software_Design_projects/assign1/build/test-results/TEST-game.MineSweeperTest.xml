@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="game.MineSweeperTest" tests="43" skipped="0" failures="0" errors="0" timestamp="2015-03-24T03:43:21" hostname="SubbaRao" time="0.15">
+  <properties/>
+  <testcase name="exposeACellForTheFirstTime" classname="game.MineSweeperTest" time="0.008"/>
+  <testcase name="tryToExposeASealedCell" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="countAdjacentMinesDoesNotCountForColumnOutOfLowerBounds" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="tryToCountAdjacentMinesIfCountAdjacentMinesIsCalledForMinedCell" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="countAdjacentMinesWith8Neighbors" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="exposeCellOutOfRowUpperBound" classname="game.MineSweeperTest" time="0.005"/>
+  <testcase name="exposeCellOutOfColumnLowerBound" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="isAdjacentDoesNotCheckAdjacentForRowOutOfLowerBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="isCellEmpty" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="canary" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="countAdjacentMinesDoesNotCountForColumnOutOfUpperBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="checkIsThisAnAdjacentCell" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="isAdjacentDoesNotCheckAdjacentForRowOutOfUpperBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="gameWonIfAllCellsAreExposedExceptMinedCells" classname="game.MineSweeperTest" time="0.003"/>
+  <testcase name="tryToExposeNeighborWillNotCallExposeForColumnOutOfLowerBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="unSealACell" classname="game.MineSweeperTest" time="0.009"/>
+  <testcase name="tryToExposeNeighborWillNotCallExposeForRowOutOfLowerBounds" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="countAdjacentMinesForACellOnTheEdge" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="exposeAlreadyExposedCell" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="exposeCellOutOfColumnUpperBound" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="ifThereAre10Mines" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="tryToExposeNeighborWillNotCallExposeForColumnOutOfUpperBounds" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="countAdjacentMinesDoesNotCountForRowOutOfLowerBounds" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="checkIsThereAMine" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="tryToExposeNeighborWillNotCallExposeForRowOutOfUpperBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="sealAnUnExposedCell" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="isMineForOutOfBoundValue" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="isGameInProgress" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="exposeOnAlreadyExposedCellDoesNotCallTryToExposeNeighbor" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="whenAMinedCellIsExposedItDoesNotCallTryToExposeNeighbor" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="exposingAnAdjacentCellDoesNotTryToExposeNeighbor" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="countAdjacentMinesDoesNotCountForRowOutOfUpperBounds" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="exposingASealedCellDoesNotTryToExposeNeighbor" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="checkIfMinesAreInRandomLocation" classname="game.MineSweeperTest" time="0.004"/>
+  <testcase name="exposeCallsTryToExposeNeighbor" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="isAdjacentDoesNotCheckAdjacentForColumnOutUpperOfBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="countAdjacentMinesForACellInACorner" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="isAdjacentDoesNotCheckAdjacentForColumnOutOfLowerBounds" classname="game.MineSweeperTest" time="0.0"/>
+  <testcase name="exposeCellOutOfRowLowerBound" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="tryToExposeNeighborWillCallExposeForValidCell" classname="game.MineSweeperTest" time="0.001"/>
+  <testcase name="isGameLost" classname="game.MineSweeperTest" time="0.004"/>
+  <testcase name="tryToSealAlreadyExposedCell" classname="game.MineSweeperTest" time="0.002"/>
+  <testcase name="userGetsAWellInitializedMineSweeperOnCreate" classname="game.MineSweeperTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

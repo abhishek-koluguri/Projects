@@ -1,0 +1,25 @@
+package application;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FibonacciMemorizedRecursive {
+
+    private static Map<Integer, Long> memorize = new HashMap<>();
+
+    static {
+
+        memorize.put(0,1L);
+        memorize.put(1,1L);
+    }
+
+    public static long fibonacci(int position) {
+
+        if (memorize.get(position) == null) {
+            return memorize.computeIfAbsent(position, e -> fibonacci(e - 1) + fibonacci(e - 2));
+        }
+        else return memorize.get(position);
+    }
+
+
+}

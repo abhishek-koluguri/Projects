@@ -1,0 +1,27 @@
+package report;
+
+public class WeatherData {
+
+    public final String cityName;
+    public final double temperature;
+    public final String condition;
+    public final Exception error;
+
+    public WeatherData(String theCity, int theTemperature, String theCondition, Exception theError){
+
+        cityName = theCity;
+        temperature = theTemperature;
+        condition = theCondition;
+        error = theError;
+    }
+
+    public String getCity()
+    {
+        return cityName;
+    }
+
+    public double getTemperature()
+    {
+        return temperature;
+    }
+}

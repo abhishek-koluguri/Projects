@@ -1,0 +1,145 @@
+package report;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class WeatherReportTest {
+
+    public WeatherReport weatherReport;
+    public WeatherData arizona, mumbai, missouri, mississippi, perth;
+
+    public List<WeatherData> cityData;
+    public List<WeatherData> expected;
+
+    @Before
+    public void setUp(){
+
+        weatherReport = new WeatherReport();
+
+        mumbai = new WeatherData("Mumbai", 30, "Hot");
+        perth = new WeatherData("Perth", 20, "Sunny");
+        missouri = new WeatherData("Missouri", 10, "Cool");
+        mississippi = new WeatherData("Mississippi", 10, "Cool");
+        arizona = new WeatherData("Arizona", 30, "Hot");
+
+        cityData = Arrays.asList(mumbai, perth, missouri, mississippi, arizona);
+        expected = Arrays.asList(arizona, mississippi, missouri, mumbai, perth);
+    }
+
+    @Test
+    public void canary(){
+
+        assertTrue(true);
+    }
+
+
+    @Test
+    public void sortByCity(){
+
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void sortEmptyList(){
+
+        expected = Arrays.asList();
+        cityData = Arrays.asList();
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void sortListContainingCitiesWithSameInitial(){
+
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected, result);
+    }
+
+
+    @Test
+    public void sortListWithOnlyOneCity(){
+
+        List<WeatherData> cityData = Arrays.asList(arizona);
+
+        List<WeatherData> result = weatherReport.sortByCity(cityData);
+
+        assertEquals(expected.get(2), result);
+    }
+
+    @Test
+    public void sortCitiesWithSameTemperature(){
+
+        expected = Arrays.asList(missouri, mississippi, perth, mumbai, arizona);
+
+        cityData = weatherReport.sortByTemperature(cityData);
+
+        assertEquals(expected, cityData);
+    }
+
+    @Test
+    public void findColdestCity(){
+
+        cityData = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected.get(2), cityData.get(0));
+    }
+
+    @Test
+    public void findHottestCity(){
+
+        cityData = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected.get(0), cityData.get(0));
+    }
+
+    @Test
+    public void findColdestCitiesWithSameTemperature(){
+
+        expected = Arrays.asList(missouri, mississippi);
+
+        cityData = weatherReport.findColdestCity(cityData);
+
+        assertEquals(expected, cityData);
+    }
+
+
+    @Test
+    public void findHottestCitiesWithSameTemperature(){
+
+        expected = Arrays.asList(arizona, mumbai);
+
+        cityData = weatherReport.findHottestCity(cityData);
+
+        assertEquals(expected, cityData);
+    }
+
+
+    @Test
+    public void getWholeWeatherReport(){
+
+
+        List<WeatherData> coldestCitiesList = Arrays.asList(missouri, mississippi);
+        List<WeatherData> hottestCitiesList = Arrays.asList(arizona, mumbai);
+
+        List<List> expectedWeatherReport;
+
+        expectedWeatherReport = Arrays.asList(expected, coldestCitiesList, hottestCitiesList);
+
+        List<List> weatherReportList;
+        weatherReportList = weatherReport.getWeatherReport(cityData);
+
+        assertEquals(expectedWeatherReport, weatherReportList);
+    }
+
+}

@@ -1,0 +1,11 @@
+package application;
+
+public class FibonacciRecursiveTest extends FibonacciNumberTest {
+
+
+    public FibonacciRecursive getInstance(){
+
+        return new FibonacciRecursive();
+    }
+}
+

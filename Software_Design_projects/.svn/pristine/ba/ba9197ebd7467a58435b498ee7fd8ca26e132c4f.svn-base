@@ -1,0 +1,47 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+import java.io.PrintWriter;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+public class PrintWriterTest {
+
+
+    FileWriter fileWriter;
+
+    @Before
+    public void setUp()
+    {
+        fileWriter = new FileWriter();
+    }
+
+
+    @Test
+    public void writeWritesAStringToPrintWriter()
+    {
+        try {
+
+            PrintWriter printWriterMock = Mockito.spy(new PrintWriter("File.txt"));
+
+            fileWriter.setPrintWriter(printWriterMock);
+
+            printWriterMock.write("Hello World");
+
+            verify( printWriterMock, times(1) ).write("Hello World");
+
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+}

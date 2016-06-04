@@ -1,0 +1,58 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+public class StringWriterTest {
+
+    StringWriter stringWriter;
+
+    @Before
+    public void setUp()
+    {
+        stringWriter = new StringWriter();
+    }
+
+    @Test
+    public void canary()
+    {
+        assertTrue(true);
+    }
+
+    @Test
+    public void writeWritesAStringToStringWriter()
+    {
+        stringWriter.write("Hello");
+
+        assertEquals("Hello", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeWritesTwoStrings()
+    {
+        stringWriter.write("Hello");
+        stringWriter.write(" World");
+
+        assertEquals("Hello World", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeReturnsAnEmptyStringForAnEmptyInputString()
+    {
+        stringWriter.write("");
+
+        assertEquals("", stringWriter.getContent());
+    }
+
+    @Test
+    public void writeAppendsTwoStingsForTwoCallsWithoutIntroducingSpace()
+    {
+        stringWriter.write("Go");
+        stringWriter.write("Coogs");
+
+        assertEquals("GoCoogs", stringWriter.getContent());
+    }
+}

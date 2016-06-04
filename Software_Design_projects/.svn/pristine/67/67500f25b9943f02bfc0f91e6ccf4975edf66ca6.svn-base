@@ -1,0 +1,53 @@
+package report;
+
+import java.io.*;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class WeatherServiceAPI {
+
+    public static void main(String[] args) throws IOException {
+
+        Scanner cityName = new Scanner(System.in);
+
+        Scanner actionInput = new Scanner(System.in);
+
+        String action;
+
+        List<String> cityList = new ArrayList<>();
+
+
+        do {
+            String city;
+            System.out.println("Please enter city to get weather data");
+            city = cityName.next();
+
+            cityList.add(city);
+
+            System.out.println("Hit Y to add another city...Hit N to get Weather Report");
+            action = actionInput.next();
+
+        }while (action.equals("y"));
+
+
+        for (int i = 0; i < cityList.size(); i++) {
+
+            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + cityList.get(i) + ",");
+
+            URLConnection con = url.openConnection();
+            InputStream is = con.getInputStream();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+package application;
+
+public interface StringOperations {
+
+    public void stringWriterWithLowerCaseConverter(String string);
+}

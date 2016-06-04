@@ -1,0 +1,37 @@
+package application;
+
+import java.util.stream.Stream;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
+
+public class FibonacciNumber {
+
+    public int fibonacciValueAtAPosition(int input) {
+
+        int value = 1;
+
+        if(input < 0)
+            return 0;
+
+        if(input == 0 || input == 1){
+            return 1;
+            }
+
+        else{
+
+            int previousValue = 1;
+            int temp;
+
+            for(int i = 1; i < input; i++){
+                temp = value;
+                value += previousValue;
+                previousValue = temp;
+            }
+            return value;
+        }
+
+    }
+
+}
+

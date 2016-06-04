@@ -1,0 +1,9 @@
+package application;
+
+public class UpperCaseConverter {
+
+    public String convertToUpperCase(String string)
+    {
+        return string.toUpperCase();
+    }
+}

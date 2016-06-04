@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+sourceSets.main.java.srcDirs = ['weatherreport/src']
+sourceSets.test.java.srcDirs = ['weatherreport/test']
+
+dependencies {
+  testCompile group: 'junit', name: 'junit', version: "4.+"
+  compile 'org.mockito:mockito-all:1.9.5'
+  compile 'com.google.code.gson:gson:2.2.4'
+  compile 'java.util.Scanner'
+}
+
+repositories {
+  mavenCentral()
+}
+
+tasks.withType(JavaCompile) { 
+  options.compilerArgs << '-Xlint:unchecked'
+}
+
+task(runui, dependsOn: 'classes', type: JavaExec) {  
+	main = 'report.ui.WeatherServiceUI'
+	classpath = sourceSets.main.runtimeClasspath
+}
+
+jacocoTestReport {
+    doFirst{
+        classDirectories = files('./build/classes/main/report')
+    }
+
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "build/reports/coverageHtml"
+		
+    }
+}
+
+defaultTasks 'clean', 'test', 'jacocoTestReport', 'runui'
+

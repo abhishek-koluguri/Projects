@@ -1,0 +1,41 @@
+package application;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class LowerCaseConverterTest implements LowerCaseConverter{
+
+    //LowerCaseConverter lowerCaseConverter;
+
+    @Before
+    public void setUp()
+    {
+      //  lowerCaseConverter = new LowerCaseConverter();
+    }
+
+    @Test
+    public void convertToLowerCaseConvertsStingToLowerCase()
+    {
+        assertEquals("hello", LowerCaseConverter.convertToLowerCase("Hello"));
+    }
+
+    @Test
+    public void convertToLowerCaseDoesChangeStringAlreadyInLowerCase()
+    {
+        assertEquals("hello", LowerCaseConverter.convertToLowerCase("hello"));
+    }
+
+    @Test
+    public void convertToLowerCaseDoesNotChangeSpecialCharactersInString()
+    {
+        assertEquals("hello@!", LowerCaseConverter.convertToLowerCase("Hello@!"));
+    }
+
+    @Test
+    public void converToLowerCaseConvertsStringsWithSpaceToLowerCase()
+    {
+        assertEquals("hello world", LowerCaseConverter.convertToLowerCase("Hello World"));
+    }
+}

@@ -1,0 +1,17 @@
+package report;
+
+/**
+ * Created by Abhishek Koluguri on 3/5/2015.
+ */
+public class City {
+
+    private String name;
+    private int temperature;
+    private String condition;
+
+    public City(String name, int temperature, String condition) {
+        this.name = name;
+        this.temperature = temperature;
+        this.condition = condition;
+    }
+}

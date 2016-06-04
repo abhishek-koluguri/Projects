@@ -1,0 +1,31 @@
+package application;
+
+import java.util.function.Function;
+
+public class StringWriter {
+
+
+    Function<String, String> stringConverter;
+
+    StringBuilder stringBuilder = new StringBuilder();
+
+    public void write(String string) {
+
+        if (stringConverter != null)
+        {
+          string = stringConverter.apply(string);
+        }
+
+        stringBuilder.append(string);
+    }
+
+    public String getContent() {
+        return stringBuilder.toString();
+    }
+
+    public void setOperator(Function<String, String> string_Converter)
+    {
+        stringConverter = string_Converter;
+    }
+
+}

@@ -1,0 +1,85 @@
+package report;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+public class OpenWeatherMapInteract {
+
+    HttpURLConnection request;
+    WeatherData weatherData;
+    public List<WeatherData> cityDataObjectsList = new ArrayList<>();
+
+    public void setConnection(String city) throws IOException {
+
+        try {
+
+            URL url = new URL("http://api.openweathermap.org/data/2.5/weather?q=" + city + ",");
+            request = (HttpURLConnection) url.openConnection();
+            request.connect();
+
+            System.out.println("Connected");
+
+        }catch (Exception ex){System.out.println("No internet connection: " + ex);}
+    }
+
+    public JsonElement getContentFromURL() throws IOException
+    {
+
+        JsonParser jasonParser = new JsonParser();
+        JsonElement jsonElement = jasonParser.parse(new InputStreamReader((InputStream) request.getContent()));
+
+        return jsonElement;
+    }
+
+    public void getDataInJsonFromWeatherMap(String theCity, JsonElement theJasonElement) throws IOException
+    {
+        try {
+
+            JsonElement jsonElement = theJasonElement;
+//            JsonParser jasonParser = new JsonParser();
+//            JsonElement jsonElement = jasonParser.parse(new InputStreamReader((InputStream) request.getContent()));
+            JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+            JsonArray weather = jsonObject.getAsJsonArray("weather");
+            JsonObject weatherObject = weather.getAsJsonArray().get(0).getAsJsonObject();
+            String condition = weatherObject.get("main").toString();
+
+            JsonElement temp = jsonObject.get("main");
+            JsonObject temperatureObject = temp.getAsJsonObject();
+            double temperature = temperatureObject.get("temp").getAsDouble();
+
+            JsonElement cityName = jsonObject.get("name");
+            String city = cityName.toString().replace("\"", "");
+
+            System.out.println("city: "+city+" temp: "+temperature+" con: "+condition);
+            weatherData = new WeatherData(city, temperature, condition);
+            cityDataObjectsList.add(weatherData);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+            weatherData = new WeatherData(theCity, ex);
+            cityDataObjectsList.add(weatherData);
+        }
+    }
+
+    public List<WeatherData> getCityDataObjectsList()
+    {
+        return cityDataObjectsList;
+    }
+
+    public void disconnect()
+    {
+        request.disconnect();
+    }
+}
