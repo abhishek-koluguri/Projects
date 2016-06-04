@@ -1,0 +1,75 @@
+[Venkat 11/12/15 14:57 PM CST]
+review: you're done
+
+You're done.
+
+------------------------------------------------------------------------------
+[Venkat 11/12/15 04:33 AM CET]
+review: reduce noise
+
+Change result to a simple hash instead of OpenStruct. This will reduce quite
+a bit of noise in code.
+
+------------------------------------------------------------------------------
+[Venkat 11/11/15 05:21 AM CET]
+review: refactor, move forward
+
+Refactor. Move to the next language.
+
+------------------------------------------------------------------------------
+[Venkat 11/10/15 05:49 AM CET]
+review: refactor
+
+Refactor.
+Then write tests for
+1. a price list where prices are missing for some lengths.
+2. a price list where the solution does not include the length itself.
+
+------------------------------------------------------------------------------
+[Venkat 11/09/15 06:33 AM EET]
+review: move forward
+
+Proceed to write test for length 3.
+
+------------------------------------------------------------------------------
+[Venkat 11/07/15 05:44 AM EET]
+review: move forward
+
+Move forward to test for length 2.
+
+------------------------------------------------------------------------------
+[Venkat 11/06/15 04:32 AM EET]
+review: write minimum code to make the tests pass
+
+Reduce and move forward to test for length 2.
+
+------------------------------------------------------------------------------
+[Venkat 11/04/15 05:26 AM CET]
+review: take small steps
+
+Remove comments, instead write code that is readable.
+
+Take small steps. Write test for length 0 and length 1, minimum code
+for that. Once we get that done, we can take the next step.
+
+------------------------------------------------------------------------------
+[Venkat 11/03/15 04:50 AM CET]
+review: address previous review
+
+Address previous review and remove the notes I left in code.
+The result needs to change as suggested in the previous review.
+
+------------------------------------------------------------------------------
+[Venkat 11/02/15 04:23 AM CET]
+review: good start
+
+Good start. Align the interface to the problem on hand.
+
+------------------------------------------------------------------------------
+[Venkat 10/31/15 07:38 AM MDT]
+review: no files found
+
+No check in yet.
+
+------------------------------------------------------------------------------
+Scala

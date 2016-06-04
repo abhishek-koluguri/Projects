@@ -1,0 +1,10 @@
+A purely functional language does not permit functions with side-effects. However, a realistic program cannot survive without side-effects. What do pure-functional languages do to get around these concerns? Explain.
+
+Answer: The methods for dealing with impure code in purely-functional languages is based on detecting the impure code and separating it from the pure code.
+
+Pure functional languages like Haskell deals with impure functions by using monads. The special monadic type IO in the return type indicates that the function is impure (it evaluates with side-effects, usually from interacting with outside world). The monads are special collection of certain types with special operation defined on them. The two operations and their types are:
+
+  (>>=): M a -> (a -> M b) -> M b  // bind
+  return: a -> M b                 // return
+
+Where M is the monad. The operations on monads always return monads themselves. You cannot strip away a from M a, to get a, unless you add some other function that does that. Some monads are defined in such a way that you can never strip away the M part. IO is such a special monad. Whenever you have an impure result, whatever you do, the IO monad that indicates impure result, always be there. By using the IO monad in such a way, it is possible to show that the pure code will always stay separated from the impure code. In writing the programs in Haskell, programmers can write some pure code, and whenever they need to interact with the outside world, they can create the impure code for that, but they are safe from mixing up the pure and impure functions.

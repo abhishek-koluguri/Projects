@@ -1,0 +1,5 @@
+Is there any difference between typing in Java/C# vs. typing in C/C++?
+Discuss.
+
+
+Java and C# are strong typed languages while C and C++ are weakly typed languages. In strong typing, type information is verified at runtime and will tell you if the casting is logical and if it is not you will get an error that this is not a valid conversion. In weak typing, there is not type information verified at runtime.

@@ -1,0 +1,11 @@
+Given a number n, the factorial of a number is defined as the product 1 * 2 * 3 * ... * n.
+Assume n is >= 1 (do not do any checks for n < 1).
+
+Write fully working code in one language of your choice, in a separate file with proper extension.
+Write three separate functions (in one file):
+
+1. Implement factorial using regular recursion.
+
+2. Implement factorial using tail call optimized recursion (using native feature, not extensions).
+
+3. Implement factorial without using recursion and without any mutability.

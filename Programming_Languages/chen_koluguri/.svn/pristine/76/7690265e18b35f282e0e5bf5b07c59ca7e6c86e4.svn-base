@@ -1,0 +1,235 @@
+Homework 3: Due 11:59PM November 20
+
+Pick JavaScript as one example and some other language you actually used in this course in one of the assignments.
+
+Mention the name of that language and discuss the similarities and differences of that language and JavaScript. Give
+examples.
+
+
+The language we used most for the course is Scala and therefore we decided to use Scala as our other language.
+
+JavaScript is a dynamically and weakly typed programming language where as Scala is a statically and strongly typed language.
+
+JavaScript is dynamically typed and in normal circumstances does not have a compiler (There are some that compiles JS into Java class files). Without a compiler you cannot do type verification at compile time since you run the code instead of compiling. At the same time, JavaScript is also weakly typed.
+
+Scala being statically typed means that type verification is done at compile time. Each variable and return type need to know what type they are at compile time. Scala is a bit free in this aspect due to type inference. Type inference means that the Scala compiler can usually deduce the type of the variable from the initialization given. var number = 1, would be deduced as an integer but if you added 1.0 instead of 1 it would be considered a double. If you added var number = "This is actually a string" it would declare the number a string since it is not an actual number. Scala being strongly typed means that the type-checking is also done at runtime.
+
+Example:
+
+JavaScript:
+
+var a = 1, b = 2.00001;
+
+a = "abc";
+a+b;
+
+Output: abc2.00001 
+
+Because it concatenates the two values instead prompting an error message. This can create problems if the programmer is not careful and also be very difficult to debug
+
+Scala: 
+
+var a = 1
+a= "Hi" // error: type mismatch; 
+found   : String("hi") 
+required: Int
+       c= "hi"
+
+Scala will not us to assign a string value to an Int value.
+
+In terms of syntax, JavaScript is not that flexible when compared to Scala. Scala has sensible typing. In JavaScript, semicolons are said to be unnecessary. But if we don't use them, it can lead to errors. In Scala, semicolons are unnecessary; lines are automatically joined if they begin or end with a token that cannot normally come in this position, or if there are unclosed parentheses or brackets.
+
+Example: If we were to compare two numbers in these languages
+JavaScript:  
+
+var a = 1, b = 2;
+
+if(a > b)
+	console.log(a); 
+else 
+	console.log(b);
+
+Scala: 
+
+val a = 1
+val b = 1
+
+println(a max b)
+
+Both JavaScript and Scala support functional style that is they support higher order functions, closures etc. But both are not pure functional languages.
+
+Example:
+
+JavaScript:
+    
+    var findTotalEven = function(numbers, selector) {
+        var total = 0;
+
+        for(i = 0; i < numbers.length; i++){
+            if(selector(numbers[i])) 
+                total += numbers[i];
+        }
+
+        return total;
+    }
+
+    var evenNo = function(numbers){
+        return numbers %2 === 0;
+    }
+
+    var numbers = [1, 2, 3, 4];
+
+    findTotalEven(numbers, evenNo); //6
+
+Scala:
+    
+    def findTotalEven(numbers: List[Int])(selector : Int => Boolean) = {
+        var total = 0
+        numbers.foreach{ e => if(selector(e)) total += e}
+        total
+    }
+
+
+    def evenNo(numbers : Int) = {
+        numbers % 2 == 0
+    }
+
+    val numbers = List(1, 2, 3, 4)
+
+    findTotalEven(numbers) { evenNo } //6
+
+
+Both support traits and mixins natively.
+
+    Examples:
+
+        JavaScript:
+            var Shape = function(){
+                area: function() {
+                    return this.x * this.y;
+                };
+                return this;
+            };
+
+            var Rectangle = function(x, y) {
+                this.x = x;
+                this.y = y;
+            };
+
+            Shape.call(Rectangle.prototype);
+            var rect = new Rectangle(5, 5);
+            rect.area();
+
+        Scala:
+            trait Shape {
+                def area(x: Int, y: Int): Double = x * y
+            }
+
+            class Rectangle(_x: Int, _y: Int) extends Shape {
+                var x: Int = _x
+                var y: Int = _y
+            }
+
+            object AreaGetter {
+                def main() {
+                    println(new Rectangle(4, 5))
+                }
+            }
+
+Both support anonymous functions
+
+    Example:
+        Scala:
+            (integer: Int) => integer + 15
+
+            (i: Int, j: Int) => i = j
+
+        JavaScript:
+            var func = function() {
+                document.write("Function being called.")
+            };
+
+JavaScript supports prototypal inheritance where as Scala supports 
+class based inheritance. In class-based inheritance, the derived class inherits behavior from its base class. Prototypal inheritance is where inheritance is performed by cloning the existing objects, which are marked as prototypes.
+
+Example:
+
+JavaScript:
+
+var abhi = {lang1 : "Java", lang2 : "C#", lang3 : "JavaScript"};
+var yi = {lang4 : "Ruby", lang5 : "Scala", lang6 : "Groovy"};
+
+Object.setPrototypeOf(abhi, yi);
+
+//Now abhi can use the properties of yi as well.
+
+abhi.lang5 //Scala
+
+Scala:
+
+class Father{
+	val car = "Ferrari"
+}
+
+class Son extends Father{
+	val bike = "Ducati"
+}
+
+val sam = new Son()
+sam.car // Ferrari
+
+
+In JavaScript, there is no explicit concept of classes. Even though if we define something using class convention, it is nothing but a function and functions are nothing but objects and these objects don't need classes compulsorily where as in Scala, classes are needed for creating objects.
+
+Example:
+
+JavaScript:
+var Car = function(){
+    console.log("I'm just a function");
+}
+
+Car(); //you can run classes just like functions  
+
+Scala:
+
+class Car{
+    println("in Car class")
+}
+
+new Car() //we need to initialize the Car to use it. 
+
+Block Scoping in JavaScript simply means composite statements but they don't impose any scope to the variables in them. But in Scala, variables in a particular are confined to that particular block only.
+
+Example:
+
+JavaScript:
+
+var a=1
+{
+    a=2;
+    console.log(a); //2
+}
+console.log(a); //2, because block scoping doesn't matter in JavaScript.
+
+Scala:
+
+var a = 1
+
+{ 
+  
+  var a = 2
+  println(a) //2, inner 'a' shadows the outer 'a' 
+}
+
+println(a) //1
+
+JavaScript doesn't support meta-programming. Scala supports meta-programming. Meta-programming is a program or code that is able to write more code itself.
+
+
+
+References:
+
+1. Agile Learner 
+2. Wikipedia 
+3. Stack overflow 
+3. Javascriptweblog.wordpress.com

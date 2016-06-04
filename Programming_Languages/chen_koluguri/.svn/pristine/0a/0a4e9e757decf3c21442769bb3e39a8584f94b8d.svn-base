@@ -1,0 +1,20 @@
+Homework 3: Due 11:59PM November 20
+
+Pick JavaScript as one example and some other language you actually used in this course in one of the assignments.
+
+Mention the name of that language and discuss the similarities and differences of that language and JavaScript. Give
+examples.
+
+
+To get the simple things out of the way, most languages have the basic necessities in common. Languages usually have variable declerations or else it would be difficult to split off identification of a variable. Languages in generally also have data types such as string, int, double, long, float, and so on.  //Venkat: This paragraph can be safely removed, does not add any value.
+
+The language we used most for the course would have to be Scala and therefore we decided to use this as our other language.
+
+One main different is that Scala is a statically and strongly typed language while JavaScript is a dynamically and weakly typed. 
+
+//Venkat: Spell check
+Scala being statically typed means that type vertification is done at compile time. Each variable and return type need to know what type they are at compile time. Scala is a bit free in this aspect due to type inference. Type inference means that the Scala compiler can usually deduce the type of the variable from the initialization given. var number = 1, would be deduced as an integer but if you added 1.0 instead of 1 it would be considered a double. If you added var number = "This is actually a string" it would declare the number a string since it is not an actual number. 
+
+Scala being strongly typed means that during runtime, 
+
+JavaScript is dynamically typed and in normal circumstances does not have a compiler (There are some that compiles JS into Java class files). Without a compiler you cannot do type verification at compile time since you run the code instead of compiling. At the same time, JavaScript is also weakly typed.

@@ -1,0 +1,47 @@
+Homework 3: Due 11:59PM November 20
+
+Pick JavaScript as one example and some other language you actually used in this course in one of the assignments.
+
+Mention the name of that language and discuss the similarities and differences of that language and JavaScript. Give
+examples.
+
+
+The language we used most for the course is Scala and therefore we decided to use Scala as our other language.
+
+JavaScript is a dynamically and weakly typed programming language where as Scala is a statically and strongly typed language.
+
+JavaScript is dynamically typed and in normal circumstances does not have a compiler (There are some that compiles JS into Java class files). Without a compiler you cannot do type verification at compile time since you run the code instead of compiling. At the same time, JavaScript is also weakly typed.
+
+Scala being statically typed means that type verification is done at compile time. Each variable and return type need to know what type they are at compile time. Scala is a bit free in this aspect due to type inference. Type inference means that the Scala compiler can usually deduce the type of the variable from the initialization given. var number = 1, would be deduced as an integer but if you added 1.0 instead of 1 it would be considered a double. If you added var number = "This is actually a string" it would declare the number a string since it is not an actual number. Scala being strongly typed means that the type-checking is also done at runtime.
+
+JavaScript is a prototype based object oriented language where as Scala is an multi paradigm language. [Venkat: Is JavaScript a multi paradigm language too? - prototypal on one side to what on the other side?]
+
+JavaScript is a prototype based object oriented language where as Scala is an fully object oriented language.
+
+Both JavaScript and Scala support functional language but both are not pure functional languages. 
+
+In terms of syntax, JavaScript is not that flexible when compared to Scala. Scala has sensible typing. In JavaScript, semicolons are said to be not necessary. But if we don't use them, it can lead to errors. In Scala, semicolons are unnecessary; lines are automatically joined if they begin or end with a token that cannot normally come in this position, or if there are unclosed parentheses or brackets.
+
+Example: If we were to compare two numbers in these languages
+JavaScript:  
+
+var a = 1, b = 2;
+
+if(a > b)
+	console.log(a); 
+else 
+	console.log(b);
+
+Scala: 
+
+val a = 1
+val b = 1
+
+a max b
+
+JavaScript has a combination of statements and expressions. In Scala, everything is an expression.
+
+//Venkat: Give examples for as many concepts being discussed as possible.
+//Discuss more key similarities, again give examples.
+//Discuss things that may be totally different.
+//Discuss things that may be in one language but not present in another.

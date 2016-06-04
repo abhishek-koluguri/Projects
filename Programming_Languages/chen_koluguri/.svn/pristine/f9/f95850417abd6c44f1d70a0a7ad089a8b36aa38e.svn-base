@@ -1,0 +1,44 @@
+Homework 2: Due 11:59PM October 16
+
+What is referential transparency? Discuss. What are the benefits. Give examples.
+
+Referential transparency is a property where a function with a given input can be replaced with the result of the previous call made to it. This replacement should happen without changing the semantics of the program.
+
+Referential transparency is possible only if the functions are pure. A pure function is a function which doesn't affect the state of anything and is not affected by the state of anything while running. That means there should be no side effects because of the function. Functional languages like Haskell that have pure functions by default support referential transparency.
+
+The benefits of referential transparency are that the code can be optimized efficiently using memoization, where the results for a given input for a function are cached and used next time when the same function with same input is called.
+Since pure functions are referentially transparent, the order of their evaluation doesn't matter as they produce the same result. So Lazy and Partial evaluations can also be achieved through referential transparency.
+
+Example: 
+
+In Haskell, consider the following function:
+
+squareOfTheNumber number =
+
+	number * number 
+
+main = do
+	print(squareOfTheNumber 2)
+	print(squareOfTheNumber 2) 
+
+Above function is a pure function that doesn't mutate any value and produces the same result for a given input. Hence it supports referential transparency.
+As the function supports referential transparency, we can optimize the code by replacing the function directly with the result of the previous call for the second call. This reduces the overhead of recomputing the function and increases the efficiency of the program. 
+Referential transparency plays a major role in dynamic programming where there are large programs in which same functions are called repetitively. 
+
+[Venkat: the example below does not add any value, we can stop right here]
+In Java, consider the following function:
+
+int sum = 0;
+
+public int add(int number){
+	sum = sum + number;
+}
+
+Above function is not a pure function and does not support referential transparency because the function produces different outputs for the same input if it is called multiple times in the program.
+
+References:
+
+1. Agile Learner
+2. Wikipedia
+
+Total [10]: 10

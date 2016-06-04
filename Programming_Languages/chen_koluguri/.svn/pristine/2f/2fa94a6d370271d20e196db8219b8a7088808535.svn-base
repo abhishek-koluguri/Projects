@@ -1,0 +1,7 @@
+max = 100
+
+is an expression or a statement in Ruby? Explain.
+
+
+max = 100 is an expression. It returns the value of 'max' (that is 100)
+Because in Ruby everything is an expression. For example .each on an array also return something.

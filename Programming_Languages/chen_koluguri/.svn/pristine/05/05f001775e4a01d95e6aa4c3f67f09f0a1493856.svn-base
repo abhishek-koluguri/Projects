@@ -1,0 +1,60 @@
+What is metaprogramming? Give examples in a language of your choice and explain their benefits.
+
+Metaprogramming is where you write code or programs that write other code or programs. In meta programming the program which we write is designed to read, analyze other programs and also modify itself if necessary during the runtime. It is extremely powerful and helps us to insert behaviour dynamically as stated above. Some metaprogramming code does not exist until you call for it.
+
+The language which provides the ability to meta program is called meta language and the program which is manipulated is called object languge.
+Examples of Meta Languages: Groovy, Ruby etc.
+Examples of Object languages: DSL(domain specific language), XML ect.
+
+One way to achieve this is Code Injection. 
+
+Groovy:
+
+    str = "hello"
+    println str
+    println str.class
+
+    String.metaClass.shout = { ->
+        delegate.toUpperCase()
+    }
+
+    println str.shout()
+
+We added a shout method to the string class which returns a toUpperCase(). 
+
+Another way to achieve this is DSL or Domain Specific Language.
+
+Groovy:
+    
+    class Pizza {
+      def layers = [:]
+      def baking = false;
+      
+      def and(closure) {
+        with(closure)
+        this
+      }
+      
+      def getBake() {
+        baking = true;
+      }
+      
+      def methodMissing(String name, args) {
+        layers[name] = args
+      }
+      
+      def propertyMissing(String name) {
+        name
+      }
+    }
+
+    def create(klass) {
+      klass.newInstance()
+    }
+    
+DSL:
+     create Pizza and {
+        cheese chedder
+        sauce tomato
+        bake
+     }

@@ -1,0 +1,16 @@
+Assignment 2: Due 11:59PM October 2nd
+
+Use a statically typed language and a dynamically typed language that natively supports (not an extension) tail recursion
+for all the problems below. You may want to start with one problem, solve it, ask for reviews, and complete, before moving
+to the next problem. Provide automated build script to run the tests.
+
+The Fibonacci series is defined as 1, 1, 2, 3, 5, 8, 13, 26,... where a value at a position is defined as the sum of values at
+previous two position. The values at position 0 and 1 are 1.
+
+Given a position n (assume n >= 0), create functions that return the series using
+
+1. a regular recursion
+
+2. a tail recursion
+
+Total [100]: 100

@@ -1,0 +1,3 @@
+Factors: The factors of a number are all the numbers that can fully divide the given number. For example, 1, 2, 4, and 8 are factors of 8. Given a list of numbers, for example [2, 5, 7, 8, 12, 18, 15], write a function that takes the list as its parameter and returns a list of factors for all numbers in the given list. The result is a union of the factors for all the numbers in the parameter list. For example, if the input list was [2, 6], the result would be [1, 2, 3, 6]. Write your code in a statically typed language and honor total immutability. Keep the code highly concise.
+
+-3 use flat_map

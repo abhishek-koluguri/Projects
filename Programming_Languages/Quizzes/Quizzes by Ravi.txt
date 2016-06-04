@@ -1,0 +1,253 @@
+Quiz 10:
+
+Question:
+Among the languages seen in this course. In each of the languages is there a way to make a member of a class private so that another instance of the class cannot access it?
+
+Answer:
+
+-------------------
+In Scala we can use private[this] def pressure = 25 instead of private var pressure = 25
+class Car {
+  private[this] def pressure = 25
+  def tow(anotherCar: Car, distance: Int) {
+    if (pressure < 28) {
+      println("low on pressure!!")
+    }
+    if (anotherCar.pressure < 28) { // compilation error here
+      println("low on pressure!!")
+    }
+  }
+}
+---------------------
+In F# if we use let instead of private then we can achieve this. (If we use pressure1 instead of pressure in tow then we can access it)
+type Car(name : string) =
+    let mutable pressure = 25
+    member private x.pressure1 = 25
+    member x.Tow(anotherCar: Car,distance: int) = 
+        if(pressure<25) then 
+                printfn "low on pressure!!"
+        if(anotherCar.pressure <25) then   // compilation error here
+               printfn "low on pressure!!"
+
+-----------------------
+
+Clojure provides private version of defn as defn-, but if we want be make a def to private then we can do something like this.
+(def ^{:private true} some-var :value)
+
+
+===========================================================================================================
+Quiz 9: 
+
+Question: What is the sort algorithm implemented in sorting the elements of a list shown in the erlang class.
+
+Answer:  It is a quick sort.
+
+Quick sort first divides a array into two sub arrays, and then sort the sub-arrays recursively.
+This is what we are doing in the example shown.
+
+===========================================================================================================
+
+Quiz 8:
+
+Question:
+import java.util.ArrayList;
+import java.util.List;
+class Animal {}
+class Dog extends Animal {}
+public class Sample {
+  public static void playWithAnimal(List<Animal> animals) {}
+  public static void copy(List<Animal> animalsSrc, List<Animal> animalsDesc) {}
+  public static void main(String[] args) {
+    playWithAnimal(new ArrayList<Animal>());
+    copy(new ArrayList<Animal>(),new ArrayList<Animal>());
+    copy(new ArrayList<Dog>(),new ArrayList<Dog>()); // you cannot do this why ?
+  }
+}
+You cannot treat a list of dogs as derived class of list of animals in Java..
+What design principle will be violated if this is allowed ?
+
+Answer:
+It would violate the PECS (Producer Extends, Consumer Super) principle:
+The collection that produces should be made covariant and the collection that consumes should be contra variant.
+To make both of the copy call's work we need to change the copy method to something like this:
+public static void copy(List<? extends Animal> animalsSrc, List<? extends Animal> animalsDesc) {}
+? extends reintroduces covariant subtyping for generic types: Dog is a subtype of Animal and List<Dog> is a subtype of List<? extends Animal>
+
+So,
+
+Failing PECS means failing to obey Open-Close design principle which says software entities should be open for extension but closed for modification. 
+===========================================================================================================
+Quiz 7:
+
+Question: Name two languages which provide you traits or mixins.
+The languages you mention does not include ruby, Scala and groovy
+
+Answer:
+PHP supports traits:
+
+This is how an example looks like,
+<?php
+class Base {
+    public function sayHello() {
+        echo 'Hello ';
+    }
+}
+
+trait SayWorld {
+    public function sayHello() {
+        parent::sayHello();
+        echo 'World!';
+    }
+}
+
+class MyHelloWorld extends Base {
+    use SayWorld;
+}
+
+$o = new MyHelloWorld();
+$o->sayHello();
+?>
+
+Python supports mixins:
+
+This is how the syntax looks like,
+from somewhere import Mixin1, Mixin2
+class MyClass(BaseClass, Mixin1, Mixin2)
+    pass
+
+JavaScript supports mixins.
+===========================================================================================================
+Quiz 6
+
+Question:
+How well does tail recursions works in Scala ( any limitations ) ?
+Name 3 languages that support tail recursions and 3 that doesn't support tail recursion.
+
+Answer:
+
+Recursion is essential part of programming, but in factorial example we saw that if each call allocates a stack frame then too much recursion will lead to a stack overflow exception.
+
+Few languages especially functional languages eliminates this through a process call tail recursion (tail call) optimization. Since Scala runs on JVM, and JVM doesn't perform this optimization we have this limitation in Scala.
+
+What's tail call optimization?
+With any tail call, the function call can be turned into a goto. The compiler/interpreter can eliminate the manual effort of setting up of the stack before the function call and restoring it afterwards. It in turn does this for us.
+
+It's not a bug in JVM, it's an optimization that can be implemented. Since java is not a functional language may be this optimization is not in their priority list. Therefore it requires programers to optimize the tail calls on their own for time being.
+
+Tail recursions is supported in Haskell, Erlang, Lisp, F#
+It is not supported in Python, C#, PHP, Java
+
+===========================================================================================================
+Quiz 5 : 
+Question: Implement max function in closure
+
+Answer:
+
+(defn maximum [x y]
+	(if (> x y) x y)
+)
+
+(println (reduce maximum [3 2 0 5 4]))
+===========================================================================================================
+Quiz 4 
+
+Question:
+Go back to some of the assignments and home works done so far, examine them and find out if you are using applicative orders and normal orders anywhere ? Point out them if any.
+
+Answer:
+
+We are into middle of assignment work and no home works are given as of now. So i found it difficult of find multiple examples.
+Listed below are the observations from the fibonacci assignment.
+
+Eg: 1
+Java is call by value and it comes under strict evaluation and is equivalent to applicative order taught in the class.
+If we do something like 
+listOfNumbers.add(listOfNumbers.get(i - 2) + listOfNumbers.get(i - 3)); 
+in the fibonacci series the 
++ operation is evaluated first and then the added number is passed on to add function.
+and such operations or ruby are also applicative order.
+
+Eg 2:
+def fibonacciImmutabilty(position: Int) = {
+
+lazy val listOfNumbers: Stream[Int] = 1 #:: listOfNumbers.scanLeft(1)(_ + _)
+
+listOfNumbers.take(position).toList.to[ListBuffer]
+
+}
+
+Even though scala is call by value the it can do call by need with lazy val. val is executed when it is actually first called.
+that is when listOfNumbers.take is called then it is evaluated if listOfNumbers is not used then it wont be evaluated at all.
+Haskel and R follow call by need strategy.
+Eg 3:
+
+Some case conditions and if -else follow normal order.
+
+from fibonacci in ruby if we have something like.
+
+case i
+
+    when 1..2
+
+      listOfNumbers.push(1)
+
+    else
+
+      listOfNumbers.push(listOfNumbers.at(i - 2) + listOfNumbers.at(i - 3))
+
+ end
+
+if i is 1 or 2, the code highlighted in bold is never executed.
+
+
+Apart from these:
+
+I have read further and there is much broader level of classification in evaluation strategy and programming languages can also be said to be following a strategy or mixed strategy in few cases.
+Its quite a long list but the strategy of top level is followed with few variations in the child level strategies.
+
+Strict Evaluation:
+  Applicative Order
+  Call by value
+  Call by reference
+  Call by sharing
+
+Non Strict evaluation:
+  Normal Order
+  Call by name
+  Call by need
+
+Non deterministic strategies
+  Call by future
+  Optimistic evaluation
+
+And many more.
+===========================================================================================================
+Quiz 3
+
+Groovy: People say it is optional typing, it supports both static and dynamic typing. but its static typing is weak and it is more towards dynamic typing. It certainly is a strongly typed language.
+
+Like groovy the languages mentioned below are not optionally typed, so they fall in any one of the four categories.
+
+Strong and Dynamic Typed: Ruby, Python, Erlang, Clojure
+
+Strong and Static Typed: Scala, Haskell
+
+Weak and Dynamic Typed: JavaScript, PHP, Perl
+
+Weak and Static Typed: C
+===========================================================================================================
+Quiz 2
+Answer: Automatic Garbage Collection.
+
+Reason: When programming with immutable objects, we don’t change state of object once it is created. If we want to change an object we need to create a new object with the required changes. Here we need to delete old unused objects. It is hard for programmer to remember and write code to delete all these unused objects at right place and even he/she write the code, it becomes ‘ceremony’. The automatic GC is important to identify unused objects and deleting them from memory without writing any code in the program.
+===========================================================================================================
+
+Quiz1:
+
+Scala val is equivalent to Readonly in c#.
+
+Because In Scala val means an immutable object(Meaning which can only be changed through the constructor i.e by creating a new object  ).
+
+In c# const variables are where which are to be initialized during the declaration and there is no other way of setting value to them. So once set the value cannot be changed even through a constructor.(That is creation of a new object).
+
+readonly in c# is something similar to val in Scala where we can change the value after setting it, through the constructor (Technically we are not changing the value but creating a new instance of the variable. The original instance remains unchanged)

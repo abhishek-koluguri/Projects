@@ -1,0 +1,32 @@
+What is REPL? How is it useful?
+
+REPL is Read-Evaluate-Print-Loop, is an interactive environment which evaluates given expressions and return the result of each expression.
+Read — accepts an expression and parses it into a data structure of a memory.
+eval — takes the internal data structure and evaluates it.
+print — takes the result of the evaluation and prints the data.
+loop — it goes back to the read state and is ready to accepts more expressions.
+
+REPL helps in debugging, as stated it gives us the evaluation of each expression in the code.
+It will be very helpful when a person is trying to learn a new language.
+
+Examples of languages which have their own repel Ruby, Scala, Python.
+
+Give an example REPL session in a language of your choice (copy and paste below your REPL session from the command line).
+
+The below shows an example repo session in ruby
+
+irb(main):009:0> puts "hello"
+hello
+=> nil
+irb(main):010:0> puts "I'm adding two numbers"
+I'm adding two numbers
+=> nil
+irb(main):011:0> 2+3
+=> 5
+irb(main):012:0> puts "concatenating two strings"
+concatenating two strings
+=> nil
+irb(main):013:0> "abhi"+"yi"
+=> "abhiyi"
+irb(main):014:0>
+

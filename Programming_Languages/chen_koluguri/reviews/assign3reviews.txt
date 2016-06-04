@@ -1,0 +1,58 @@
+[Venkat 10/29/15 06:35 AM MDT]
+review: found code without tests
+
+Write test and minimum code to make the tests pass. Each test should 
+being in one line of dsl at a time.
+
+------------------------------------------------------------------------------
+[Venkat 10/28/15 07:12 AM MDT]
+review: is this syntax feasible in this language?
+
+Move forward and see if this is feasible, otherwise change the syntax while
+keeping it fluent.
+
+------------------------------------------------------------------------------
+[Venkat 10/27/15 06:47 AM MDT]
+review: fix and move forward
+
+Fix and move forward to a statically typed language.
+
+------------------------------------------------------------------------------
+[Venkat 10/25/15 08:53 AM CET]
+review: move forward
+
+Move forward to the next step, next test should include one more line
+
+------------------------------------------------------------------------------
+[Venkat 10/24/15 14:11 PM CEST]
+review: keep code in test consistent with what the dsl.txt says
+
+Remove extra things in test that is not in the dsl.txt sample.
+
+------------------------------------------------------------------------------
+[Venkat 10/24/15 02:27 AM CEST]
+review: start by using actual code without strings
+
+see suggestions in code and in dsl.txt
+
+------------------------------------------------------------------------------
+[Venkat 10/22/15 06:31 AM CEST]
+review: let's revisit the dsl
+
+dsl.txt: We need a context that sauce is being added to the given
+pizza. See suggestion in dsl.
+
+If that makes sense, delete all code and start writing test. Hard code parts
+of the dsl in the text (don't parse files, no main) and write minimum code
+to make the tests pass.
+
+------------------------------------------------------------------------------
+[Venkat 10/21/15 06:26 AM CEST]
+review: let's think about where we want to go
+
+Edit the dsl.txt file to create the syntax we want to design for.
+Once we have an idea of where we're going, we can start working on the
+tests to get there.
+
+------------------------------------------------------------------------------
+Groovy

@@ -1,0 +1,62 @@
+We discussed C#, Clojure, Erlang, F#, Groovy, Haskell, Java, Ruby, Scala, and JavaScript in this course. What are some of the ways in which you would classify these languages (there is more than one way). Explain each classification and group these languages appropriately in each classification.
+
+We can classify the language based on the typing.
+
+Static typed languages are those which verify the type information of entities (variables, objects) at compile-time.
+    Scala
+    Java
+    C#
+    Haskell
+    F#
+
+
+Dynamic typed languages may or may not have compiler so they cannot verify the type information at compile-time.
+    Ruby
+    Clojure
+    JavaScript
+    Erlang
+
+Optionally Typed: 
+    Groovy
+        Optionally typed because it verifies type information at runtime, but is lenient.
+
+
+
+
+
+
+
+Strongly typed languages are languages that have type checking at runtime.
+    Haskell
+    C#
+    Ruby
+    Scala
+    Java
+    Groovy
+    Erlang
+    Clojure
+    F#
+
+Weakly typed languages are languages that do not have type checking at runtime.
+    JavaScript
+
+----------------
+
+Languages can be classified as purely functional or hybrid languages.
+
+Some languages which support imperative and functional concepts are hybrid language. These functions mostly have mutation and immutation is only an added feature. These languages also support higher order functions and closures.
+
+    Java
+    Scala
+    C#
+    Ruby
+    JavaScript
+    F#
+    Groovy
+    
+    Erlang
+        Almost a functional language
+
+Languages that support only functional concepts are a purely functional language. This usually means no mutation and functions are first class citizens.
+    Haskell
+    Clojure

@@ -1,0 +1,11 @@
+Create a sample of the dsl syntax here. A sample is given in assign3.txt, but tailor that to the
+language on hand here. Once we have a sample that is fluent and nice to see, we can start
+designing that. The syntax here should be something the language can support and at the same time be
+fluent.
+
+create pizza and {
+   sauce tomato
+   cheese cheddar
+   topping pepperoni, jalapeno
+   bake
+}

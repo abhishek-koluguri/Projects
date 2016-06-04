@@ -1,0 +1,18 @@
+1) Download rebar
+
+    Building rebar
+
+    $ git clone git://github.com/rebar/rebar.git
+    $ cd rebar
+    $ ./bootstrap
+    Recompile: src/getopt
+    ...
+    Recompile: src/rebar_utils
+    ==> rebar (compile)
+    Congratulations! You now have a self-contained script called "rebar" in
+    your current working directory. Place this script anywhere in your path
+    and you can use rebar to build OTP-compliant apps.
+    
+2) Add rebar to your bin.
+
+3) rebar eunit #Run this command in command line in this folder.

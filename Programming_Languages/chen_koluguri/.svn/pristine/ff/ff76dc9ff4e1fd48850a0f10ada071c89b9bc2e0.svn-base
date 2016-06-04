@@ -1,0 +1,11 @@
+This code is not in any specific language; it's a pseudo-code.
+
+values = [1, 2, 3]
+factor = 4
+values.foreach { e -> print(e * factor) }
+factor = 7
+
+Is the lambda expression / closure passed to foreach a pure function?
+Explain, giving reason for your observation.
+
+If a function reads or writes, from a file, console, etc., this is considered to be a side effect. A pure function has no side effects. Print is a side effect therefore the above lambda expression / closure is not a pure function.

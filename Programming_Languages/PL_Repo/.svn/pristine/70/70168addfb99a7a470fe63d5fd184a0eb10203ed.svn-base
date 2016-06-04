@@ -1,0 +1,37 @@
+Statement: "A statically typed language is one in which the programmer has to specify 
+the full type details for every variable at compile time."
+
+What's your view of that statement—discuss, and provide examples to support your discussion.
+Keep your answer in this file.
+
+The statement is correct, for statically typed languages, you must declare before each variable name which type it is. If you don’t it will have a compilation error at compile time.
+
+public class HelloWorld {
+     public static void main(String []args) {
+        name1 = "name1";
+        String name2 = "name2";
+        
+        System.out.println(name1);
+        System.out.println(name2);
+     }
+}
+
+This would return a cannot find symbol in name1 = “name1”; because I did not specify a type. In a dynamic language, it would have inferred that name1 was a string unlike a statically typed language where I must specify the type of the variable before hand.
+
+Another situation would be giving a function that requires an int for an argument an invalid type.
+
+public class HelloWorld{
+     public static void main(String []args) {
+        int name1 = 1;
+        String name2 = "name2";
+        
+        giveMeAString(name1);
+        giveMeAString(name2);
+     }
+     
+     public void giveMeAString(String test) {
+         System.out.println(test);
+     }
+}
+
+This would give me an error at compile time saying “method giveMeAString in class HelloWorld cannot be applied to given types, required: String found: int. At compile time, it checked that the types did not match and gave me an error.

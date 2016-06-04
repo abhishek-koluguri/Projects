@@ -1,0 +1,21 @@
+How does Clojure support infinite sequences?
+
+Answer: Sequences are powerful in clojure, these are immutable. Sequences can be infinite in length and we can work around with them easily in clojure, it allows us to take a part of collection and deal with it.
+
+Infinite sequences are supported by clojure with the help of lazy-seq(). lazy-seq() will provide an option to postpone the evaluation until the demand, and take will demand as many results as we specify.
+
+Example:
+
+(defn fact
+    ([]
+        (concat [1]) (fact1 2)))
+        ([p n]
+            (let [prod (* p n)]
+            (let [nextValue (+ n 1)]
+            (lazy-seq
+                (cons prod (fact prod nextValue)))))
+        )
+    )
+)
+
+(println (take 5 (fact)))

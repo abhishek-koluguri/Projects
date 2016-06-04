@@ -1,0 +1,20 @@
+Given a function sort (not in any particular language)
+
+sort(list) {
+  if (list.isEmpty) 
+     return [] 
+  else {
+    pivot = list.head
+    tail = list.tail
+
+    return sort(tail.filter { e => e < pivot } ++ 
+      pivot ++ 
+      sort(tail.filter { e => e >= pivot}))
+  }
+}
+
+In the above sample pseudocode ++ means concatenate a list with an element or another list.
+
+First implement the above recursive solution in a functional or hybrid functional language of your choice. Then, show another tail recursive (tail call optimized) implementation (don't implement a different sorting algorithm, simply turn the recursive solution into a tail recursion).
+
+Keep the two versions of your code in two separate files with proper extensions.

@@ -1,0 +1,6 @@
+What is normal order? Give a working example to illustrate this in a language of your choice.
+Discuss here, but put the code in a separate file with proper extension. Ensure the code works.
+
+Normal order is an evaluation strategy in which first the function is called and then the operators and parameters are evaluated when required.
+
+In the program provided, the statement 'number += 2' is never evaluated if the statement 'if(number % 2 == 0)' is not true.

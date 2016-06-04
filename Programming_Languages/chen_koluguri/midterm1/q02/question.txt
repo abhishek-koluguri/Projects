@@ -1,0 +1,7 @@
+What is applicative order? Give a working example to illustrate this in a language of your choice.
+Discuss here, but put the code in a separate file with proper extension. Ensure the code works.
+
+Applicative order is an evaluation strategy in which first evaluation of operators and parameters is done 
+and then the function call is made.
+
+In the program provided, the 'return a+b' returns the value to the function only after evaluating the expression.

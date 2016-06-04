@@ -1,0 +1,1 @@
+A purely functional language does not permit functions with side-effects. However, a realistic program cannot survive without side-effects. What do pure-functional languages do to get around these concerns? Explain.

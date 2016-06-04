@@ -1,0 +1,111 @@
+1. What is equivalent of 'val' of Scala in C#, just as 'final' in java?
+   
+   The equivalent of 'val' of Scala in C# is 'readonly'.
+------------------------------------------------------------------------------------------------------------------------
+2. It would be difficult to implement immutability without ?
+   
+   Automatic Garbage Collection 
+   because to achieve immutability, we create new objects from time to time without changing the value of the old objects.
+   It would not be a good idea to write code in each and every program to delete these unused objects everytime once 
+   they are done with their purpose. With the automatic garbage collection, it identifies the unused objects and deletes them for us.
+------------------------------------------------------------------------------------------------------------------------
+3. Select seven languages and mention their classifications based on static, dynamic, strong, weak.
+
+   	Scala - Static and strong typed
+   	Haskell - Static and strong typed
+   	Ruby - Dynamic and strong typed
+   	Python - Dynamic and strong typed
+   	Erlang - Dynamic and strong typed
+   	Closure - Dynamic and strong typed
+   	Perl - Dynamic and weak typed
+   	JavaScript - Dynamic and weak typed
+   	PHP - Dynamic and weak typed
+ -----------------------------------------------------------------------------------------------------------------------
+4. Go back to your previous works and observe whether you are using applicative order or normal order?
+   In our assignment, we used applicative order as follows.
+Consider, return number > 0 && (sumOfFactors(number) == number * 2);
+Here, the expression is evaluated first and then the result of the evaluation is returned.
+
+We have used normal order as follows.
+Consider,  if(number % i == 0) sum += i;
+Here, sum += i; is never evaluated if number % i == 0 is not true.
+   
+========================================================================
+5. Implement 'max of numbers' in clojure.
+   
+   (defn maximum [x y]
+   (if (> x y) x y)
+   )
+
+   (println (reduce maximum [1 0 8 6 2]))
+
+========================================================================
+6. (1). How well does tail recursion works in Scala?
+   
+   Scala runs on JVM, and JVM doesn't perform this optimization, Scala doesn't have full Tail Call Optimization, 
+   it only has limited form of tail recursion optimization.
+
+(2). Name at least three languages that support Tail recursion and three languages that don't.
+
+   The languages that support tail recursions: Haskell, Erlang, F#, Scheme
+   
+   The languages that don't support tail recursions: Java, C#, Python, PHP , Clojure, Ruby
+========================================================================
+
+Quiz 7:
+
+Question: Name two languages which provide you traits or mixins.
+The languages you mention does not include ruby, Scala and groovy
+
+The languages that support traits or mixins are Python, PHP, JavaScript.
+========================================================================
+
+Quiz 8:
+
+Question:
+import java.util.ArrayList;
+import java.util.List;
+class Animal {}
+class Dog extends Animal {}
+public class Sample {
+  public static void playWithAnimal(List<Animal> animals) {}
+  public static void copy(List<Animal> animalsSrc, List<Animal> animalsDesc) {}
+  public static void main(String[] args) {
+    playWithAnimal(new ArrayList<Animal>());
+    copy(new ArrayList<Animal>(),new ArrayList<Animal>());
+    copy(new ArrayList<Dog>(),new ArrayList<Dog>()); // you cannot do this why ?
+  }
+}
+You cannot treat a list of dogs as derived class of list of animals in Java..
+What design principle will be violated if this is allowed ?
+
+Answer:
+
+Using Dogs in place of Animals would violate Liskov's Substitution Principle because such an usage could modify the class invariants of Animals.
+========================================================================
+
+Quiz: 9
+
+Question: What is the sort algorithm implemented in sorting the elements of a list shown in the erlang class.
+
+Answer: Quick sort algorithm was used.
+========================================================================
+
+In Scala we can use private[this] def pressure = 25 instead of private var pressure = 25
+
+
+Clojure provides private version of defn as defn-, but if we want be make a def to private then we can do something like this.
+(def ^{:private true} some-var :value)
+
+
+In F# if we use let instead of private then we can achieve this. (If we use pressure1 instead of pressure in tow then we can access it)
+type Car(name : string) =
+    let mutable pressure = 25
+    member private x.pressure1 = 25
+    member x.Tow(anotherCar: Car,distance: int) = 
+        if(pressure<25) then 
+                printfn "low on pressure!!"
+        if(anotherCar.pressure <25) then   // compilation error here
+               printfn "low on pressure!!"
+
+-----------------------

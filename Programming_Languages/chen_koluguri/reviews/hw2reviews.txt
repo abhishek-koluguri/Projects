@@ -1,0 +1,15 @@
+[Venkat 10/12/15 13:06 PM CEST]
+review: you're done
+
+One final change, see suggestion. You're done.
+
+------------------------------------------------------------------------------
+[Venkat 10/11/15 06:51 AM MDT]
+review: good work so far
+
+nice examples. Look for more.
+
+Stay with the example, so what can we do with that example using 
+referential transparency?
+
+------------------------------------------------------------------------------

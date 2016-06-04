@@ -1,0 +1,67 @@
+Homework 4: Due 11:59PM December 04
+
+**There will no reviews for this Homework**
+
+Feel free to give answers collectively, and also if you want to, you can call 
+out something specific to yourself different from your pair.
+
+(a) What languages did you use in this course? 
+
+Java, Scala, Ruby, Groovy, Erlang
+
+(b) Which one of those you used for the first time?
+
+Yi: Scala, Groovy, Erlang
+Abhi: Scala, Ruby, Groovy, Erlang
+
+(c) What are your impressions about all the languages that you used (compare
+and contrast in your view)?
+
+It was interesting to use a lot of different languages because most of the
+courses we have taken in the past use the traditional C/C++ or Java.
+
+Java : We had to write a lot of code where as Scala, Ruby, Groovy, Erlang 
+were much more fluent and expressive and we had to write much less code
+for implementing the same functionality.
+
+Scala : We used Scala in most of our assignments. We felt Scala has good expressiveness, 
+fluency which helped us in writing less code to implement a functionality.
+We observed that Scala is syntactically influenced by Java.  
+
+Groovy: We observed that Groovy is also syntactically influenced by Java but
+semantically influenced by Ruby.
+In short, we felt that Scala and Groovy were improved in such a way that they
+had better solutions for the problems we faced earlier in Java. We found Scala 
+and Groovy to be similar in many ways.(syntax-wise, the way they dealt some of the problems)
+
+Ruby : Ruby is a dynamic language which is highly expressive as well. Even though, we were not 
+that familiar with Ruby, it was easy to pick up its syntax because of its expressiveness.  
+
+Erlang: Erlang was completely new to us. In fact, we barely heard its name
+before this course started. It took us time to learn, but once we got to know it, 
+we were able to feel its powerful features like actor system etc.
+
+(d) What did you learn mostly in this course (I'm interested in hearing
+your views, things you realized, things you found interesting, things
+you did not like so much about any particular language, etc.)?
+
+In this course, we learned how different languages implement different features. 
+This will help us to choose which language to choose for a specific task.
+In our observation, the languages we used are similar in terms of what they can do. 
+That is, each language is providing almost all the features the other 
+languages are providing. But they differ in their style of 
+implementation of those features. 
+
+We realized that efforts are being made to extend a language to improve its capabilities.
+For instance, Java didn't support functional style in its earlier versions but it was extended 
+to support it in the recent versions.
+
+We were intrigued by the concept of languages creating more fluent languages(DSLs).
+We liked the intelligence of Haskell to figure what we want.
+Example : let list = [1, 4..10] // output: 1, 4, 7, 10
+
+We didn't like that, in Java, we had to code a lot for 
+obtaining a functionality where as the same functionality could be obtained 
+in more elegant way in languages like Scala, Ruby. 
+We didn't like the parenthesis notation for each and every line of code in Clojure. 
+It seemed like ceremony.

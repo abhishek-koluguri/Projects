@@ -1,0 +1,14 @@
+What's the difference between a function value/lambdas and a closure? Give examples of both.
+
+A function value/lambda is just an function with no name (anonymous function)
+
+Example:
+
+{|e| e - 1} // function value
+
+A closure is any function which closes over the variables in the scope where the function is defined.
+
+Example: 
+
+total=0
+{|e| total += e} // this is a closure because total has to be bounded or closed over to a variable outside the scope.

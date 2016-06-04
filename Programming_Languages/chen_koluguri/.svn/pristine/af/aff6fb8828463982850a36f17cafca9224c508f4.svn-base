@@ -1,0 +1,10 @@
+q01 [10]: -10, not true. Languages like Haskell, F#, Scala,... are statically typed but use type inference.
+q02 [10]:
+q03 [10]: -5 the example does not illustrate the normal order.
+q04 [10]:
+q05 [10]:
+q06 [10]: -5
+q07 [10]: (for tail rec pass 1 instead of 0 and * instead of +)
+q08 [10]: (mutating from a closure is a bad idea, avoid that)
+q09 [10]:
+q10 [10]:

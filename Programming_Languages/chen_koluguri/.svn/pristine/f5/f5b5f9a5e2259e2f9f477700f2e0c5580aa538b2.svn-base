@@ -1,0 +1,19 @@
+def fibonacci(position):
+    if(position == 0 or position == 1):
+        return 1
+    else:
+        return fibonacci(position - 1) + fibonacci(position - 2)
+
+cache = {0:1, 1:1} 
+
+def fibonacciMemo(position):
+    val = cache.get(position)
+    if val:
+        return val
+    else:
+        val = fibonacci(position - 1) + fibonacci(position - 2)
+        cache[position] = val
+        return val
+
+print fibonacci(6)
+print fibonacciMemo(6)

@@ -1,0 +1,29 @@
+//Give this JavaScript code:
+
+var data = { 
+  steps: 0,
+  walk: function(steps) {
+    this.steps += steps;
+  }  
+}
+
+var Person = function() {}
+Person.prototype = data;
+
+var tom = new Person();
+var jerry = new Person();
+
+console.log(tom.__proto__ === jerry.__proto__); // true
+
+console.log(tom.steps); // 0
+console.log(jerry.steps); // 0
+
+tom.walk(10);
+
+console.log(tom.steps); // 10
+console.log(jerry.steps); // 0
+
+//The first console.log shows that both the objects, tom and jerry,
+//share the prototype. The values for steps for each are the same as well,
+//initially. But, when the walk function sets the steps, it changed only for
+//the object tom and not for the object jerry. Why is that? Explain.

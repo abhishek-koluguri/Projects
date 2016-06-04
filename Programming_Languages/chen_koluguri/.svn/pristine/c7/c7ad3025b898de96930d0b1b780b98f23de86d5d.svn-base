@@ -1,0 +1,21 @@
+Assignment 4: Due 11:59PM November 13
+
+A company buys rods of different lengths in wholesale and sells them in pieces of different lengths.
+Write programs, in two different languages, that will take a list of prices for different lengths, and
+the total length. The programs will print all possible cuts for the given length that will yield 
+maximum profit. Also print the maximum profit value.
+
+For example, given a rod of length 4" and prices for different lengths:
+1" - $1
+2" - $4
+3" - $4
+4" - $5
+
+The following are the cuts for maximum profit of $8: (2 2)
+In general, there could be more than one possible combination of cuts.
+
+Terms that you will run into are dynamic programming, optimization problem, etc. Some details here:
+<https://en.wikipedia.org/wiki/Cutting_stock_problem>. To solve this, you would want to find the max of max.
+
+Write the program in a statically typed language and in a dynamically typed language. Honor total immutability.
+Create build file, create in increments, with test first development.

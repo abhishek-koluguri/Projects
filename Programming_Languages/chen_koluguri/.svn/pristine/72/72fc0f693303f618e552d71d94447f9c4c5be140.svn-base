@@ -1,0 +1,42 @@
+Assignment 3: Due 11:59PM October 30
+
+We're going to design and implement a DSL—Domain Specific Language in this assignment.
+The syntax for the DSL will be influenced by the languages we use.
+
+Design a DSL in two different languages, one statically typed and the other dynamically typed.
+
+The DSL will be used to make a Pizza object. The syntax has to be highly fluent (not feel like code),
+have less noise, read more like English. The syntax will vary depending on the capability of the 
+languages used, but here's one example:
+
+create Pizza
+  spread sauce
+  spread cheese
+  toppings onions, jalapenos, green_pepper
+  spread cheese
+  bake
+
+Running this code should print the details of the pizza that was created: what's in each layer (sauce, cheese, toppings names, and cheese).
+
+You could have variations to the pizza being made, for example, add other toppings. Try out a couple of 
+different examples in your tests.
+
+Create build files and write code in increments after writing test first. Ask for frequent reviews, 
+start with one language first, get that done before switching to the next language.
+
+Total [100]: 75
+Language 1:
+DSL is fluent [15]:
+All tests pass  [10]:
+Code implements the fluent dsl [15]:
+Code quality [10]:
+Language 2:
+DSL is fluent [15]:
+All tests pass  [10]: -10
+Code implements the fluent dsl [15]: -15
+Code quality [10]:
+
+[ant:scalac] /Users/venkats/agility/svnuh/f15_proglangs/chen_koluguri/assign3/scala/src/main/scala/assign3/Processor.scala:9: error: Pizza is already defined as class Pizza
+[ant:scalac] class Pizza {
+[ant:scalac]       ^
+[ant:scalac] one error found

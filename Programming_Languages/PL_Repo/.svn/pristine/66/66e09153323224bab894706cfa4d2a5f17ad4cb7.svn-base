@@ -1,0 +1,6 @@
+A recursion runs into stack overflow errors for very large values. On the other hand a tail call 
+optimized recursion does not. Why is that?
+
+Whenever you call a function, the arguments and the return address are pushed onto the call stack. Once you run out of space you will hit a stack overflow error. In very high numbers, a normal recursion will cause the call stack to run out of space.
+
+In tail recursion, some languages and compilers can recognize the result being returned is from another instance of the same function. Then they would optimize the recursive call and change it to a jump, which is similar to a normal loop. This wouldn't make new stack frames for each function call therefore you wouldn't cause stack overflows.
