@@ -1,0 +1,55 @@
+Website Review and Considerations
+
+Obinna Ugwuzor
+5/2/2016
+
+Addresses Reviewed:
+student_memberships/index
+- Redirected to sign up if not an admin is nice.
+- Why does text say "The current status of your request is malicious_attempt"? Is this for all the users in demo? If not, which user has authorization to this page?
+
+student_memberships/activation
+- Redirected to sign up if not an admin is nice.
+- Consider this: Once a student membership is activated, the student should be allowed to click a link to the sign up page.
+
+student_memberships/not_auth
+- Redirected to sign up if not an admin is nice.
+- Issue with text: Is it the email id being used or the user's login information?
+- Issue with not_auth: What happens when 
+- Consider this: Whenever a user tries to gain access to an unauthorized part of the website, a notification should be sent to the admin. and/or user. The message should give some information of the attacker.
+
+student_memberships/admin
+- Redirection to sign up if not an admin is nice.
+- Issue with admin: Is the student required to give the name and email of the professor? Is this the only route to getting permission to sign up for Agile Learner?
+
+student_memberships/admin
+- Redirected to sign up if not an admin is nice.
+- A route for the address already exists. Please remove the second one.
+
+discussions/new
+- Why does it have a get and a post action attached to it?
+- GET request gives blank page.
+
+discussions/index
+- Please remove this route. There is no index action in controller to handle this address.
+
+discussions/show
+- GET request gives blank page.
+
+discussions/reply
+- Why is this address needed? It only shows 'reply!' text.
+
+discussions/post_reply
+- Consider this: I get why post_reply and new are different actions, but isn't there a way to manage a new post and reply under one action without affecting readability?
+
+student_memberships/prof_auth
+- This page only shows "hello world.....".
+
+
+Extra comments:
+1. What is the need for two routes to student_memberships/admin? See if we can keep it to one.
+2. Is there a timeout for sign in if user is inactive? If not, it would be nice to consider.
+3. The sign in page needs an overhaul. User should not be allowed to sign in by clicking on a name.
+4. There is no sign up page. Should we not have a sign up page for a demo?
+
+

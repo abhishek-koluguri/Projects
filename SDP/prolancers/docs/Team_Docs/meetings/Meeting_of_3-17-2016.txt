@@ -1,0 +1,8 @@
+Meeting of 3-17-2016
+
+Brought the group up-to-speed.
+Allocated tasks.
+
+Tasks:
+Dawn: Add email field and administrator field in User model.
+Steven, rest of group: Get up to speed about controller testing.

@@ -1,0 +1,39 @@
+Stories:
+1. Discussion Tab
+	
+	Tasks that are to be completed by Sunday 5 PM:
+
+	1. Bring out any discussions related to that presentation only if any.
+	2. Fixing Ajax call for starting a new discussion.
+	3. fixing coverage report
+	4. Adding view field for a discussion so that clicking that will show up all replies to that post (just like google groups).
+
+2. Student membership request and authorization
+    - Active subscribers (they already have a paid or free subscription) can’t request.
+	- To request, they fill in a form:
+		Name of School
+		Web address of school
+		Faculty first name, last name, email of faculty, OR .edu email of student requesting membership
+	- When the complete this step, an email is sent to the faculty asking them to verify the student
+		(a link is sent).OR an email is sent to the student .edu (a link is sent)
+	- Student may view a pending verification request.
+	- Student may cancel a pending verification request.
+	- When faculty visits, ask them for their own URL associated with their university or school.
+	- Thank them and update the status to waiting for approval (student can’t cancel verification at
+		this time). Email admin that a new verification is waiting for approval.
+	- Admin can view all pending and verified requests.
+	- Admin can’t change pending requests.
+	- Admin can view a verified request 
+3. Reward points
+	- User’s profile page shows the points.
+	- Each time they write a review, they get x number of points. The value of x may change over
+		time. The value should be calculated based on the points valid at the time the review is first written.
+	- Each time they pay for a subscription, they get y number of points. Same rules like above.
+	- User can click on the rewards point and will be taken to the rewards page.
+	- The page will display details about what the points are for, how they could earn, and how they could use it.
+	- The user can apply a reward. Display various rewards. For example, they could get a book, a one month subscription, a T-shirt, etc. If it’s a T-shirt or something that requires size, then they should be able to select the size.
+	- When they order a product, reward points should be reduced from their account. If it is nonelectronic item, then they should enter their address for shipping, etc.
+	- Admin is notified by email when a user claims a reward.
+	- Admin can create award items. They can make an award item active (can be used) or 
+4. Sorting with infinite scrolling
+	- Currently the site has infinite scrolling. It does not offer any sorting of data presented. Explore how sorting on various columns can be included with infinite scrolling.

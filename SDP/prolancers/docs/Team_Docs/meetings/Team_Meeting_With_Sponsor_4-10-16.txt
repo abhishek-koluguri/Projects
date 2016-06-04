@@ -1,0 +1,17 @@
+Time: 5:30 p.m
+
+Venkat's recommendations:
+1. Do not commit the test or development db.
+2. Change the presentation title. Do not use titles that make it seem like the user's name.
+3. Have a presentation with no discussions in it.
+4. Structure comments like the review from the website. Favored syntax:
+"Title of new Comment" on Month Day, Year by User.username.
+5. Add functionality to show if user is logged in.
+6. Be consistent with format.
+7. If title is empty or content is empty, have it such that the user cannot click the submit button
+						OR
+Have a warning or flash message prompting the user to fill the valid fields.
+8. Find way to format date.
+
+
+Next demo/meeting is Wednesday, 4-13-16.

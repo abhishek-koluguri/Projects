@@ -1,0 +1,15 @@
+<%= form_tag('/discussions/post_reply', method: 'post', remote: true) do %>
+<p style="font-size:20px"><strong>Your Comment</strong></p>
+<div class= "boxed">
+  <%= hidden_field_tag :presentation_id , "#{@presentation_id}" %>
+  <%= hidden_field_tag :discussion_id , "#{@discussion_id}" %>
+  <%= hidden_field_tag :user_id , "#{session[:user]}" %>
+
+
+<p><label for = "discussion_description">Content</label><br/>
+<%= text_area 'discussion', 'content', size: "50x5",:required => true %></p>
+
+<%= submit_tag "Save" %>
+<%= link_to 'Cancel', {controller: "discussions", action: 'show', id: "#{@presentation_id}"}, class: "buttoned", remote: true%>
+</div>
+<% end -%>

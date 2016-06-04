@@ -1,0 +1,17 @@
+1. show a presentation with zero discussions
+2. click on start a new discussion, the user is not logged in
+3. click on start a new discussion, the user is logged in
+4. check if the client side validations are present for new discussion
+5. add a new discussion
+6. signout
+7. show the same presenation with the disucussion added
+8. click on reply to discussion, the user is not logged in
+9. click on reply to discussion, the user is logegdin
+10. check if client side validations are working
+11. add a new comment
+12. add a fe more and show that they are in the descending order of time of creation
+
+--mailer--
+1. mail goes to the author of the presenation on posting a new discussion, if he is not posting
+2. mail goes to the author of presenation on replying for a discussion, if he is not replying
+3. mail goes to the owner of the presenation on replying to a discussion, if he is not replying

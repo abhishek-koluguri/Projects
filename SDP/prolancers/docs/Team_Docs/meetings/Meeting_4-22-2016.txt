@@ -1,0 +1,19 @@
+Meeting 4-22-2016
+
+- Dawn committed stuff.
+- Abhishek discussed plan of action:
+1. Complete student membership by Sunday.
+
+- Talked about what this class is about.
+- Try to complete two parts well and start working on the 3rd part.
+
+- Abhishek discussed workflow of student membership.
+When student clicks request for student membership, a form is shown.
+When he gets information, he clicks on a button.
+
+- Dawn talked about what Venkat wanted for the student membership.
+- Abhi brought attention to students who graduate and still have an email after
+1 year.
+- Obinna suggested a way of verification.
+
+- Abhi offered to help Dawn with db issue.

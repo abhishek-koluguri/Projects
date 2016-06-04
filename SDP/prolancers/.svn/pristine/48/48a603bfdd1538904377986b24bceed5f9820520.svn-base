@@ -1,0 +1,4 @@
+<%= form_tag('/student_memberships/verify', method: 'post') do %>
+	<p>Your website address: <input type = 'text' name = 'prof_website_address' id = 'prof_website_address' required /></p>
+	<%= submit_tag "Submit" %>
+<% end -%>

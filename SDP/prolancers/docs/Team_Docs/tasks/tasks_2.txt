@@ -1,0 +1,40 @@
+To-do:
+
+index(form):
+
+- for check status: if it is approved, show the expiration date as well
+				  : for prof part, if it is pending, show that it is pending and waiting for validation from his professor (lot of extension is possible for this - let's not consider about it until we are done with every other task) and give the option to re-submit the form. 
+				  : for edu part, if it is pending, let them know that the email couldn't be sent to the specified email address and give the option to re-submit the form 
+				  (For the above 2 tasks, resubmitting the form should update the student's row instead of creating a new one)
+				  : if denied, show the reason as well.
+
+.edu part:
+
+
+
+Prof part: —> Ravi
+- inserting the prof_website_address into the db for that particular student after he submits it and send the admin a request waiting email and also the student that his prof validated him.
+-  When admin approves send the student the approval email.
+
+Common task for both the parts:
+- In the approval email, the expiration date should be provided (expiration date = approved date (after updating the status) + 1 year)
+
+Admin part:
+
+- Admin should be able to see the same page after changing the status (now going to waiting request view)
+- approve and reject buttons have bugs.
+
+Other tasks:
+
+- Coverage —> Abhi
+- Report (most important thing)
+- one user should have only one student_membership request
+- Cancel buttons whereever there is a save or submit button
+- DiscussionsController: show: Refactor, use functional style but avoid mutation. —> Ravi
+
+Done:
+- send email to the student after admin approves his request --> Abhi
+
+- automatically recognize the status of the user and show him the required view on the index page using session[:user] (request or check mebership status) : modification needed : show the radio buttons as well —> Ravi
+
+Note: What if user submits multiple requests? what do we show in status ?

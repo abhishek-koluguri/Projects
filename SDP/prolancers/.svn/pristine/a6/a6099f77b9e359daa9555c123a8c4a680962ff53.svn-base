@@ -1,0 +1,121 @@
+<script type="text/javascript" src="admin.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<p><input type='radio' name = 'status' id='pending' /> Pending     <input type='radio' name = 'status' id='waiting' checked='checked' /> Waiting     <input type='radio' name='status' id='approved'/> Approved     <input type='radio' name='status' id='rejected'/> Rejected</p>
+
+<div id="pending_div" hidden = 'hidden' >
+  <% if @pending.size == 0 %>
+    <p>There are no pending requests!</p>
+  <% else %>
+    <p>There are <strong><%= "#{@pending.size}" %></strong> pending requests.</p>
+    <table border="1">
+      <tr>
+        <td><strong>Student Name</strong></td>
+        <td><strong>School Name</strong></td>
+        <td><strong>School Website Address</strong></td>
+        <td><strong>Professor Name</strong></td>
+        <td><strong>Professor Email</strong></td>
+        <td> <strong>Professor Website Address</strong></td>
+      </tr>
+      <% @pending.each do |student| %>
+        <%= hidden_field_tag :user_id , "#{student.user_id}" %> 
+        <tr>
+          <td><%= student.user.first_name %></td>
+          <td><%= student.school_name %></td>
+          <td><%= student.school_website_address rescue nil %></td>
+          <td><%= student.prof_name %></td>
+          <td><%= student.prof_email %></td>
+          <td><%= link_to {student.prof_website_address} %></td>
+          <td><%= link_to 'Approve', controller:"student_memberships", action: "approve" , user_id: "#{student.user_id}" %></td>
+          <td><%= link_to 'Reject', controller:"student_memberships", action: "showreject" , student_id: "#{student.id}", user_id: "#{student.user_id}", remote: true%></td>
+          <td><div id="reject_request_<%= student.id%>"/></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<div id="waiting_div"  >
+  <% if @waiting.size == 0 %>
+    <p>There are no waiting requests!</p>
+  <% else %>
+    <p>There are <strong><%= "#{@waiting.size}" %></strong> waiting requests.</p>
+    <table border="1">
+      <tr>
+        <td><strong>Student Name</strong></td>
+        <td><strong>School Name</strong></td>
+        <td><strong>School Website Address</strong></td>
+        <td><strong>Professor Name</strong></td>
+        <td><strong>Professor Email</strong></td>
+        <td> <strong>Professor Website Address</strong></td>
+      </tr>
+      <% @waiting.each do |student| %>
+        <%= hidden_field_tag :user_id , "#{student.user_id}" %> 
+        <tr>
+          <td><%= student.user.first_name %></td>
+          <td><%= student.school_name %></td>
+          <td><%= student.school_website_address rescue nil %></td>
+          <td><%= student.prof_name %></td>
+          <td><%= student.prof_email %></td>
+          <td><%= link_to {student.prof_website_address} %></td>
+          <td><%= link_to 'Approve', controller:"student_memberships", action: "approve" , user_id: "#{student.user_id}" %></td>
+          <td><%= link_to 'Reject', controller:"student_memberships", action: "showreject" , student_id: "#{student.id}", user_id: "#{student.user_id}", remote: true%></td>
+          <td><div id="reject_request_<%= student.id%>"/></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
+
+<div id="approved_div" hidden = 'hidden' >
+  <p>There are <strong><%= "#{@approved.size}" %></strong> approved requests.</p>
+  <table border="1">
+      <tr>
+        <td><strong>Student Name</strong></td>
+        <td><strong>School Name</strong></td>
+        <td><strong>School Website Address</strong></td>
+        <td><strong>Professor Name</strong></td>
+        <td><strong>Professor Email</strong></td>
+        <td><strong>Professor Website Address</strong></td>
+      </tr>
+    <% @approved.each do |student| %>
+      <tr>
+        <td><%= student.user.first_name %></td>
+        <td><%= student.school_name %></td>
+        <td><%= student.school_website_address rescue nil %></td>
+        <td><%= student.prof_name %></td>
+        <td><%= student.prof_email %></td>
+        <td><%= link_to {student.prof_website_address} %></td>
+        <td><%= link_to 'Reject', controller:"student_memberships", action: "showreject" , student_id: "#{student.id}", user_id: "#{student.user_id}", remote: true%></td>
+        <td><div id="reject_request_<%= student.id%>"/></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<div id="rejected_div" hidden = 'hidden' >
+  <p>There are <strong><%= "#{@rejected.size}" %></strong> rejected requests.</p>
+  <table border="1">
+      <tr>
+        <td><strong>Student Name</strong></td>
+        <td><strong>School Name</strong></td>
+        <td><strong>School Website Address</strong></td>
+        <td><strong>Professor Name</strong></td>
+        <td><strong>Professor Email</strong></td>
+        <td><strong>Professor Website Address</strong></td>
+        <td><strong>Denial Reason</strong></td>
+      </tr>
+    <% @rejected.each do |student| %>
+      <tr>
+        <td><%= student.user.first_name %></td>
+        <td><%= student.school_name %></td>
+        <td><%= student.school_website_address rescue nil %></td>
+        <td><%= student.prof_name %></td>
+        <td><%= student.prof_email %></td>
+        <td><%= link_to {student.prof_website_address} %></td>
+        <td><%= student.denial_reason %></td>
+        <td><%= link_to 'Approve', controller:"student_memberships", action: "approve" , user_id: "#{student.user_id}" %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  first_name: Robert
+  last_name: John
+  email: sdp.agilelearner@gmail.com
+
+two:
+  first_name: John
+  last_name: Snow
+  email: sdp.agilelearner@gmail.com

@@ -1,0 +1,8 @@
+Goals: To add dummy data to seed.rb file
+
+Issues: Currently if rake db:seed is ran all the current presentations switch from presentations/3(or 4)
+to presentations/5 (and 6) This is because all presentations are delteed at the begining of the seed file.
+
+What needs to be done is add the data without rewriting the old data and increasing the increments of the object in the tables. 
+
+I was using find_or_create_by(), was not successful. More experimenting needed.

@@ -1,0 +1,84 @@
+Bugs:
+
+- redirection to the same page after signing in to a start a new discussion.
+- add more discussions and replies to the presentation, the one which are using for demo
+- 'New discussion posted to your presentation' email : check the content in it. It has mistakes.
+- .edu mailer is sending prof mails to sdp.agilerlearner@gmail instead of the mentioned .edu address. (problem: if @student.prof_email != "")
+- coverage and all the tests possible
+
+========
+Postponed tasks:
+
+- Student Membership Form with validations --> Abhi (postponed for now)
+- Discussions layout like Google groups
+- Membership date on /index page and also mention in the approval email
+- Time constraints for student_membership request (no more than 7 days)
+- the verification process with the signin functionality for prof part (minor addition needed)
+- imposing restriction on the user for watching the video --> Abhi or Ravi
+
+=======
+To-do:
+
+- Nice views required for: prof_auth.html, not_auth.html, verify.html, create.html, activation.html
+- Report (most important thing)
+- one user should have only one student_membership request
+
+==========
+In Progress:
+
+Abhi:
+
+- email to admin for waiting status/ this is after validation. 
+- email to student for approved/denied membership
+
+Braden:
+
+Dawn:
+- email content for mailers
+- Content on all the web-pages
+
+Obi:
+- Manual testing and detecting bugs. 
+- Done!! Please refer to Review and Recommendations text file in docs folder.
+
+Kevin:
+
+Mark:
+
+Ravi:
+
+- DiscussionsController:
+show: Refactor, use functional style but avoid mutation.
+- automatically recognize the status of the user and show him the required view on the index page using session[:user] (request or check mebership status) : modification needed (call Abhi) 
+- Admin should be able to see the same page after changing the status (now going to pending request view)
+- mailer issue: mails not beong sent for .edu address
+
+Steven:
+
+
+==========
+Done:
+-Cancel buttons for discussions and replys --> Steven (now it is a link_to. Functionality works, trying to get it to become a button)
+-Good looking layout for all pages in student_membership tab --> Steven
+- change to 4 types of status -->Steven
+- Add student fixtures to better show demo -->Steven
+- Additional database modifictations-->Steven
+- code coverage --> done by abhi
+- user should not get the email if he is posting the discussions/comment -->done by ravi
+- duplication in discussion-test as per review --> done by abhi
+- discussion can be created if a user is logged in: --> done by abhi
+The body of this test makes no sense. It is checking that the fixture has some data. That is pointless and also that is not what the test name is saying.
+- create discussion should ask user to log in if not already logged in: --> done by abhi
+Need to verify the render template here also.
+- check signed in should render signin/show_sigin when request.format is js: Merge with previous test. --> done by abhi
+- first step of student membership: creating directory structure and a view. --> done by abhi
+- complete student_membership till sending an email to .edu address --> Abhi and Ravi
+- reply id bug (unable to reply with the same user that was logged in) --> Abhi
+- mailer issue -->done by ravi
+- Need tests to verify that mail notification code is being called from the controller. -->done by ravi
+- multiple sigin --> Abhi
+- after sending a link, the verification process with the signin functionality for .edu address (changing the status of the request to Approved) and also fraud detection(changing the status of the request to Malicious). --> Abhi
+- check student's status part --> Abhi
+- Layout of the Discussions : should be like google group discussions-->done by Dawn
+- admin views: able to see status' of requests. --> Abhi
+- Admin model, add text in db for reasons of denied membership --> Abhi

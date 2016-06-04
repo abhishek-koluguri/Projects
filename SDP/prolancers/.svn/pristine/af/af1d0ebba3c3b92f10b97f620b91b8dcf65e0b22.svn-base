@@ -1,0 +1,26 @@
+3-12-16 Team Meeting
+
+Topics to discuss:
+Current exchanges with Professor Venkat.
+
+Model Testing work distribution:
+reply_to_id :Steven
+presentation_id :Braden
+user_id :Kevin
+content :Mark
+title :Dawn
+
+Obinna:
+- Will contact Venkat about title column.
+- Raised questions about tests that we can run for each field.
+- Wait for Prof. Venkat reply.
+- Distribute remaining fields to members.
+
+Braden:
+- Raised issue about title.
+
+Steven:
+- reply_to_id can have dummy data comparison, reply_to_id must check integer.
+- match to see that user_id is equal to active user; make sure user_id is greater than
+0 and is integer.
+- presentation_id will not be unique. Check whether entry will be an integer.

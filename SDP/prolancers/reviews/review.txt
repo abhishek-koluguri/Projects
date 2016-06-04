@@ -1,0 +1,39 @@
+[Venkat 02/28/2016 8:53 PM GMT]
+
+schema:
+We don't need a string for created_by, we would instead need presentation_id and user_id to which this discussion belongs.
+
+What's the purpose of discussion_type, I am not sure if we need this, may be we do?
+
+TestAgile: Remove this, no use
+
+DiscussionTest: Good place for validation tests.
+
+I use a create_required_test_for in the test helper. I have updated the 
+test helper with this test - I left there as commented out. You can uncomment it right before you're ready to use it. To use it, for example in DiscussionTest, you will write something like:
+
+create_required_test_for :user_id, :presentation_id, :title, ...
+replace ... with more required fields.
+
+Right now all the actions in the controller render the respective htm.erb file. Most of these (if not all of these) should be rendering HTML through ajax response. For this, Rails will automatically pull in a .js file if present in the views directory.
+
+For example, here is how the code for creating a new review looks like:
+
+In RatingController (which is used for reviews):
+
+def new_review
+  @rating =  Rating.new(...) #a bit more work here due to some domain specific logic, but in short a new review is created
+end
+
+Then in 
+app/views/rating/new_review.js, the following code exists:
+
+$('#write_feedback').html('<%= escape_javascript(render :partial => 'new_review', :locals => {:rating => @rating }) %>');
+
+where app/views/rating/_new_review.html.erb contains (notice the underscore in file name but not when it is referenced above):
+
+<h3>Your Review</h3>
+<%= form_for :rating, :url => create_review_rating_index_path, :remote => true do |f| %>
+...
+...
+

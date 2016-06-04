@@ -1,0 +1,9 @@
+Hi <%= @student.user.first_name %>!
+
+This email was sent to inform you have been approved for a student membership. 
+
+Happy Learning!
+
+Thank you,
+Agile Learner Team
+http://www.agilelearner.com

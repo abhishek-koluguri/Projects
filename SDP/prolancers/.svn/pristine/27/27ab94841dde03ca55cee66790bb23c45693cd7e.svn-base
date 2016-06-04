@@ -1,0 +1,30 @@
+student_membership (model)
+name_of_school
+school_website
+professor_name	(if the student chooses this option)
+professor_email
+professor_url	(this will be a response from the professor)
+student_edu	(if the student chooses this option)
+status	(enumerated? pending, waiting, approved, denied)
+deny_reason (Venkat want to leave a text message of why he denied the membership)
+
+First after completing the form, status is changed to 'pending'.
+
+At any time the student can log in and check his status.
+
+If the student chooses professor route:
+email sent to professor along with a link, when he clicks on the link- he will be asked to enter his url address.The students status then changes to 'waiting'.
+Email sent to admin. letting them know a membership is 'waiting'.
+
+If the student chooses the edu route:
+email sent to edu address along with a link, when he clicks on the link- the page will show verification complete. The students status then changes to 'waiting'.
+Email sent to admin. letting them know a membership is 'waiting'.
+
+Email to admin letting him know a membership is 'waiting':
+he is sent a link to a page containing a list of 'waiting' memberships. This could be a drop down list, or just a list. When he clicks on the user email the details are shown. I believe this is the choice for Venkat. Otherwise he would have to keep up with all the emails. He may want a page containing 'pending' and 'waiting'
+
+Another concern. If the membership has not been verified within a certain number of days, something needs to happen. Perhaps send an email to the student asking for another professor, or let him know he must check his edu account.
+
+Admin will approve or deny the request. If he denies the request, he will leave a text message with the reason. This will be visible to the student when he checks his status.
+
+Once the membership is approved/denied the student is sent an email

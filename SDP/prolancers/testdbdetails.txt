@@ -1,0 +1,8 @@
+agile.cs.uh.edu has a test database setup for you.
+
+Do not use this database from your local machine, use this only for CI builds.
+
+Database name: prolancerstest
+password: agile
+
+If you have trouble using this from your CI automated tests ask for help.

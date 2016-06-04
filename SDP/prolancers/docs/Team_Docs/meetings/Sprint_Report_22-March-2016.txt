@@ -1,0 +1,27 @@
+Team Hours
+	Obi 		30 Hours
+	Bradon		34 Hours
+	Dawn		20 Hours
+	Mark		10 Hours
+	Abhi:
+	 Done with:
+
+	 - Added test for content in model.
+
+	 Currently working on:
+
+	  - test for redirecting the user who is not logged in to the login page. 	
+
+	 Will be working with:
+	  		
+	Ravi		
+	Steven		7 Hours
+	Kevin		10 Hours
+What we've completed so far
+	Created first phase of model construction
+		Created a discussion model to client specifications
+		Created a controller model 
+	Created a Mailer
+What we expect to complete next sprint
+	Integrate the Mailer into Discussion
+	Membership

@@ -1,0 +1,96 @@
+one: 
+  user: sam
+  presentation: first_presentation
+  title: "Sam's Thoughts"
+  content: "A discussion started by sam"
+
+two:
+  reply_to: one
+  user: marge
+  presentation: first_presentation
+  title: "Marge's Reply"
+  content: "A reply to sam by marge"
+
+three:
+  user: paul
+  presentation: second_presentation
+  title: "Paul's Story"
+  content: "This is my story"
+
+four:
+  user: Ravi
+  presentation: fifth_presentation
+  title: "What is a facade"
+  content: "Can some one exmplain it with a nice example ?"
+
+five:
+  user: Ravi
+  presentation: sixth_presentation
+  title: "Discussion 1 on ecapsulation"
+  content: "This is some content.."
+
+six:
+  user: Ravi
+  presentation: sixth_presentation
+  reply_to: five
+  content: "Comment 1 on discussion 1 on encapsulation"
+
+seven:
+  user: Ravi
+  presentation: seventh_presentation
+  title: "Discussion 1 on perils of inheritance"
+  content: "Some content.."
+
+eight:
+  user: Ravi
+  presentation: seventh_presentation
+  reply_to: seven
+  content: "Comment 1 on discussion 1 on perils of inheritance"
+
+nine:
+  user: Ravi
+  presentation: seventh_presentation
+  title: "Discussion 2 on perils of inheritance"
+  content: "Some content.."
+
+ten:
+  user: Ravi
+  presentation: seventh_presentation
+  reply_to: nine
+  content: "Comment 1 on discussion 2 on perils of inheritance"
+
+eleven:
+  user: Ravi
+  presentation: seventh_presentation
+  reply_to: nine
+  content: "Comment 2 on discussion 2 on perils of inheritance"
+
+twelve:
+  user: Ravi
+  presentation: eighth_presentation
+  title: "Discussion 1 on ruby on rails"
+  content: "Some content.."
+
+thirteen:
+  user: Ravi
+  reply_to: one
+  presentation: first_presentation
+  content: "A reply to sam by ravi"
+
+fourteen:
+  user: Abhi
+  presentation: ninth_presentation
+  title: "Discussion 1 on AJAX calls"
+  content: "This is some content.."
+
+fifteen:
+  user: Abhi
+  presentation: tenth_presentation
+  title: "Discussion 1"
+  content: "some content.."
+
+sixteen:
+  user: Ravi
+  presentation: tenth_presentation
+  title: "Discussion 2"
+  content: "this is some content.."

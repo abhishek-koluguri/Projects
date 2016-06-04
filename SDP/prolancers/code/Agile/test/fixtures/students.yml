@@ -1,0 +1,44 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: Abhi
+  school_name: University of Houston
+  school_website_address: www.uh.edu
+  st_school_email: akoluguri@uh.edu
+  prof_name: Venkat Subramaniam
+  prof_email: sdp.agilelearner@gmail.com
+  prof_website_address: www2.cs.uh.edu/~svenkat
+  status: 'waiting'
+  denial_reason: null
+
+two:
+  user: Ravi
+  school_name: Columbia University
+  school_website_address: www.co.edu
+  st_school_email: nkethamakka@uh.edu
+  prof_name: Robert John
+  prof_email: sdp.agilelearner@gmail.com
+  prof_website_address: www2.cs.co.edu/~rjohn
+  status: 'approved'
+  denial_reason: null
+
+three:
+  user: paul
+  school_name: University of Houston
+  school_website_address: www.uh.edu
+  st_school_email: sjavila@uh.edu
+  prof_name: John Johnson
+  prof_email: sdp.agilelearner@gmail.com 
+  prof_website_address: http://www2.cs.uh.edu/
+  status: 'rejected'
+  denial_reason: 'Mentioned Professor did not respond to the verification email'
+
+four:
+  user: sam
+  school_name: University of Houston
+  school_website_address: www.uh.edu
+  st_school_email: sam123@uh.edu
+  prof_name: John Johnson
+  prof_email: sdp.agilelearner@gmail.com
+  prof_website_address: http://www2.cs.uh.edu/
+  status: 'waiting'

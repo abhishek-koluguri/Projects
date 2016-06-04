@@ -1,0 +1,5 @@
+We simulate a signin here. If you see this page, you're signed in now.
+
+<p><%= link_to 'Back', controller:"signin", action: "redirect" , user_id: 284542812, remote: true  %></p>
+
+<p>Or, <%= link_to 'signout', signout_signin_index_path %></p>

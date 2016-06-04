@@ -1,0 +1,33 @@
+2-17-2016 Meeting Agenda:
+
+2nd Sprint Breakdown:
+User Stories for 2nd Sprint
+1. User can click on discussion tab.
+	- Ask Venkat for Website Template.
+	- Ask Venkat for Sample Database.
+	- Research on Database Testing.
+	- Test the Database (for empty database, user 
+	  enters wrong entity and such).
+2. Discussion tab to alert user to log-in page or show posts.
+3. User can create a discussion.
+ 	- Implement post to website.
+	- Implement retrieval of data for discussion section. 
+
+
+Team Designation:
+
+
+Discussed:
+Venkat template and database.
+Button Design.
+Venkat's practices--do little at a time and 
+come back to ask.
+The page will require no reloading.
+Discussed ScrumDesk.
+We will withhold team designation until next meeting.
+
+Changes Made:
+Added Rake.
+Change location of SimpleCov.
+
+Abhishek:

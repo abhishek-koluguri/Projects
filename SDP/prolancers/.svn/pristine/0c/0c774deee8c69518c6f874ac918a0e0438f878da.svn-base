@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title><%=@presentation.presentation_title%></title>
+	</head>
+	<body>
+		<h1><%=@presentation.presentation_title%></h1>
+    <ul id="globalnav">
+      <li><a href="#" class="here">Reviews</a>
+      <li><a href="#">See Before...</a></li>
+      <li><a href="#">See After...</a></li>
+      <li><%= link_to  'Discussions', controller: "discussions", action: 'show', id: "#{@presentation.id}" , remote: true%></li>
+    </ul>
+    <div id="show_discussions" />
+	</body>
+</html>

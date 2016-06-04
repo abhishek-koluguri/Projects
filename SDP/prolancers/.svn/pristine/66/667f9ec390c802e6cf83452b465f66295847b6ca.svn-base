@@ -1,0 +1,34 @@
+sam:
+  first_name: Sam
+  last_name: Kiran
+  email: ravikiran.kn1@gmail.com
+
+marge:
+  first_name: Marge
+  last_name: Simpson
+  email: ravikiran.kn@gmail.com
+
+paul:
+  first_name: Paul
+  last_name: Miller
+  email: ravikiran.kn3@gmail.com
+
+Ravi:
+  first_name: Ravi
+  last_name: Kiran
+  email: sdp.agilelearner@gmail.com
+
+Abhi:
+  first_name: Abhishek
+  last_name: Koluguri
+  email: i.mourya1992@gmail.com
+
+Ram:
+  first_name: Ram
+  last_name: Dev
+  email: sdp.agilelearner@gmail.com
+
+Snow:
+  first_name: John
+  last_name: Snow
+  email: sdp.agilelearner@gmail.com

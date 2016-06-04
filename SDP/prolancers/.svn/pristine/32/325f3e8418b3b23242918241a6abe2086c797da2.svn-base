@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby.exe
+require 'simplecov'
+SimpleCov.command_name 'tests'
+SimpleCov.start 'rails'
+APP_PATH = File.expand_path('../../config/application',  __FILE__)
+require_relative '../config/boot'
+require 'rails/commands'

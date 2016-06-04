@@ -1,0 +1,33 @@
+<div class = "discussions">
+<%if @discussions_hash.size == 0 %>
+  <p>Be the first to start a discussion! |
+      <%= link_to  'Start a New Discussion', controller:"discussions", action: "new" , presentation_id: "#{@presentation_id}", remote: true %>
+      <div>
+        <div id="new_discussion"/>
+      </div>
+<%else%>
+  <p>There are  <%= @discussions_hash.size %>  discussions |
+    <%= link_to  'Start a New Discussion', controller:"discussions", action: "new" , presentation_id: "#{@presentation_id}", remote: true %>
+      <div>
+        <div id="new_discussion"/>
+      </div>
+</div>
+<p style="font-size:20px"><strong>Discussions</strong></p>
+      <% @discussions_hash.each do |key, value| %>
+         
+            <p><strong><%= value[0].title rescue nil%></strong> on <%= value[0].created_at.try(:strftime, '%B %d, %Y') rescue nil%> by <%= value[0].user.first_name rescue nil%> | <%= link_to  'reply to this discussion', controller:"discussions", action: "reply" , presentation_id: "#{@presentation_id}", discussion_id: "#{value[0].id}", remote: true %>
+            
+              <div id="reply_discussion_<%= value[0].id%>"/>
+            </div> </p>
+            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= value[0].content%></p>
+            
+            <% value[1, value.length].each do |discussion| %>
+            
+                <p>&nbsp;&nbsp;<%= discussion.content rescue nil%>&nbsp;&nbsp;&nbsp;<font style="color:gray;">-reply by <%= discussion.user.first_name rescue nil%> on <%= discussion.created_at.try(:strftime, '%B %d, %Y') rescue nil%></font></p>
+            <% end %>  
+       
+      <% end %>
+  </p>
+<%end%>
+</div>

@@ -1,0 +1,38 @@
+What Has Been Done:
+Canary Test Integration Done.
+Code Coverage Integration Done.
+Build File Creation Done.
+
+Notes:
+- Prepare to change teams later on.
+- Planning to switch when everyone becomes comfortable.
+- For Saturday's meeting, we expect to ask Prof. Venkat about testing.
+
+Details Discussed:
+Abhishek
+	- Hinted on something Ravi suggested.
+Dawn
+	- Made some changes to userstories.txt.
+Ravi
+	- Shared that one group start on the UI and the other
+	  start on a service.
+	- Services pulls data from the database.
+	- JSON sends data from the UI to the model.
+	- AngularJS will be used for AJAX.
+	- Ravi will start the UI and services section for meeting.
+Abhishek
+	- Explains AngularJS further.
+	- Explains two teams-one for UI and another for services.
+	- We will be assuming that there will be content.
+	- The services will populate the database and provide it.
+Dawn
+	-Suggested copying stuff from ScrumDesk to .txt files.
+Obinna
+	- Asked questions about the team formation.
+		-Abhi and Dawn answered question saying that Venkat would expect a separation of classes.
+	- Asked questions about AngularJS.
+		-Abhi, Ravi and Dawn answered saying that AngularJS is a framework for AJAX. 
+
+New Team Formation:
+Dawn, Kevin, Mark, Ravi: Database.
+Obinna, Steven, Braden, Abhishek: UI.

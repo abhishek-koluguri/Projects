@@ -1,0 +1,39 @@
+first_presentation:
+  presentation_title: "Adapter Pattern"
+  user: marge
+
+second_presentation:
+  presentation_title: "Abstract Pattern"
+  user: sam
+
+third_presentation:
+  presentation_title: "Iterator Pattern"
+  user: Ravi
+
+fourth_presentation:
+  presentation_title: "Facade pattern"
+  user: Ravi
+
+fifth_presentation:
+  presentation_title: "Facade pattern"
+  user: Ravi
+
+sixth_presentation:
+  presentation_title: "Levels of Encapsulation"
+  user: Ravi
+
+seventh_presentation:
+  presentation_title: "Perils of Inheritance"
+  user: Ravi
+
+eighth_presentation:
+  presentation_title: "An introduction to Ruby on Rails"
+  user: Ravi
+
+ninth_presentation:
+  presentation_title: "An introduction AJAX calls"
+  user: Abhi
+
+tenth_presentation:
+  presentation_title: "Tenth presentation"
+  user: Ravi

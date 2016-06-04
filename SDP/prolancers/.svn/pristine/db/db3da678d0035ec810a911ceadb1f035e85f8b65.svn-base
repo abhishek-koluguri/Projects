@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby.exe
+require_relative '../config/boot'
+require 'rake'
+require 'simplecov'
+SimpleCov.command_name 'tests'
+SimpleCov.start 'rails'
+Rake.application.run

@@ -1,0 +1,49 @@
+Notes from today's meeting:
+
+1. Discussed IDE use.
+Anything you like. Rubymine is a good one if you want to get academic license for it.
+
+2. CI and Jenkins.
+We looked how Jenkins works, how to see the report, do the build, etc.
+
+3. Discuss feature and ajax
+
+
+On presentation page, for example:
+<https://www.agilelearner.com/presentation/401>
+
+The content of Reviews, See Before, and See Also are all ajax calls right now.
+
+We will add one more, which is Discuss (21)...
+
+Where 21 is the number of main topics for that presentation created so far.
+
+On the Discuss panel, show the top level topics and provide a link to create
+a new topic for that presentation.
+
+User can enter a new topic detail:
+a topic title
+text for the topic
+??? Allow code - this should have a nice code syntax (look for ruby / rails libraries  / gems to take of this).
+
+User click on submit.
+User can't change a topic after they post it.
+They or any one else, can reply to a topic.
+
+When a topic is created or a reply is created,
+then email the presentation authors and also email the original post creator for the reply. Never email the person who creates the post or reply.
+
+Email dispatching will be through a daemon, but that will be taken care
+by the system. All we have to do is write code to send email, and that will
+get rewired through the daemon.
+
+
+Ruby version to use is 2.0.0
+I highly recommend you set up rvm (tool) on your system.
+That way you can switch between ruby versions very easily.
+
+Rails version 4.0.0
+
+For database use sqllite3. This is easier to develop with and to do testing.
+The production system will take care of mapping this to the production database.
+

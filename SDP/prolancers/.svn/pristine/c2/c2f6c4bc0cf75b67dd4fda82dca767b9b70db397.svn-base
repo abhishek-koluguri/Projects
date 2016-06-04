@@ -1,0 +1,10 @@
+<%= form_tag('/student_memberships/reject', method: 'post') do %>
+    <div class= "boxed_reject">
+      <%= hidden_field_tag :user_id , "#{@user_id}" %>
+
+      <p>Reason for Rejection: <input type = 'text' name = 'denial_reason' id = 'denial_reason' /></p>
+
+      <%= submit_tag "Save" %>
+
+    </div>
+<% end -%>

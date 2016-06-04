@@ -1,0 +1,4 @@
+- Research on Database Testing.
+	- Become familiar with AJAX.
+	- Test the Database (for empty database, user 
+	  enters wrong entity and such).

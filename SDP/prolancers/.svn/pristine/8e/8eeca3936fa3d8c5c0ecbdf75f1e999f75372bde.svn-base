@@ -1,0 +1,103 @@
+  [1m[36m (194.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (168.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePresentations (20160408223803)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (3.5ms)[0m  [1mCREATE TABLE "presentations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160408223803"]]
+  [1m[36m (142.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.8ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/presentations/index" for 127.0.0.1 at 2016-04-08 17:47:03 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PresentationsController#index as HTML
+  Rendered presentations/index.html.erb within layouts/application (48.9ms)
+
+
+Started GET "/presentations/index" for 127.0.0.1 at 2016-04-08 17:55:14 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PresentationsController#index as HTML
+  Rendered presentations/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 4463ms (Views: 4357.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/presentations/index" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+Processing by PresentationsController#index as HTML
+  Rendered presentations/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/presentations.css?body=1" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-04-08 17:55:21 -0500
+
+
+Started GET "/assets/presentations.js?body=1" for 127.0.0.1 at 2016-04-08 17:55:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-04-08 17:55:22 -0500
+
+
+Started GET "/presentations/index" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+Processing by PresentationsController#index as HTML
+  Rendered presentations/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 280ms (Views: 278.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/presentations.css?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/presentations.js?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-04-08 17:56:50 -0500
+
+
+Started GET "/presentations/index" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+Processing by PresentationsController#index as HTML
+  Rendered presentations/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 121ms (Views: 119.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/presentations.js?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/presentations.css?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-04-08 17:57:24 -0500

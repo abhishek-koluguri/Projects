@@ -1,0 +1,49 @@
+$(document).ready(function() {
+
+  $('#request_membership').click(function() {
+    checkRequestMembership();
+  });
+
+  $('#check_membership_status').click(function() {
+    checkMemberShipStatus();
+  });
+
+  $('#st_school_email_option').click(function() {
+    checkSchoolEmailAddress();
+  });
+
+  $('#prof_email_option').click(function() {
+    $('#prof_email_div').slideDown();
+    $('#st_school_email_div').hide();
+  });
+
+  checkRadioButtonDefault();
+  checkSchoolEmailAddress();
+});
+
+var checkRequestMembership = function() {
+  $('#request_form').slideDown();
+  $('#check_membership_status_div').hide();
+}
+
+var checkMemberShipStatus = function() {
+  $('#request_form').hide();
+  $('#check_membership_status_div').slideDown();
+}
+
+var checkSchoolEmailAddress = function() {
+  $('#st_school_email_div').slideDown();
+  $('#prof_email_div').hide();
+}
+
+var checkRadioButtonDefault = function() {
+  <%if @student == nil %>
+    $('#request_membership').prop('checked', true);
+    $('#check_membership_status').prop('checked', false);
+    checkRequestMembership();
+  <%else %>
+    $('#request_membership').prop('checked', false);
+    $('#check_membership_status').prop('checked', true);
+    checkMemberShipStatus();
+  <%end%>
+}

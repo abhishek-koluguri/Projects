@@ -1,0 +1,79 @@
+/*
+*= require_self
+*= require_tree .
+*/
+
+#globalnav {
+	position:relative;
+	float:left;
+	width:100%;
+	padding:0 0 1.75em 1em;
+	margin:0;
+	list-style:none;
+	line-height:2em;
+}
+
+#globalnav LI {
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+#globalnav A {
+	display:block;
+	color:#444;
+	text-decoration:none;
+	font-weight:bold;
+	background:#ddd;
+	margin:0;
+	padding:0.25em 1em;
+	border-left:1px solid #fff;
+	border-top:1px solid #fff;
+	border-right:1px solid #aaa;
+}
+
+#globalnav A:hover,
+#globalnav A:active,
+#globalnav A.here:link,
+#globalnav A.here:visited {
+	background:#bbb;
+}
+
+#globalnav A.here:link,
+#globalnav A.here:visited {
+	position:relative;
+	z-index:102;
+}
+
+.boxed {
+	border-radius: 10px;
+	width: 420px;
+	padding: 10px;
+	margin: 0;
+  border: 1px solid black ;
+}
+
+.boxed_prof {
+    border-radius: 10px;
+    width: 620px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid black ;
+}
+
+.buttoned {
+  padding:1px 6px;
+  background-color: #dddddd;
+  border: 2px solid #dddddd;
+  border-style: outset;
+  color:#000;
+  text-decoration:none;
+}
+
+.boxed_reject {
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px;
+    margin: 0;
+    border: 1px solid black ;
+}

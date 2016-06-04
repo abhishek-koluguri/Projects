@@ -1,0 +1,58 @@
+<script type="text/javascript" src="index.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<p><input name = 'initial' type='radio' id='request_membership' /> Request Student Membership     <input name='initial' type='radio' id='check_membership_status'/> Check Membership Status </p>
+<div id="request_form">
+  <%= form_tag('/student_memberships/create', method: 'post') do %>
+      <p style="font-size:20px"><strong>Application for Student Membership</strong></p>
+      <div class= "boxed_prof">
+
+        <%= hidden_field_tag :user_id , "#{session[:user]}" %>
+
+        <p><label for = "school_name">Name of School</label><br/>
+          <%= text_field 'student', 'school_name', :required => true %></p>
+        <p>
+          <label for = "school_website_address">School Website Address</label>
+          <br/>
+          <%= text_field 'student', 'school_website_address', :required => true %>
+        </p>
+        <p>Verification Option:
+          <input type = 'radio' name = 'verification_option' id = 'st_school_email_option' checked/> School Email Address
+          <input type = 'radio' name = 'verification_option' id = 'prof_email_option'/> Professor Email Address
+        </p>
+
+        <div id = 'st_school_email_div' hidden = 'hidden'>
+          <p>Your Official School Email (.edu address): <input type = 'email' name = 'st_school_email' id = 'st_school_email' pattern = '[a-z0-9._%+-]+@[a-z0-9.-]+\.edu' /></p>
+          <p>If you do not have an .edu address, choose the verification option through Professor email address.</p>
+        </div>
+
+        <div id = 'prof_email_div' hidden = 'hidden'>
+          <p>Your Professor's Name: <%= text_field 'student_1', 'prof_name' %>
+          <p>Your Professor's Email: <%= email_field 'student_1', 'prof_email' %>
+        </div>
+
+        <%= submit_tag "Submit" %>
+      </div>
+  <% end -%>
+</div>
+
+<div id="check_membership_status_div" class= "boxed_prof">
+  <%if @student == nil%>
+      <p>You have not requested for a student membership yet.</p>
+  <%elsif @student.status=='rejected'%>
+      <p>The current status of your request is <strong>"<%= "#{@student.status}" %>"</strong></p>
+      <p>You were denied at this time because: <strong>"<%="#{@student.denial_reason}" %>"</strong>
+  <%elsif @student.status=='pending'%>
+      <p>The current status of your request is <strong>"<%= "#{@student.status}" %>"</strong></p>
+      <p>We are waiting on your verification</p>
+  <%elsif @student.status=='waiting'%>
+      <p>The current status of your request is <strong>"<%= "#{@student.status}" %>"</strong></p>
+      <p>Thank you for applying for student membership</p>
+      <p>We will verify your information within 2-3 business days</p>
+  <%elsif @student.status=='approved'%>
+      <p>The current status of your request is <strong>"<%= "#{@student.status}" %>"</strong></p>
+      <p>Thank you for applying and enjoy you student membership</p>
+  <%else %>
+      <p>Your current status cannot be found at this time</p>
+  <%end%>
+</div>

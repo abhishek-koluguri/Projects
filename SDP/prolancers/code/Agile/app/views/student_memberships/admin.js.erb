@@ -1,0 +1,29 @@
+$(document).ready(function() {
+  $('#pending').click(function() {
+  	$('#pending_div').slideDown();
+    $('#waiting_div').hide();
+    $('#approved_div').hide();
+    $('#rejected_div').hide();
+  });
+
+  $('#waiting').click(function() {
+    $('#pending_div').hide();
+    $('#waiting_div').slideDown();
+    $('#approved_div').hide();
+    $('#rejected_div').hide();
+  });
+
+  $('#approved').click(function() {
+    $('#pending_div').hide();
+    $('#waiting_div').hide();
+    $('#approved_div').slideDown();
+    $('#rejected_div').hide();
+  });
+
+  $('#rejected').click(function() {
+    $('#pending_div').hide();
+    $('#waiting_div').hide();
+    $('#approved_div').hide();
+    $('#rejected_div').slideDown();
+  });
+});

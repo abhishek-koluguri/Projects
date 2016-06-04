@@ -1,0 +1,45 @@
+Team Meeting- March 9th 2015
+
+Agenda:
+- Introduction.
+- Check Progress.
+	- Still on Research: Braden, Mark, Kevin.
+	- Work Still In Progress: Ravi and Abhishek.
+	- Work On Application: Steven.
+- Talk about future plans.
+
+Plans:
+- Prepare tests for model.
+- Prepare tests for controller.
+- Prepare tests for view.
+
+Structure:
+
+Contributions:
+Abhishek
+
+Ravi
+- He wants Obi to create an individual page and do one particular 
+aspect of the project.
+- Parent id figures out if something is a discussion. 
+- Add a field if necessary.
+
+Braden
+
+Kevin
+Still on research.
+- Won't be in Texas from Monday-Friday on Spring Break.
+
+Steven
+- Wish to Meet on Spring Break.
+- Raised concern on professor requirements.
+
+Dawn
+
+Mark
+Still on research.
+
+Obi
+- Did a demo on entering a comment to the database.
+
+

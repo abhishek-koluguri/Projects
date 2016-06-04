@@ -1,0 +1,9 @@
+We simulate a signin here. Click on an user and then click 'back' to continue posting.
+
+<p><%= link_to  'Abhi', controller:"signin", action: "redirect" , user_id: 284542812 %></p>
+<p><%= link_to  'Marge', controller:"signin", action: "redirect" , user_id: 604700687 %></p>
+<p><%= link_to  'Paul', controller:"signin", action: "redirect" , user_id: 354582103 %></p>
+<p><%= link_to  'Ravi', controller:"signin", action: "redirect" , user_id: 73318063 %></p>
+<p><%= link_to  'Sam', controller:"signin", action: "redirect" , user_id: 638797851 %></p>
+
+<p>Or, <%= link_to 'signout', signout_signin_index_path %></p>

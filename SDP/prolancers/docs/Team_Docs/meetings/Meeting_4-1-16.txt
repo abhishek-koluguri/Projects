@@ -1,0 +1,13 @@
+Pro-Lancers:
+
+Abhishek:
+We need all tests for all code used.
+Do discussion tests.
+Have some members doing student membership.
+
+Kevin, Mark and Dawn will work on student membership.
+Steven, Braden and Abhi will work on model testing.
+Obinna and Ravi will work on the Mailer and the View testing
+for demo.
+
+Schedule another meeting tomorrow 2nd April 2016 at 9 p.m.

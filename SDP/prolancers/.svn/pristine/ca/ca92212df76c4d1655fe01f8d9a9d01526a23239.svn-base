@@ -1,0 +1,62 @@
+2-21-2016 Meeting
+
+Done:
+Canary Test Integration Done.
+Code Coverage Integration Done.
+Build File Creation Done.
+
+Expect to work on:
+Creating mock website.
+Creating discussion tab.
+Set-Up database
+
+Teams:
+Abhishek, Ravi and Dawn.
+Braden and Kevin.
+Mark and Obinna.
+
+Topics Discussed:
+Abhishek
+- Asked Venkat about website.
+	- Venkat gave us a "blank check".
+	- We will create a dummy website and put the tools together.
+
+- Decided to switch communication from email
+to Google Group.
+
+-Braden asked question about the canary test.
+Abhishek
+	- cd to directory for Agile Learner.
+Dawn
+	- to build canary test, look at the first 
+	  Agile TDD video.
+	- Open Sublime and hit "Cntrl+B".
+
+Dawn & Menglong
+	- Create website where login is username.
+
+Abhishek
+	- Pointed out that we can go to website
+	  and click "Inspect".
+
+-Dawn asked about testing a webpage.
+	- Abhishek made a button analogy--create button, show message when clicked.
+
+Abhishek
+	- Will be creating webpage.
+
+
+Abhishek, Ravi & Dawn
+	-Create webpage.
+	-Include documentation.
+
+Braden & Kevin
+	- Create tab.
+	- Implement AJAX call to tab.
+
+Obinna & Mark
+	- Design database
+	- Create database.
+
+Kevin asked how to check to Jenkins.
+	- Abhi, Braden and Dawn talked about creating a website.

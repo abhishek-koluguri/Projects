@@ -1,0 +1,91 @@
+#presentation{
+	width: 100%;
+	height: 100%;
+}
+
+#presentation-header {
+	width: inherit;
+	float: left;
+}
+
+#presentation-body{
+	width: inherit;
+	float: left;
+}
+
+#presentation-tab-section{
+	width: inherit;
+	float: left;
+}
+
+#logo{
+	margin: 10px;
+	float: left;
+}
+
+#site-options{
+	float: right;
+}
+
+#site-options td p{
+	padding: 0px;
+	margin: 0px;
+}
+
+#credentials{
+	padding: 0px;
+	margin: 0px;
+	float:right;
+}
+
+.authenticated{
+	display:none;
+}
+
+#misc{
+	float: left;
+	width: inherit;
+}
+
+#presentation-info{
+	float: left;
+	width: 35%;
+}
+
+#image{
+	height: inherit;
+	width: 40%;
+	float: right;
+	margin: 1% 10% 0% 5%;
+	height: 300px;
+	background: blue;
+}
+
+#quiz{
+	width: inherit;
+	float:left;
+	margin: 0px;
+}
+
+#quiz-info{
+	float:right;
+}
+
+a {
+	text-decoration: none;
+}
+
+#presentation-info h2{ 
+	display: inline;
+}
+
+#presentation-info p{ 
+	display: inline;
+}
+
+#presentation-info div{
+	padding: 2% 0px 0px 0px;
+}
+
+#presentation-info tr:nth-child(even) {background: #CCC;}
+#presentation-info tr:nth-child(odd) {background: #FFF}
