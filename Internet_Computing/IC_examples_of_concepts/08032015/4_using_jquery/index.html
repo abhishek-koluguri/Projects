@@ -1,0 +1,25 @@
+<html>
+	<body>
+		State:
+			<select onchange="process(this.value);">
+				<option value="CO">CO</option>
+				<option value="TX">TX</option>
+			</select>
+			<p>
+Cities:
+			<span id="cities"></span>
+	</body>
+	<script>
+	  var updateCities = function(data) {
+			var cities = $('#cities')
+			cities.html(data);
+			cities.effect('highlight', 1000);
+  	}
+		var process = function(state) {
+			$.ajax({url: '/' + state + '.txt'})
+			 .done(updateCities);
+		}
+	</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+</html>

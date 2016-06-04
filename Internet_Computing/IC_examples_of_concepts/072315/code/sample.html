@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en" manifest="mymanifest.appcache">
+<body>
+	Issue: <input id="issue" type="text"></input>
+	<span id="stored"></span>
+	<button id="save">save</button>
+</body>
+<head>
+	<script src="functions.js"></script>
+	<script>
+	  var save = function() {
+			saveData(
+				document.getElementById('issue').value,
+				document.getElementById('stored'));
+		}
+		document.getElementById('save').onclick = save;
+	</script>
+</head>
+</html>

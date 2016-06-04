@@ -1,0 +1,11 @@
+CACHE MANIFEST
+#VERSION 8
+
+CACHE:
+sample.html
+functions.js
+
+FALLBACK:
+
+NETWORK:
+*

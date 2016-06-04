@@ -1,0 +1,37 @@
+Introduction to AngularJS
+
+✓The complexities of web development
+✓What do you do when things get complex?
+✓Raising the level of abstraction
+✓jquery
+✓Cascade of changes and DOM manipulations
+✓Binding to the rescue
+✓starting with a static html
+ ✓npm install angular
+ ✓edit sample.html
+ ✓view sample.html
+✓Dynamic expressions
+ ✓ {{ 1 + 1 }}
+ ✓ng-app
+✓model and binding
+ ✓ng-model
+✓Using Angular in an application
+ ✓ create express application 
+	✓ see readme.txt in 6_using_with_express folder
+✓controller
+ ✓what is it?
+ ✓using a controller
+  ✓ng-app="tasksApp"
+  ✓angular.module('tasksApp', [])
+          .controller(Name, function)
+✓Creating an instance of the controller
+	✓ng-controller
+	✓Class as instance
+✓Calling a function on the controller
+✓Keeping a list of tasks
+✓adding a task - ng-click
+✓Listing tasks - ng-repeat
+✓ordering—| orderBy
+✓reverse order-|orderBy:expression:reverseBoolean
+✓dependency injection
+✓talking to a service

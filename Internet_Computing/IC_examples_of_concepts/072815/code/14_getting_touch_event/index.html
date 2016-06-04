@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+	<body>
+		A Canvas example!<p/>
+		<canvas id="mycanvas" width="400" height="200">You see this if canvas not supported</canvas>
+		<p>---</p>
+	</body>
+	<script src="functions.js"></script>
+	<script>
+	var canvas = document.getElementById('mycanvas');
+	var handlers = createHandler(canvas);
+	document.onmouseup = handlers.mouseUpHandler;
+	canvas.addEventListener('touchend', handlers.touchEndHandler);
+	</script>
+</html>

@@ -1,0 +1,18 @@
+JavaScript - wrapping up:
+✓ some functional functions
+	✓forEach
+	✓filter
+	✓map
+	✓reduce
+	✓reduce with index
+✓ creating objects
+✓ enumerating properties, getting, setting
+✓ deleting properties
+✓ pass by reference
+✓ Object.prototype
+✓ Creating class
+✓ Initializing instance
+✓ get vs set behavior and prototype
+✓ properties and prototype
+✓ setting properties
+✓ deleting properties

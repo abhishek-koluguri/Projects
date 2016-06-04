@@ -1,0 +1,32 @@
+<html ng-app="tasksApp">
+	<head>
+		<script src="javascripts/angular/angular.js"></script>
+		<script src="javascripts/taskcontroller.js"></script>
+	</head>
+	<body ng-controller="TasksController as tasksController">
+		There are {{ tasksController.getTasks().length }} tasks.
+		
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Date</th>
+				<th>????</th>				
+			</tr>
+			<tr ng-repeat="task in tasksController.getTasks() | orderBy: ['year', 'month', 'day', 'name']">
+				<td>{{ task.name }}</td>
+				<td>{{ task.month + '/' + task.day + '/' + task.year }}</td>
+				<td><input type="submit" value="delete" ng-click="tasksController.deleteTask(task);"></input></td>
+			</tr>
+		</table>
+		
+		<span>{{ tasksController.updateMessage }}</span>
+		
+		<form>
+			Title: <input type="text" ng-model="tasksController.newTask.name"></input><br/>
+			Month: <input type="text" ng-model="tasksController.newTask.month"></input><br/>
+			Day: <input type="text" ng-model="tasksController.newTask.day"></input><br/>
+			Year: <input type="text" ng-model="tasksController.newTask.year"></input><br/>
+			<input type="submit" ng-click="tasksController.addATask();">
+		</form>
+	</body>
+</html>

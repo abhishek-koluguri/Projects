@@ -1,0 +1,49 @@
+<!doctype html>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<html>
+<header id="navigation">
+	<h2>Conference</h2>
+	<nav>
+		<ul>
+		  <li><A href="sessions.html">Sessions</A></li>
+		  <li>|</li>
+		  <li><A href="schedule.html">Schedule</A></li>
+		  <li>|</li>
+		  <li><A href="speakers.html">Speakers</A></li>
+		</ul>			
+	</nav>
+</header>
+<section id="speakerslist">
+  <article>
+    <h3>Neal Ford</h3>
+    <p>ThoughtWorks</p>
+  </article>
+  <aside>
+    <p>Meme Wrangler</p>
+  </aside>
+  <article>
+    <h3>Venkat Subramaniam</h3>
+    <p>Agile Developer</p>
+  </article>
+  <aside>
+    <p>Recovering programmer</p>
+  </aside>
+</section>
+
+<section id="days">
+  <hr></hr>
+  <h3>Number of attendees</h3>
+  <table id="topics">
+    <tr><th>Topic</th><th>Attendees</th></tr>
+    <tr><td>HTML5</td><td>100</td></tr>
+    <tr><td>Concurrency</td><td>150</td></tr>
+    <tr><td>JavaScript</td><td>100</td></tr>
+    <tr><td>Total</td><td>350</td></tr>
+  </table>
+</section>
+
+<footer id="copyright">
+	<hr></hr>
+	<p>&copy; 2012-2013-All rights reserved.</p>	
+</footer>
+</html>

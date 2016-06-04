@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+	<body>
+		<button id="connected">connected?</button>
+	</body>
+	<head>
+		<script>
+		var connected = function() {
+			alert('I am connected');
+		}
+		var notConnected = function() {
+			alert('I am not connected!!');
+		}
+		
+		var checkConnected = function(connectedCallback, notConnectedCallback) {
+			var xhr = new XMLHttpRequest();
+			var handler = function() {
+				if(xhr.readyState === 4) {
+					if(xhr.status === 200)
+						connectedCallback();
+					else
+					  notConnectedCallback();
+				}
+			}
+			xhr.onreadystatechange = handler;
+			xhr.open("GET", "/?q=" + Math.random());
+			xhr.send();
+		}
+		
+		document.getElementById('connected').onclick = function() {
+			checkConnected(connected, notConnected);
+		}
+		</script>
+	</head>
+</html>

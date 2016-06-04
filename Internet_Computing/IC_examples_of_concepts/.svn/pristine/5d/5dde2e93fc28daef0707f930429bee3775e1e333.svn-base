@@ -1,0 +1,31 @@
+<html>
+	<body>
+		State:
+			<select onchange="process(this.value);">
+				<option value="CO">CO</option>
+				<option value="TX">TX</option>
+			</select>
+			<p>
+Cities:
+			<span id="cities"></span>
+	</body>
+	<script>
+		var process = function(state) {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState === 4 && xhr.status === 200) {
+					var cities = document.getElementById('cities')
+					cities.innerHTML = xhr.responseText;
+					cities.style.background = 'yellow';
+					var fadeOut = function() {
+						cities.style.background = '';
+					}
+					setTimeout(fadeOut, 1000);
+				}
+			}
+			
+			xhr.open('GET', '/' + state + '.txt');
+			xhr.send();
+		}
+	</script>
+</html>

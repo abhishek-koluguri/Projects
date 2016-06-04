@@ -1,0 +1,35 @@
+HTML5:
+ 
+Video (and Audio):
+  ✓ <video> element
+  ✓ src - not very useful to support different browsers
+  ✓ autoplay (this is evil)
+  ✓ height, width  
+  ✓ poster
+  ✓ controls
+  ✓ supporting different codecs
+    ✓ source
+  
+Location:
+  ✓ navigator.geolocation
+  ✓ getCurrentPosition
+  ✓ Position: coords and timestamp
+  ✓ latitude, longitude, accuracy
+  ✓ watchPosition, clearWatch
+  ✓ on devices: altitude, altitudeAccuracy, heading, speed
+  ✓ optional parameters: enableHighAccuracy, timeout, maximumAge
+
+Web Storage:
+✓ Storage options
+✓ The evolving standard
+✓ localStorage
+✓ sessionStorage
+✓ getItem (or localStorage.property)
+✓ setItem (or localStorage.property = value)
+✓ removeItem (or delete localStorage.property)
+✓ length and key(i)
+✓ clear
+✓ viewing data stored
+✓ storing objects: JSON.stringify and JSON.parse
+✓ events
+  ✓ window.addEventListener('storage', functionToCall, false);
