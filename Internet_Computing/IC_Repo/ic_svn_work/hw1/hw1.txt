@@ -1,0 +1,43 @@
+Files you check in outside of specific homework or assignment directory will not be reviewed or graded for that homework/assignment.
+
+Check in and modify files as many times as you like. You will not be able to modify the files after the deadline.
+
+You will work as a pair, both of you are responsible for the completed work in all assignments and homework. Each of you are expected to put in your reasonable share of effort into it.
+
+The deadlines are strict, there will be no extensions. Don't email any code to Venkat. Your last check in before the deadline will be graded. So, if you break the code (in assignments) before the deadline, you will lose.
+
+Please feel free to ask for frequent reviews (see the reviews/readme.txt file for details on how to ask for reviews).
+
+You can evolve the answers and solutions based on the reviews to your pair and to other pairs in the course. Only the latest checkin at the time of review will be looked at. Also the final check in will be the only one graded.
+
+Now to homework #1.
+
+===============================================================================
+Homework 1: Due July 13th, 11:59PM
+
+To answer this question, read, but express the ideas in your own words. If something that you read is very expressive and you like to use it, you can use the exact words, but place the words within quotes and provide reference. Copying and pasting sentences or paragraphs from other sources is considered plagiarism, so don't copy and paste (or type exact words without proper reference).
+
+1. What's hoisting in JavaScript?
+
+	- Hoisting is the behaviour of the JavaScript to move the declarations(by the interpreter) to the top of the current scope. 
+	- In case of variables, hoisting happens with variable's declaration but not with its initialization. 
+	- Where as in case of functions, not only function's declaration but also function's definition gets hoisted.
+	  However function expressions are not hoisted and the function declaration which is involved in the function expression is also not hoisted.  
+
+
+2. What's the difference between calling a function directly and calling it with call or apply?
+
+	If we call a function directly, then it will belong to the global or current object only.
+	But on the other hand, we can pass an object as the first argument in 'call' and 'apply'. Hence we can call a particular function on any object we want.
+	If the value of first argument is null then the function will be called on global or current object only.
+	By calling a function using call or apply, we are able to apply that function in the context of the object we pass.
+	
+
+3. When would you use call vs. apply?
+
+	Apply allows to call the function with the arguments as an array and the call requires to pass the parameters separately.
+	Hence we would use apply if we don't know the number of arguments or if there are too many arguments.
+	But on the other hand, we would use 'call' if we have arguments as discrete values instead of in an array.
+
+Total [10]: -1
+What's the purpose of this context object, how do we benefit?

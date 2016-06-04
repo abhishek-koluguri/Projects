@@ -1,0 +1,35 @@
+Demo: In class August 10th. Final deliverable August 11th 11:59PM.
+
+The Public Works Department wants you to build an application to manage their rural area. Their workers will carry a mobile device as they drive around the area. The area is rather remote and their internet connection is spotty. The application must be usable to a reasonable extent even when they're disconnected.
+
+The application has one page - create work order.
+
+A work order has the following details:
+
+1. Work description - Up to 300 words.
+2. Work location (lat, lon, and altitude)
+3. Date of creation
+4. Person creating the work order (full name)
+5. Severity (Minor, Major, Urgent)
+
+When a user enters a data and clicks on save, the data is sent to the server and the form is cleared.
+
+If the device is not connected to the network, the data is stored locally on the device. Next time the user comes back to the application or saves a new work order, the stored data is transmitted to the server.
+
+The above is the client side. For the server side, create a node.js application that will receive the data from the client side and simply display it on the console.
+
+Total [30]: 25
+Work order entry and validation (details, location, name) [5]: -1
+Default current date.
+
+App sends data to server when connected [5]:
+App stores data locally when disconnected [5]: -2
+Need feedback to the user about what happened.
+
+App sends stored data to server after being reconnected [5]:
+
+Code quality [5]:
+
+Features presented and explained well [5]: -2
+Comments:
+Local storage not implemented yet.

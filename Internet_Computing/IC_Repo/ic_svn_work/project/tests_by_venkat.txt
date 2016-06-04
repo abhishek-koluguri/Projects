@@ -1,0 +1,28 @@
+describe('workOrderTest', function () {
+
+    it('canary should pass', function () {
+        expect(true).to.be.eql(true);
+    });
+
+    it('registerClickEvent calls getLocation', function(){
+        var getLocationCalled = false;
+        var elementToUpdate;
+        var formLocation;
+        getLocation = function (elementToUpdate, formLocation) {
+            getLocationCalled = true;
+        };
+        registerClickEvent(elementToUpdate, formLocation);
+        expect(getLocationCalled).to.be.eql(true);
+    });
+
+    it('getLocation gets and writes location in the element', function(){
+        var succesFunction = function() {}
+        var functionPassed;
+
+        navigator.geolocation.getCurrentPosition = function(successFunc, errorFunc) {
+          functionPassed = successFunc;
+        }
+        getLocation(successFunction, errorFunction);
+        expect(functionPassed).to.be.eql(succesFunction);
+    })
+});

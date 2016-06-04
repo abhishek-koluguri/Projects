@@ -1,0 +1,28 @@
+[Venkat 07/18/15 11:00 AM CDT]
+review: test filed
+
+Testing weatherapptest.js..F....
+>> testReadInvalidFile
+>> Error: -4058 == -2
+>> at checkFileContent (test/weatherapptest.js:20:8)
+>> at getFileContent (src/weatherapp.js:45:5)
+>> at fs.js:265:20
+>> at FSReqWrap.oncomplete (fs.js:99:15)
+
+Warning: 1/7 assertions failed (202ms) Use --force to continue.
+
+------------------------------------------------------------------------------
+[Venkat 07/17/15 07:10 AM CDT]
+review: take local small steps
+
+Think of the next small step, one at a time.
+
+------------------------------------------------------------------------------
+[Venkat 07/15/15 10:26 AM CDT]
+review: move forward
+
+check coverage report.
+
+Refactor and move forward.
+
+------------------------------------------------------------------------------

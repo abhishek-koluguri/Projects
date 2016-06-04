@@ -1,0 +1,11 @@
+fieldset {
+
+	border-radius: 10px;
+	background-color: #A9A9F5;
+}
+
+input {
+
+	border-radius: 10px;
+	background-color: #F2F5A9;
+}

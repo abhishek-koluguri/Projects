@@ -1,0 +1,33 @@
+var express = require('express');
+var router = express.Router();
+
+var convertStringToUserName = function(nameString) {
+  return {
+    username: nameString.username,
+  };
+}
+
+
+
+
+var players = [];
+
+router.get('/', function(req, res, next) {
+  res.send(players);
+});
+
+router.post('/add', function(req, res, next) {
+
+   players.push(convertStringToUserName(req.body));
+   res.send("player added");
+
+});
+
+router.post("/invite", function(req, res, next) {
+  var playerToInvite = convertStringToUserName(req.body);
+
+  players = players.filter(function(player) { return playersAreDifferent(player, playerToInvite); });
+
+});
+
+module.exports = router;

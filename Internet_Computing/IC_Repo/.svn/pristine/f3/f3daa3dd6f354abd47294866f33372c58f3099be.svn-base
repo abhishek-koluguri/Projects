@@ -1,0 +1,31 @@
+var express = require('express');
+var router = express.Router();
+
+var players = [];
+
+router.get('/', function(req, res, next) {
+  res.send(players);
+});
+
+router.post('/add', function(req, res, next) {
+
+   players.push({username:req.body.username});
+   res.send("player added");
+
+});
+
+router.post("/invite", function(req, res, next) {
+    var playerInvited = req.body.invitedUser;
+    var currentPlayer = req.body.current;
+    console.log(playerInvited);
+    console.log(currentPlayer);
+    for(var i=0; i<players.length; i++){
+        if(players[i].username  === playerInvited.username){
+            players[i].invitedBy = currentPlayer;
+        }
+    }
+    console.log(players);
+});
+
+
+module.exports = router;

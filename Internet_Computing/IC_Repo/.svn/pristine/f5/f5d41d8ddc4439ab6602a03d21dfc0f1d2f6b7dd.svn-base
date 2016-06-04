@@ -1,0 +1,35 @@
+[Venkat 08/05/15 05:30 AM CDT]
+review: A few issues
+
+Only one ball shows up on Chrome and Safari. Firefox does not do anything when clicked on the game.
+
+------------------------------------------------------------------------------
+[Venkat 08/04/15 04:54 AM MDT]
+review: Not enough modularization, ball runs out the bottom
+
+Minimize global variable and functions as much as possible.
+Keep functions as part of classes where they should belong.
+
+The ball runs out of the bottom.
+
+------------------------------------------------------------------------------
+[Venkat 08/01/15 04:52 AM CDT]
+review: modularize, please
+
+Don't use backslash for directory separation, use forward slash.
+
+Too many variables in the file scope. See email on this topic to the
+mailing list and the previous review.
+
+Keep most variables and functions within respective classes based on the
+abstract they stand for.
+
+------------------------------------------------------------------------------
+[Venkat 07/31/15 08:14 AM CDT]
+review: modularize
+
+Put functions in good directory structure. Given good names for files.
+
+Create abstraction for pad and the box to keep complexity under check.
+
+------------------------------------------------------------------------------

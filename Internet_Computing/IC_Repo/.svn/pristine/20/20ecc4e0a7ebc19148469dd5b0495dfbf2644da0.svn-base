@@ -1,0 +1,26 @@
+<html ng-app="playgame">
+<head>
+	<script src="javascripts/angular/angular.js"></script>
+	<script src="javascripts/playgameController.js"></script>
+	<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+</head>
+<body ng-controller="PlayGameController as controller">
+	<table id="gametable">
+	     <tr ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]" />
+	      <td data-ng-repeat="j in [1,2,3,4,5,6,7,8,9,10]" ng-class="{ 'putship' : shipij === 'putship', 'hitship' : shipij === 'hitship', 'missship' : shipij === 'missship' }" ng-click="shipij = controller.placeorhit(i, j)" />
+	</table>
+	<span id="turn" style="color:blue;">Select 5 ships and wait for your turn</span>
+	</br>
+	</br>
+	<span id="turn" style="color:red;"></span>
+	</br>
+	</br>
+	<span id="gameover" style="color:green;"></span>
+	</br>
+	</br>
+	<span id="hits" style="color:green;"></span>
+	</br>
+	</br>
+	<span id="misses" style="color:green;"></span>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<link rel = "stylesheet" href = ".\css\style.css" type = "text/css"/>
+
+<html>
+
+<section id="container" >                                   
+		
+		<section id="header">
+			<h1>Rath Taxi Services</h1>
+		</section>
+		
+		<section id="nav" >
+
+			<p><a href="">Taxi Services</a></p>
+			<p><a href="">About Us</a></p>
+			<p><a href="">Contact</a></p>
+		</section>                     
+  
+		<section id="section" > 
+		
+			<section id = "form">
+
+				<form id = "order_taxi" name="form_for_ordering_taxi" method = "post" action = "http://httpbin.org/post" onsubmit = "return validateFormDetails(document.getElementById('fromLocation').value, document.getElementById('carInfo').value, document.getElementById('validationmessage'));">
+					<fieldset>
+						<p><label>First Name: <input name="First Name" type = "text" required placeholder = "Jon" ></input></label></p>
+
+						<p><label>Last Name: <input name="Last Name" type = "text" required placeholder = "Snow" ></input></label></p>
+
+						<p><label>Phone number: +1<input name="Phone number" type = "tel" required placeholder = "123-45-67890" ></input></label></p>
+
+						<p><label>Email: <input name="Email" type = "email" required placeholder = "jonsnow@sample.com" ></input></label></p>
+
+						<p><label>Click here for selecting current location as the pick up location: <button name="Location" type = "button" onclick = "getLocation(document.getElementById('locationInfo'), document.getElementById('fromLocation'));" >My Location</button></label></p>
+						<span id = "locationInfo" name="locationInfo area"></span>
+						<input id="fromLocation" type="hidden" name="fromLocation"/>
+			
+			
+						<p>Destination: <input name="Destination" type = "text" required placeholder = "Street address, #Apt, City" ></input>&nbsp <input name="Zip code" type = "text" required placeholder = "Zipcode"></input></p>
+
+						<table id = "carTypes">
+							<tr><th>Car Type</th><th>Price per mile</th></tr>
+							<tr><td id = "compact" carValue = "compact" draggable = "true" >Compact</td><td>$0.99</td></tr>
+							<tr><td id = "Intermediate" carValue = "Intermediate" draggable = "true" >Intermediate</td><td>$1.99</td></tr>
+							<tr><td id = "Luxury" carValue = "Luxury" draggable = "true" >Luxury</td><td>$2.99</td></tr>
+							<tr><td id = "Limo" carValue = "Limo" draggable = "true" >Limo</td><td>$4.99</td></tr>
+						</table>
+						<p>**The above price excludes the base charge of $15.00</p>
+
+						<p>Drag and Drop from the above car-types list here: 
+							<span name="CarTypeChosen" id = "carTypeChosen">_____</span></p>
+						<input hidden id="carInfo" name="carInfo"/>
+					</fieldset>
+
+					<head>
+						<script src = ".\javascripts\taxiServices.js" ></script>
+						<script>
+							registerDragDrop(document.getElementById("carTypes"), document.getElementById("carTypeChosen"), document.getElementById("carInfo"));
+						</script>
+					</head>
+					<span id = "validationmessage" style ="color:red;"></span>
+					<p><button type = "submit" method="post">Submit</button>&nbsp <button type = "reset" >Reset</button></p>
+				</form>
+			</section>
+		</section>
+
+	<section id="footer" > 
+	
+		<footer id = "copyright" style = "vertical-align:bottom">
+			<p>&copy; 2015-2016-All rights reserved.</p>
+		</footer>
+	
+	</section>
+
+</html>

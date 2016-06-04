@@ -1,0 +1,46 @@
+<!doctype html>
+
+<link rel = "stylesheet" href = ".\css\style.css" type = "text/css"/>
+<html>
+	<body>
+		<section id = "container" >                                   
+			<section id = "header">
+				<h1> Bouncing Ball <h1>
+			</section>
+			
+			<p></p>
+			<p></p>
+		
+		
+		<section id = "timer" >
+
+			<p>
+				<label id = "gameOver"></label>
+			</P>
+	
+			Total Time: <label id="mins">0</label> mins :
+			<label id="secs">0</label> secs
+			
+
+			
+		</section>
+		
+			<section id = "canvasSection">
+			<canvas id = "mycanvas" width = "500" height = "500">You see this if canvas not supported</canvas>
+			</section>
+		</section>
+		
+	</body>
+	<script src=".\javascripts\drawCanvas.js"></script>
+	<script src=".\javascripts\ball.js"></script>
+	<script src=".\javascripts\pad.js"></script>
+	<script src=".\javascripts\box.js"></script>
+	<script src=".\javascripts\drawLine.js"></script>
+	<script src=".\javascripts\timer.js"></script>
+	
+	<script>init(document.getElementById('mycanvas'));</script>
+	<script>document.onmouseup = createMouseHandler();</script>
+	
+	
+	
+</html>

@@ -1,0 +1,33 @@
+Assign1: Due 11:59PM July 19th
+
+First write a JavaScript program that will display the weather information for several cities. The input will come from a file which contains a list of WOEIDs, one line at a time.
+You can obtain the weather details from <http://weather.yahooapis.com/forecastrss?w=WOEID&u=f>.
+
+The program should read the file, issue requests to the webservice, parse the result, and display, in sorted order by the name of the city (and state, if two cities have the same name), the current temperature in the city.
+
+Format of output:
+
+City, State		Temperature
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+...		...			... 
+
+
+For WOEIDs for different cities, please visit <http://weather.yahoo.com>. For example, the WOEIDs for Houston, TX is 2424766.
+
+When you're done with the program, keep the JavaScript version, but write a version of the program using either CoffeeScript or TypeScript (either one of them).
+
+Total [100]: 87 
+JavaScript version works [25]:
+CoffeeScript version works [25]:
+Handles invalid WOEID [25]: -5
+Need to report any invalid woeids.
+Code quality [25]: -8
+Sort can be a lot simpler.
+No need for return in coffeescript.

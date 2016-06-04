@@ -1,0 +1,13 @@
+var express = require('express');
+var router = express.Router();
+
+var gamedetails = {};
+
+router.post('/postdetails', function(req, res, next) {
+
+   gamedetails[req.body.user.username+"_"+req.body.opponent.username] = ;
+   res.send("player added");
+
+});
+
+module.exports = router;

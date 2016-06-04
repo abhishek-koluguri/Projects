@@ -1,0 +1,61 @@
+angular.module('battleshipPlayers', [])
+    .controller('ViewPlayersController', function($http, $timeout) {
+        var viewPlayersController = this;
+        viewPlayersController.currentUserName = '';
+        viewPlayersController.currentUser = {};
+        viewPlayersController.players = [];
+        viewPlayersController.allPlayers = [];
+        viewPlayersController.invitedBy = {};
+        viewPlayersController.invitedFlag = false;
+
+        var removeCurrentUser = function(){
+
+            for (var i = viewPlayersController.players.length - 1; i >= 0; i--) {
+                if (viewPlayersController.players[i].username === viewPlayersController.currentUserName) {
+                    viewPlayersController.currentUser = viewPlayersController.players[i];
+                    viewPlayersController.players.splice(i, 1);
+                    break;
+                }
+            }
+        };
+
+        viewPlayersController.getPlayers = function() {
+            $http.get('/players')
+                .success(function(data) {
+                    viewPlayersController.currentUserName = location.search.substring(1).split("=")[1];
+                    viewPlayersController.players = data;
+                    viewPlayersController.allPlayers = data;
+                    removeCurrentUser();
+                });
+        };
+
+
+        viewPlayersController.invitePlayer = function(player) {
+            $http.post('/players/invite', {current:viewPlayersController.currentUser, invitedUser: player});
+        };
+
+        var checkInvite = function() {
+            console.log(viewPlayersController.allPlayers);
+            for( var i=0; i < viewPlayersController.allPlayers.length ; i++){
+                console.log(viewPlayersController.allPlayers[i].username, viewPlayersController.currentUser.username);
+                if(viewPlayersController.allPlayers[i].username === viewPlayersController.currentUser.username){
+                    viewPlayersController.invitedBy = viewPlayersController.allPlayers[i].invitedBy;
+                    viewPlayersController.invitedFlag = true;
+                    console.log(viewPlayersController.invitedFlag);
+                }
+            }
+        }
+
+
+        viewPlayersController.getPlayers();
+        viewPlayersController.checkInvite = checkInvite;
+
+        var poll = function() {
+            $timeout(function() {
+                viewPlayersController.getPlayers();
+                viewPlayersController.checkInvite();
+                poll();
+            }, 5000);
+        }
+        poll();
+    });

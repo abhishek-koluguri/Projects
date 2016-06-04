@@ -1,0 +1,43 @@
+angular.module('playgame', [])
+    .controller('PlayGameController', function($http, $timeout, $location) {
+        var controller = this;
+        controller.placedships = [];
+		controller.oponentships = [];
+		controller.hits = 0;
+		controller.miss = 0;
+		controller.gamestarted = false;
+		
+		var placeorhit = function(row, column) {
+			var cell = row + "_" + column;
+			if(!controller.gamestarted ){
+				if(controller.placedships.length < 5){
+					controller.placedships.push(cell);
+					return 'putship';
+				}else if(controller.placedships.indexOf(cell) >= 0){
+					return 'putship';
+				}
+			}else{
+				if(controller.oponentships.indexOf(cell) >=0 ){
+					controller.hits += 1;
+					return 'hitship';
+				}else if(controller.oponentships.indexOf(cell) < 0){
+					controller.miss += 1;
+					return 'missship';
+				}
+			}
+		}
+		
+		var getOpponentDetails = function() {
+			$http.post('')
+		}
+		
+		controller.getOpponentDetails = getOpponentDetails;
+		controller.placeorhit = placeorhit;
+		
+        var poll = function() {
+            $timeout(function() {
+                poll();
+            }, 5000);
+        }
+        
+});

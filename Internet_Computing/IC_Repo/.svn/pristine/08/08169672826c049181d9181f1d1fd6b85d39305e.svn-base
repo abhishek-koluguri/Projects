@@ -1,0 +1,36 @@
+[Venkat 07/29/15 11:46 AM CDT]
+review: submit not sending data
+
+Give good directory structure, test in tests, code in javascripts,...
+
+Drop should accept more than one item.
+Make drop target a non textarea or non textbox.
+
+When submit is pressed ensure the form data is actually transmitted.
+
+Did not find karma config file to run tests.
+
+------------------------------------------------------------------------------
+[Venkat 07/28/15 10:40 AM CDT]
+review: check submit.
+
+Make the location data non-editable.
+
+Drag drop did not work. Make the drop area a non-textbox.
+
+Submit and look at the report from the test server. Make sure form
+includes all the form data.
+
+I did not review JavaScript since there were no tests.
+
+------------------------------------------------------------------------------
+[Venkat 07/25/15 06:24 AM MDT]
+review: A few things to fix
+
+User should be able to click on My Location without entering any field.
+
+Clicking on my location should display location.
+
+Submit should display the proper data (see email for the action to take).
+
+------------------------------------------------------------------------------

@@ -1,0 +1,41 @@
+angular.module('battleshipPlayers', [])
+    .controller('ViewPlayersController', function($http) {
+        var viewPlayersController = this;
+        viewPlayersController.currentUser = '';
+
+
+
+        var removeCurrentUser = function(){
+
+            for (var i = viewPlayersController.players.length - 1; i >= 0; i--) {
+
+                if (viewPlayersController.players[i].username === viewPlayersController.currentUser) {
+                    viewPlayersController.players.splice(i, 1);
+                    break;
+                }
+            }
+        };
+
+        viewPlayersController.getPlayers = function() {
+            $http.get('players')
+                .success(function(data) {
+                    viewPlayersController.currentUser = location.search.substring(1).split("=")[1];
+                    console.log(viewPlayersController.currentUser);
+                    console.log("testing");
+                    viewPlayersController.players = [];
+                    viewPlayersController.players = data;
+                    removeCurrentUser();
+                });
+        };
+
+
+        viewPlayersController.invitePlayer = function(player) {
+            $http.post('invitePlayer/invite', player)
+                .success(function(data) {
+                    viewPlayersController.getPlayers();
+                });
+        };
+
+        viewPlayersController.players = [];
+        viewPlayersController.getPlayers();
+    });

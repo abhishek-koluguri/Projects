@@ -1,0 +1,31 @@
+[Venkat 07/12/15 05:55 AM CDT]
+review: improve 2
+
+1. nice and concise.
+
+2.
+see suggestion in text.
+What's the purpose of this context, what good does it bring?
+
+3. good
+
+------------------------------------------------------------------------------
+[Venkat 07/11/15 05:33 AM CDT]
+review: a few things to fix.
+
+"In JavaScript" noise words, remove, we are talking about JavaScript.
+
+1.
+Discuss this term first for variables. Then discuss this for functions and how that may be different in some ways. Write in short paragraphs.
+
+2.
+"In JavaScript, the difference between calling a function directly and calling it with call or apply is:" extra reading with no value. Remove words that do not add value to the reader.
+
+Recheck the correctness of the last sentence.
+
+What is the purpose of this context object?
+
+3.
+More than very less, if we have them as discrete values instead of in an array.
+
+------------------------------------------------------------------------------

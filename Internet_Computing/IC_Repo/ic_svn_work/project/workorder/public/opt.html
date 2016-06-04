@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./scripts/OPTSelfReport.js" type="text/javascript">// <![CDATA[
+
+    // ]]></script>
+
+</head>
+<body>
+<form>
+    <section>
+    <p><span style="text-decoration: underline;"><strong>STEP 1: CONFIRMING STATUS</strong></span></p>
+    <p>Are you on OPT or OPTX?</p>
+    <p><input checked="checked" class="lead" id="OPT" name="OPTRX" onclick="firstTimeReportingOPT(document.getElementById('firstTimeReportingQuestion', 'supervisorInfo'));" type="radio" value="OPT" />&#160;OPT &#160;&#160;<input id="OPTX" name="OPTRX" onclick="firstTimeReportingOPTX(document.getElementById('firstTimeReportingQuestion', 'supervisorInfo'));" type="radio" value="OPTX" />&#160;OPTX</p>
+    <div hidden="hidden" id="firstTimeReportingQuestion">
+        <p>If you are on OPTX, is this your first time submitting a OPT Self Report to ISSS?</p>
+        <p><input checked="checked" class="lead" id="firstTimeReportingYes" name="firstTimeReporting" onclick="reportingDatesYes(document.getElementById('reportingDates'));" type="radio" value="yes" />&#160;OPT &#160;&#160;<input id="firstTimeReportingNo" name="firstTimeReporting" onclick="reportingDatesNo(document.getElementById('reportingDates'));" type="radio" value="no" />&#160;No</p>
+    </div>
+    <div hidden="hidden" id="reportingDates">
+        <p>Please confirm your reporting dates:</p>
+        <p>Reporting Date #1 : <input id="reportingDate1" name="reportingDate1" type="text" /></p>
+        <p>Reporting Date #2 : <input id="reportingDate2" name="reportingDate2" type="text" /></p>
+        <p>Reporting Date #3 : <input id="reportingDate3" name="reportingDate3" type="text" /></p>
+        <p>Reporting Date #4 : <input id="reportingDate4" name="reportingDate4" type="text" /></p>
+    </div>
+    <p><span style="text-decoration: underline;"><strong>STEP 2: STUDENT INFORMATION</strong></span></p>
+    <p><input id="sevisID" name="sevisID" placeholder="SEVIS ID" required="" type="text" /></p>
+    <p><input id="peoplesoftID" name="peoplesoftID" placeholder="PeopleSoft ID" required="" type="text" /></p>
+    <p><input id="familyName" name="familyName" placeholder="Family Name" required="" type="text" /></p>
+    <p><input id="firstName" name="firstName" placeholder="First Name" required="" type="text" /></p>
+    <p><input id="email" name="email" placeholder="Email" required="" type="text" /></p>
+    <p><input id="DOB" name="DOB" placeholder="Date Of Birth" required="" type="text" /></p>
+    <p><input id="streetAddress" name="streetAddress" placeholder="Street Address" required="" type="text" /></p>
+    <p><input id="aptNo" name="aptNo" placeholder="Apt #" type="text" /></p>
+    <p><input id="city" name="city" placeholder="City" required="" type="text" /></p>
+    <p><input id="state" name="state" placeholder="State" required="" type="text" /></p>
+    <p><input id="zip" name="zip" placeholder="Zip" required="" type="text" /></p>
+    <p><input id="phone" name="phone" placeholder="Phone" required="" type="text" /></p>
+    <p><span style="text-decoration: underline;"><strong>STEP 3: OPT CARD INFORMATION</strong></span></p>
+    <p><input id="OPTStartDate" name="OPTStartDate" placeholder="Start Date" required="" type="text" /></p>
+    <p><input id="OPTEndDate" name="OPTEndDate" placeholder="End Date" required="" type="text" /></p>
+    <p>I will send a copy of my EAD Card to ISSS by:&#160;<select id="EADCardMailingOption" name="EADCardMailingOption">
+        <option>IN PERSON</option>
+        <option>EMAIL</option>
+        <option>FAX</option>
+    </select></p>
+    <p><strong>Email: Send it to&#160;<a href="mailto:sevis@central.uh.edu?Subject=OPT%20Validation" target="_top">Gina B McCready</a>&#160;.</strong><br /> <strong>Fax Number: 713/743-5079</strong></p>
+    <p><span style="text-decoration: underline;"><strong>STEP 4: EMPLOYER INFORMATION</strong></span></p>
+    <p><span style="text-decoration: underline;"><strong>Current</strong> <strong>Employer</strong></span>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; <span style="text-decoration: underline;"><strong>Former Employer</strong></span></p>
+    <p><input id="currentCompanyName" name="currentCompanyName" placeholder="Company's Name" type="text" value="UNEMPLOYED" />&#160; &#160; &#160; &#160; &#160;<input id="formerCompanyName" name="formerCompanyName" placeholder="Company's Name" type="text" value="UNEMPLOYED" /></p>
+    <p><input id="currentAddress" name="currentAddress" placeholder="Address" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerAddress" name="formerAddress" placeholder="Address" type="text" /></p>
+    <p><input id="currentAptNo" name="currentAptNo" placeholder="Suite/Apt #" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerAptNo" name="formerAptNo" placeholder="Suite/Apt #" type="text" /></p>
+    <p><input id="currentCity" name="currentCity" placeholder="City" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerCity" name="formerCity" placeholder="City" type="text" /></p>
+    <p><input id="currentState" name="currentState" placeholder="State" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerState" name="formerState" placeholder="State" type="text" /></p>
+    <p><input id="currentZip" name="currentZip" placeholder="Zip" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerZip" name="formerZip" placeholder="Zip" type="text" /></p>
+    <p><input id="currentStartDate" name="currentStartDate" placeholder="Start Date" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerStartDate" name="formerStartDate" placeholder="Start Date" type="text" /></p>
+    <p><input id="currentEndDate" name="currentEndDate" placeholder="End Date" type="text" />&#160; &#160; &#160; &#160; &#160;<input id="formerEndDate" name="formerEndDate" placeholder="End Date" type="text" /></p>
+    <p><span style="text-decoration: underline;"><strong>STEP 5: SUPERVISOR INFORMATION (<em>OPTX ONLY</em>)</strong></span></p>
+    <div hidden="hidden" id="supervisorInfo">
+        <p>Please confirm your reporting dates:</p>
+        <p>Supervisor Name : <input id="supervisorName" name="supervisorName" type="text" /></p>
+        <p>Supervisor Job Title / Position : <input id="supervisorJobTitle" name="supervisorJobTitle" type="text" /></p>
+        <p>Supervisor Phone# : <input id="supervisorPhone" name="supervisorPhone" type="text" /></p>
+        <p>Supervisor Email : <input id="supervisorEmail" name="supervisorEmail" type="text" /></p>
+    </div>
+    <p><span style="text-decoration: underline;"><strong><span>STEP 6: TRANSITIONS INFORMATION</span></strong></span></p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I returned to my country on this date and will not be returning to resume OPT</p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I plan to leave the U.S. and will not be returning to resume my OPT. My anticipated departure date is</p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I have changed my status from F-1 to</p>
+    <p><span>I will send a copy of my approval notice(I-797 or I-485) by</span>:&#160;<select id="EADCardMailingOption" name="EADCardMailingOption">
+        <option>IN PERSON</option>
+        <option>EMAIL</option>
+        <option>FAX</option>
+    </select></p>
+    <p><strong>Email: Send it to&#160;<a href="mailto:sevis@central.uh.edu?Subject=OPT%20Validation" target="_top">Gina B McCready</a>&#160;.</strong><br /> <strong>Fax Number: 713/743-5079</strong></p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I plan on resuming classes for a new degree level at UH on</p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I plan on transferring to another university on</p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;I am requesting a Cap-Gap I-20 from ISSS.</p>
+    <p><input id="" name="transitionInformation" type="radio" value="" />&#160;None of the above options apply to my situation at this present time.</p>
+    <p><span style="text-decoration: underline;"><strong>STEP 7: REVIEW &amp; SUBMIT</strong></span></p>
+</form></section>
+<table style="line-height: 15.86px; font-size: 13px; color: #333333; font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif; margin: 10px auto; padding: 0px; border: 0px none; text-align: justify;">
+    <tbody style="line-height: 1.22em; margin: 0px; padding: 0px;">
+    <tr style="line-height: 1.22em; margin: 0px; padding: 0px;">
+        <td class="highlight" colspan="3" style="line-height: 1.22em; color: #333333; font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif; margin: 0px; padding: 2px; border-style: none; border-width: 0px; font-weight: bold; background-color: #e6e6e6;">
+            <ul id="ctl00_ContentPlaceHolder1_OPTControl1_BulletedList9" style="line-height: 20.8px; margin: 0px; padding: 0px 0px 0px 16px;">
+                <li style="line-height: 1.5em; margin: 5px 0px; padding: 0px;">Review the information in steps 1-6 for accuracy.</li>
+                <li style="line-height: 1.5em; margin: 5px 0px; padding: 0px;">Make any necessary changes to the information included in steps 1-6.</li>
+                <li style="line-height: 1.5em; margin: 5px 0px; padding: 0px;">Print a copy of this page for your personal portfolio.</li>
+                <li style="line-height: 1.5em; margin: 5px 0px; padding: 0px;">Press Submit to complete the process.</li>
+            </ul>
+        </td>
+    </tr>
+    <tr style="line-height: 1.22em; margin: 0px; padding: 0px;">
+        <td colspan="3" style="line-height: 1.22em; color: #333333; font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif; margin: 0px; padding: 2px; border-style: none; border-width: 0px;">&#160;</td>
+    </tr>
+    </tbody>
+</table>
+<p>&#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160;<input type="submit" />&#160; &#160; &#160; &#160; &#160;&#160;<input type="reset" /></p>
+</body>
+</html>

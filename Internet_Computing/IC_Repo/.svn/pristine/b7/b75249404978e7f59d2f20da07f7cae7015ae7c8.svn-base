@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+table#gametable, #gametable tr, #gametable td{
+	border-collapse:collapse;
+    border: 1px solid black;
+	width: 300px;
+	height: 25px;
+}
+
+table#gametable{
+	float:left;
+}
+
+.putship{
+   background-color: orange;
+}
+
+.hitship{
+   background-color: green;
+}
+
+.missship{
+   background-color: red;
+}

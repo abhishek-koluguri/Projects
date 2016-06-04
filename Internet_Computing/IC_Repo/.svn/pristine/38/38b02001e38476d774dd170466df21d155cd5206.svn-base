@@ -1,0 +1,29 @@
+Assign4 Due 11:59PM August 14th
+
+Create the game of battleship (a modified version) using Express.
+
+Features:
+1. User connects to the server, provides a user name.
+2. User can view a list of players available.
+3. Can invite a waiting player.
+4. The invited player accepts or declines invitation.
+5. If the invited player declines invitation, both players go back to step 2.
+6. If a waiting player accepts invitation then they're asked to initialize game.
+7. To initialize a game, the user places five battleships on a 10x10 grid. The battleship a user places is only visible to the user who places it.
+8. Once both the users place their battleships, they can start the play.
+9. A random player (among the two) is asked to start first, they take turns to play.
+10. A player can hit a cell by clicking on it. If the opponent has a battleship at that cell, it is struck (sinks) and the striking user is shown that there was a strike at that cell. If the striking player has a battleship at the same cell, it is not affected by this step. If the cell had no battleship of the opponent, no action is taken.
+11. The first player to sink all of the opponent's ship is declared a winner.
+12. Once the game is over (won or lost), the user will have to reconnect and provide their name again.
+
+Total [100]: 100
+User can connect [10]:
+Use can invite a player [10]:
+Users can join the game [10]:
+User can place ships [10]:
+User can attack [10]:
+Users take logical turns to play [10]:
+Game runs to completion [20]:
+UI with less clutter, good clarity [10]:
+code quality [10]:
+

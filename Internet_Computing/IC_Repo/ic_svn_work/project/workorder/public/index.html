@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lan="en" manifest="mymanifest.appcache">
+  <link rel="stylesheet" href="./stylesheets/style.css" type="text/css">
+  <header>
+    <h1>Department of Public Works(Koluguri_Patil)</h1>
+  </header>
+  <head>
+    <script src="./javascripts/workOrder.js"></script>
+    <!--<script src="jquery-1.11.3.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+  <section id="form">
+    <form id = "work_order" name="work_order" onsubmit="workOrder(event);">
+      <fieldset>
+        <p>
+          <label style="vertical-align: top">Work Description: </label>
+          <label for="work_description"></label>
+          <textarea id="work_description" name="work_description" rows="20" cols="60" onkeyup="checkNoOfWords(this)" required></textarea>
+          <p>Remaining words: <label id="wordCount" style="color:#ff1730"></label></p>
+        </p>
+        <p>
+          <label>Click here for selecting current location as the work location:
+            <button type="button" onclick="getLocation(document.getElementById('locationInfo'), document.getElementById('fromLocation'));">My Location</button>
+          </label>
+        </p><span id="locationInfo"></span>
+        <input id="fromLocation" type="hidden" name="fromLocation"/>
+        <p><label>Date:</label><input  name="date" type="date" required/></p>
+        <p>
+          <label>Employee Name:
+            <input name="workerName" type="text" required="" placeholder="Full Name">
+          </label>
+        </p>
+        <p>Severity:
+          <label for="severity"></label>
+          <select id="severity" name="Severity" required>
+            <option value="" selected="">Select Severity</option>
+            <option value="Minor">Minor</option>
+            <option value="Major">Major</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </p>
+
+      </fieldset><span id="message" style="color:#ff1730"></span>
+      <p>
+        <input id="submit" type="submit" />&nbsp
+        <input id='reset' type="reset"/>
+      </p>
+    </form>
+  </section>
+  <footer id="copyright">
+    <p>© 2015-2016-All rights reserved.</p>
+  </footer>
+</html>

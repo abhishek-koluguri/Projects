@@ -1,0 +1,22 @@
+<html ng-app="battleshipApp">
+<head>
+	<script src="javascripts/angular/angular.js"></script>
+	<script src="javascripts/gameController.js"></script>
+	<link rel="stylesheet" href="stylesheets/style.css" type="text/css" />
+</head>
+<body ng-controller="GameController as gameController">
+
+<section id = "Welcome">
+<h1>Welcome to the game of Battleships</h1>
+
+	
+	<form name = "username" id = "username" action = "viewPlayers.html" method = "GET">
+		<table>
+			<tr><td>Please enter your Username: </td><td><input type="text" name = "myUsername" ng-model="gameController.player.username"></input></td>
+			<td><input type="submit" value="join" ng-click="gameController.addPlayer();"></input></td></tr>
+		</table>
+	</form>
+	
+</section>
+</body>
+</html>

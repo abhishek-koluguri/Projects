@@ -1,0 +1,53 @@
+HW 4. Due 11:59PM August 14th
+There will be no reviews for this homework.
+
+1. What are some of the things you learned new in this course?
+
+	In this course, we have learnt Asynchronous Functionality of JavaScript in which called method does not block the calling method 
+	while waiting for a response, but it notifies the calling method when response is ready via events and callbacks.. 
+	We learned how browser uses this functionality to make the application more interactive.
+	
+	We learned how web applications use AJAX technique to send and retrieve data from server where JavaScript and the XMLHttpRequest 
+	object provide a method for exchanging data	between browser and server to avoid full page reloads. 
+	
+	We learned how complicated JavaScript code can be written in a very simplified way in CoffeeScript and TypeScript.
+	Using jQuery library helped us lower the amount of code we write and after learning to use AngularJS framework, 
+	it was made even easier and more interactive applications where developed.  
+
+	Previously, we never thought of doing Test Driven Development on JavaScript. But in this course, 
+	we learned how effective test driven development can be. We have learnt that if we can do TDD effectively on our code, it can 
+	tremendously minimize our efforts to debug the application manually. 
+	
+	We learned how Canvas Drawing can be used for attractive animations on web-page. We got ourselves familiarized with various 
+	testing tools like Grunt, Karma, Mocha, Chai, nodeunit. We also got familiarized with express framework and Node.js
+	
+2. What was the most exciting thing you learned?
+
+	The most exciting thing we learned in this course is asynchronous programming. In traditional techniques, a called method 
+	is executed synchronously. The calling method is blocked until the called method is finished.
+	Hence it takes a lot of time to load the page. On the other hand, Asynchronous programming helps us to avoid performance bottlenecks and 
+	enhance responsiveness of the application.
+	In an asynchronous process, the application can continue with other work that doesn't depend on the web resource until the potentially 
+	blocking task finishes. 
+		The browser exposes the asynchronous functionality to the application logic via events and callbacks. 
+		In this way, when we call a function asynchronously, the compiler jumps to the next function or next line in the code, 
+		and continues the execution.
+	And, once the asynchronous function finishes its job, it returns the desired result to the calling function, 
+	and the result is displayed to the user. Some asynchronous functions like setTimeOut and
+	setInterval executes a given function after every certain amount of time. We used these functions in Bouncing Ball game, 
+	where we worked on HTML Canvas and learned how asynchronous functions
+	are useful for graphics design and for making animations.
+	
+		Another exciting thing we learned under Asynchronous Functionality is AJAX. AJAX allows us to update the web page without 
+		having to reload it. AJAX has made the client-server communication really easy. 
+	It also allows easy	navigation to users in comparison to way of using back and forward buttons. AJAX is also useful for 
+	server-side validation.
+	
+		
+
+3. If you were to pick JavaScript, would you use it for client-side, server-side, neither, or both. Discuss.
+
+	We would use JavaScript for both client-side and server-side. We have been in thought that JavaScript was more beneficial to use 
+	on client side.
+	But when we started practising JavaScript in assignments and projects, we learned that there was no difference between JavaScript and
+	other programming languages.

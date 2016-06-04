@@ -1,0 +1,56 @@
+[Venkat 08/09/15 06:52 AM CDT]
+review: show data sent on the server console
+
+Put your name on the landing page so I know I'm looking at your work and not some other pair's.
+
+What if location can't be obtained?
+
+When button is pressed, stay on the same page, give feedback to the user
+that the data was submitted, and print on the server console the data
+received.
+
+------------------------------------------------------------------------------
+[Venkat 08/07/15 08:21 AM MDT]
+review: nice to see tests, drive with those.
+
+When the Submit button is pressed, stay on the page... same as previous review.
+
+Nice to see you have some tests. Drive code using these tests.
+
+------------------------------------------------------------------------------
+[Venkat 08/06/15 06:40 AM CDT]
+review: Stay on page. Implement offline feature
+
+When submit is clicked, don't leave the page. Give feedback to the user.
+Then print the data received from the page on the server.
+
+Implement offline feature.
+
+Embrace TDD, at least give it a try.
+
+------------------------------------------------------------------------------
+[Venkat 08/05/15 05:56 AM CDT]
+review: Getting error
+
+>./bin/www 
+module.js:338
+    throw err;
+          ^
+Error: Cannot find module './routes/users'
+    at Function.Module._resolveFilename (module.js:336:15)
+    at Function.Module._load (module.js:278:25)
+...
+
+------------------------------------------------------------------------------
+[Venkat 08/04/15 05:07 AM MDT]
+review: restructure
+
+Name the file index.html. Don't create a separate client and server directories.
+Remember this is web app, the server serves the html to the client.
+
+Start with html and javascripts folder. We can move things around when we
+are ready to implement the server side.
+
+Provide all necessary fields in the html page.
+
+------------------------------------------------------------------------------

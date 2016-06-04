@@ -1,0 +1,53 @@
+HW 2. Due 11:59PM July 21st
+
+1. What language are you most familiar with?
+
+	  We are most familiar with Java. Java is one of the early languages we have learnt and 
+	  we have been working with it on many projects.
+      We have used TDD approach while working with Java, which helped us to write robust code using Java, 
+	  and also helped us to gain some good knowledge of Java.
+
+2. From that language point of view, how is JavaScript similar or different?
+ 
+	  Main similarity is both support object oriented programming languages. 
+	
+	  But both Java and JavaScript are different from each other in many aspects.
+	  Java doesn't support asynchronous functionality where as JavaScript does. We can use multi-threading in Java,
+	  JavaScript is single-threaded.
+	
+	  Java uses block-based scoping whereas JavaScript uses non-blocking or functional scoping. 
+	  In JavaScript, variable declarations are "hoisted" to the top of the current scope. There is no concept of hoisting in Java.
+	  
+      Java supports Class-based inheritance whereas JavaScript supports Prototype-based inheritance. 
+	  Java does not allow us to add properties dynamically at run time but JavaScript allows to add or remove properties dynamically
+	  to individual objects or to the entire set of objects.
+	
+	  Java is statically typed language whereas JavaScript is dynamically typed language. 
+
+      Java constructors are special functions which can be called at object creation, on the other hand,
+      JavaScript constructors are standard functions.
+
+3. What are some of the things that excited you as you learn JavaScript?
+
+    We are excited by the free flowing nature of functions in JavaScript where a function can be applied to any object in 
+	the context of that object. Previously, in languages we used, functions were confined to particular classes and 
+	the object of that class can only use those functions.
+	
+	Asynchronous functionality of JavaScript is interesting, which is different from sequence calling of functions and enabled us 
+	to call another function while a function is still processing.
+    
+	Lexical scoping and Closure property are interesting as well which help us to use free independent variables by remembering
+    the environment in which they were created.
+
+4. What are some of the things that concerns you with JavaScript?
+
+      JavaScript's Asynchronous functionality was confusing initially but we were able to get grip of that when 
+	  we got to implement it in our assignment.
+      Prototypal inheritance becomes confusing with complex operations.
+      
+	  Initially we didn't find TDD approach for JavaScript as easy as that of for Java,
+      but once we learnt concept of callback or Asynchronous functionality, things went nice.
+	  
+	  We find readability of the JavaScript is to be difficult when the number of callback functions increase.
+	
+Total[10]: 10

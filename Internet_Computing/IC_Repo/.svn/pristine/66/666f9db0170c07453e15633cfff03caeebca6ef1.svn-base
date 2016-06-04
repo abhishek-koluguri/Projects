@@ -1,0 +1,29 @@
+#header {
+    background-color: #CED8F6;
+    color:black;
+    text-align:center;
+    padding:5px;
+}
+
+#displayTime {
+    
+    height:500px;
+    width:10%;
+    float:left;
+    padding:5px;
+}
+
+#timer {
+
+    width:15%;
+    float:left;
+    padding:10px;
+
+}
+
+#canvasSection {
+    width:80%;
+    float:left;
+    padding:10px;
+	
+}

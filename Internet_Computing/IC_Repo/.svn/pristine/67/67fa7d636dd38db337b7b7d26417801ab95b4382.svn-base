@@ -1,0 +1,15 @@
+Assign3 Due 11:59PM August 6th
+
+In this assignment we will create a small game of bouncing balls. The game starts with a 2-d rectangle open at the top. The user has a pad that can move only horizontally at the top brim of the rectangle. The pad length is one tenth the width of the rectangle. The pad can be used to block the balls from leaving the rectangle.
+
+At the start of the game, the player clicks anywhere in the rectangle to set off three balls. At that time, three balls (colored red, blue, and green) appear and travel at a random direction at an initial speed of one hundredth of the width of the rectangle per second.
+
+When the balls hit any wall or the pad, they will bounce off at the appropriate angle based on the direction, location, and angle of hit.
+
+At the start, the ball has a diameter which is one tenth of the width of the rectangle.
+
+Each time a ball hits the pad, it will double its speed. After every ten hits of the pad, the ball will reduce in size by one fourth of its current diameter.
+
+The game ends when all the balls leave the rectangle. The game should display on the side the amount of time from the start until the game is eventually lost.
+
+Total [100]: 90 At some speeds, the ball flickers around the pad, changing directions rapidly multiple times.

@@ -1,0 +1,70 @@
+HW 3. Due 11:59PM July 24th
+
+Mention a few JavaScript engines available today. Discuss their key strengths and limitations.
+
+JavaScript Engine is a virtual machine that interprets and executes JavaScript.(copied from wikipedia).
+
+There are two types of JavaScript Engines available.
+1. JavaScript Engines implementing just-in-time(JIT) compilation. (e.g. Carakan, Chakra, SpiderMonkey, JavaScriptCore, Tamarin, V8 etc).
+2. JavaScript Engines which uses runtime interpreters (e.g. Futhark, InScript, JScript, KJS, Narcissus, Rhino etc).
+
+Following are few engines implementing JIT.
+
+1. SpiderMonkey
+	
+	The engine code named SpiderMonkey is the first ever JavaScript Engine. This engine provides support for Mozilla Firefox.
+	SpiderMonkey is written in C/C++. It also contains an interpreter, JIT and garbage collector. 
+	
+	The key strength of SpiderMonkey is, it can produce extremely specialized code compared to whole-method JIT.
+	SpiderMonkey also provides smart optimization. SpiderMonkey is not efficient if the code has many branches, 
+	because the traces are optimized for single paths of execution. Another limitation is, if the tracer makes an assumption 
+	that is later violated, the cost of falling off trace and switching back to interpreting is likely to be higher 
+	than with a whole-method JIT.
+	(source: JavaScript Engines Advantages discussion on stackoverflow)
+
+2. V8
+	
+	V8 JavaScript Engine is used by Google Chrome. 
+	V8 is written in C++. It is used for both client side and server side JavaScript applications.
+	
+	V8 supports multi-threading. The main thread fetches the code, compiles it and executes it. 
+	It uses a separate thread for compiling. While this thread is optimizing the code, the main thread keeps executing, 
+	which makes V8 a faster engine.V8 gives us significant advantage in terms of speed if the code uses a lot of recursion. 
+	Limitations of V8 are that it uses int variables to track various limits inside memory management subsystem. 
+	These limits overflow when heap size approaches 1.9 GB(for 64 bit) and this causes erratic behaviour. Another problem is that 
+	current V8 GC works well on small and medium heaps, but it's performance could degrade on large heaps.
+	(Source: Memory limit issue: V8 JavaScript Engine)
+	
+3. SquirrelFish Extreme
+	
+	SquirrelFish Extreme is developed by Apple's WebKit developers, which is used in Safari.
+	It uses four different technologies to deliver better performance than the SquirrelFish: bytecode optimizations,
+	polymorphic inline caching, a lightweight “context threaded” JIT compiler, and a new regular expression engine that uses our JIT infrastructure.
+	(Source: https://www.webkit.org/blog/214/introducing-squirrelfish-extreme/). SquirrelFish Extreme is 2x faster than SquirrelFish Engine. It is faster than TraceMonkey and V8.
+	
+Following engines uses runtime interpreters
+
+1. Rhino
+
+	Rhino is developed in Java and managed by Mozilla Foundation.
+	Rhino converts JavaScript code into classes. It works in compiler mode as well as in interpreter mode.
+	It is intended to be used for server side applications.
+	
+	Rhino runs pretty much anywhere the JVM runs. Since it uses runtime interpreter, it produces best performance.
+	But Rhino's compilation time is too long since generating bytecode and loading the generated classes is a resource-consuming process.
+	Also, the implementation effectively leaked memory since most Java Virtual Machines (JVM) didn't collect unused classes.
+	(Source: wikipedia)
+	
+2. Nashorn
+
+	Nashorn is JavaScript Engine developed by Oracle.
+	Its goal is to implement a high-performance JavaScript runtime in Java with a native JVM. 
+
+	Nashorn's performance is significantly better than that of Rhino. Nashorn is basically a replacement for Rhino. It allows for 
+	quick prototyping of functionality or basic shell scripts that use Java libraries. Nashorn directly compiles the JavaScript code
+	in-memory and passes the Java bytecode to the JVM and uses invoked dynamic which provides backward compatibility to JDK7. (Source: http://www.nagarro.com/at/de/blog/post/33/Java-8-Nashorn-Engine-for-JavaScript-Interoperability-and-Performance)
+	However it is not thread safe by design and does not include a browser plug-in API such as HTML5 canvas, HTML5 audio, WebWorkers etc.
+	And also it does not include direct debugging support.
+	(Source: http://www.javaworld.com/article/2144908/scripting-jvm-languages/nashorn--javascript-made-great-in-java-8.html)
+	
+Total [10]: 10

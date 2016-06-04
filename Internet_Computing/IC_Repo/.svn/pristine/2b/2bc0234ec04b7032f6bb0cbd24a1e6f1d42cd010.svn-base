@@ -1,0 +1,39 @@
+doctype html
+html(lang='en', manifest='mymanifest.appcache')
+  link(rel='stylesheet', href='./stylesheets/style.css', type='text/css')
+  header
+    h1 Department of Public Works
+  head
+    script(src='./javascripts/workOrder.js')
+  section#form
+    form#workOrder(name='workOrder', method='post', action='/processOrder', onsubmit="return validateFormDetails(document.getElementById('fromLocation').value, document.getElementById('validationMessage'));")
+      fieldset
+        p
+          label(style='vertical-align: top') Work Description: 
+          label(for='work_description')
+          textarea#work_description(name='work_description', rows='20', cols='60', maxlength='1200', required='')
+        p
+          label
+            | Click here for selecting current location as the work location: 
+            button(type='button', onclick="getLocation(document.getElementById('locationInfo'), document.getElementById('fromLocation'));") My Location
+        span#locationInfo
+        input#fromLocation(type='hidden', name='fromLocation')
+        p
+          label
+            | Full Name: 
+            input(name='workerName', type='text', required='', placeholder='Jon Snow')
+        p
+          | Severity: 
+          label(for='severity')
+          select#severity(name='Severity')
+            option(value='Select Severity', selected='') Select Severity
+            option(value='Minor') Minor
+            option(value='Major') Major
+            option(value='Urgent') Urgent
+      span#validationMessage(style='color:#ff1730')
+      p
+        button(type='submit') Submit
+        | &nbsp 
+        button(type='reset') Reset
+  footer#copyright
+    p © 2015-2016-All rights reserved.
