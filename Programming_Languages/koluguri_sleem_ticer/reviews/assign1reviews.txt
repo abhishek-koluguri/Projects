@@ -1,0 +1,89 @@
+[Venkat 09/17/15 05:09 AM EDT]
+review: you're done
+
+is_perfect_number_functional:
+indent properly.
+
+writing: good
+
+------------------------------------------------------------------------------
+[Venkat 09/16/15 05:11 AM EDT]
+review: move forward
+
+PerfectNumberTest:
+PerfectNumber.new(); to PerfectNumber.new
+
+is_perfect_number_functional:
+use find_all instead of select
+
+------------------------------------------------------------------------------
+[Venkat 09/15/15 05:54 AM EDT]
+review: refactor
+
+java - done
+
+Ruby:
+My_test: Better name.
+
+PerfectNumber:
+If this is imperative style use for instead of each.
+
+------------------------------------------------------------------------------
+[Venkat 09/14/15 07:45 AM EDT]
+review: move forward
+
+isPerfectNumberFunctional:
+Line up the dots vertically, .filter should be right under .rangeClosed.
+
+Move forward.
+
+------------------------------------------------------------------------------
+[Venkat 09/13/15 17:55 PM EDT]
+review: reduce
+
+sumOfFactorsFunctional: Remove this function, not needed.
+
+filter: use lambda in line as parameter, no need for isFactor variable.
+
+------------------------------------------------------------------------------
+[Venkat 09/13/15 05:32 AM CEST]
+review: move forward
+
+Remove space between )  ;
+
+------------------------------------------------------------------------------
+[Venkat 09/12/15 07:23 AM CEST]
+review: good start
+
+PerfectNumberTest:
+Move the object creation to a setup method.
+
+PerfectNumber:
+isPerfectNumberImperative:
+Remove unnecessary parenthesis.
+Move number > 0 to beginning of the condition.
+
+There is sumOfFactors, but no test for it.
+Give space after ; in the for.
+
+------------------------------------------------------------------------------
+[Venkat 09/10/15 16:57 PM CEST]
+review: one step at a time
+
+Start with one style first, imperative.
+
+Put code in a package, for example perfectnumber.
+
+Directory structure:
+
+src/main/java/perfectnumber/PerfectNumber.java
+src/test/java/perfectnumber/PerfectNumberTest.java
+
+------------------------------------------------------------------------------
+[Venkat 09/09/15 04:55 AM PDT]
+review: did not find any files
+
+Did you forget to check in?
+
+------------------------------------------------------------------------------
+java - done

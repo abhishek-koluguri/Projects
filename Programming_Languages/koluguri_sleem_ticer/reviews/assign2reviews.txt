@@ -1,0 +1,10 @@
+[Venkat 09/19/15 06:05 AM EDT]
+review: very nice work so far
+
+zeroList -> series
+
+Use List instead of Vector.
+
+getSeriesToRegularRecursion -> getSeriesRecursive
+
+------------------------------------------------------------------------------

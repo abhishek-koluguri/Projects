@@ -1,0 +1,58 @@
+Files you check in outside of specific homework or assignment directory will not be reviewed or graded for that homework/assignment.
+
+Check in and modify files as many times as you like. You will not be able to modify the files after the deadline.
+
+You will work as a pair, both of you are responsible for the completed work in all assignments and homework. 
+Each of you are expected to put in your reasonable share of effort into it.
+
+The deadlines are strict, there will be no extensions. Don't email any code to Venkat.
+
+Your last check in before the deadline will be graded. So, if you break code (in assignments) before the deadline, you will lose.
+
+Please feel free to ask for frequent reviews (see the readme.txt file in the reviews folder for details on how to ask for reviews).
+
+You can evolve the answers and solutions based on the reviews to your pair and to other pairs in the course.
+Only the latest checkin at the time of review will be looked at. Also the final check in will be the only one graded.
+
+Please read the academic honesty policy posted on the course mailing list.
+
+--------------------------------------------------------------------------------------------------------------
+Homework 1: Due 11:59PM September 4th
+
+What are the differences between statements and expressions. Given examples. What are the benefits and the consequences of using each one of them. 
+
+Feel free to read up, but do provide references to where you learn from. The description should be in your own words. If you find some really catchy phrases or quotes you'd like to use, do so, but put them in double quotes along with the name of who said (wrote) it.
+
+Share your own experiences, observations, things that may have intrigued you.
+
+Your answer goes here:
+
+  Statements are commands used to perform certain actions with no return values whereas expressions are evaluations that return values after the evaluations.
+  For example, in java, 'System.out.println("Hello")' is a statement where 'Hello' is printed on console and does not return any value after performing the 
+  specified action. Where as 'x.equals(y)' is an expression which evaluates whether the value of x is equal to value of y and returns true or
+  false.
+  
+  Statements cause side effects like mutating the variables or external resources, which makes them unsafe to repeat them. Statements are 
+  sequential steps which depend on one another. Hence they cannot be parallelized or reordered. It is hard to compose statements because 
+  it makes code verbose and vulnerable to errors. Whereas expressions can be combined together such as ‘x > 1 && x < 9' (in java).
+  
+  Using expressions gives conciseness to the code. An expression can replace a statement simply by ignoring the result given by that expression.  
+  But with statements there is no option of using the result even if we want to, because statements do not return anything. 
+  In order to use the result of the statements, we need to make use of temporary variables explicitly.
+  Expressions are idempotent which means for a given input they return the same result. So they can be used any number of times and can also
+  be easily tested. As long as a computation is independent of another, expressions can be reordered and parallelized. 
+  
+  We have observed that using expressions over statements can simplify the code.
+  In Java, if we want to check whether a number is even or odd, we evaluate and return the result explicitly. But when we got to
+  know about Ruby which supports only expressions, we noticed that the program can be written in fewer lines of code where, after 
+  evaluating the number, the result is returned implicitly.
+
+  We have also observed that using expressions over statements makes our code look more expressive.
+  
+  References:
+  
+  1. Lecture video
+  2. Agile Developer blog
+  3. Other Expressions over Statement Blogs
+
+Total [10]: 10

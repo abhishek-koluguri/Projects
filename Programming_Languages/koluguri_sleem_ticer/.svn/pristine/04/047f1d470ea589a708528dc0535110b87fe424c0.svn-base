@@ -1,0 +1,22 @@
+[Venkat 09/03/15 11:59 AM CEST]
+review: you're done
+
+good.
+
+------------------------------------------------------------------------------
+[Venkat 09/02/15 08:07 AM PDT]
+review: clarify
+
+I don't understand what you mean by "which simply adds variable x's value with 4 and does not return any value" then how do you know the result of that computation? Can
+you explain why this is a statement and not an expression (is it?).
+
+We can ignore return values, but that does not make expressions statements, 
+it's just that we don't use the result.
+
+------------------------------------------------------------------------------
+[Venkat 09/01/15 04:54 AM PDT]
+review: good start
+
+continue further.
+
+------------------------------------------------------------------------------

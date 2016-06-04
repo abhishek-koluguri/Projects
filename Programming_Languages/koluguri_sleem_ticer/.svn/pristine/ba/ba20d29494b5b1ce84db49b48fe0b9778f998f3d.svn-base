@@ -1,0 +1,64 @@
+Assignment 1: Due 11:59PM September 18th
+
+For this assignment we'll use two different languages. One has to be a statically typed language and the other has to be a dynamically typed language.
+
+Create files using proper extensions. Also create either a build file or a sh file that will compile (if necessary) and run your code to display the output or show test results automatically.
+
+If you need help with any of the steps, please ask. You do not have to fight with tools or code for a long time. The purpose of this course is to learn. If you're stuck, then ask for help and it will be given. Of course if you start early, you will be able to make much better progress than if you start late.
+
+In each of the languages, create two implementations for a function that will tell whether a number, given as argument, is a perfect number or not.
+
+A perfect number is a number greater than 1 whose factors total to twice the number. For example, the factors of 6 are 1, 2, 3, and 6. The total of these values is 12 which is twice the given number 6.
+
+The first implementation, in each language, should be in imperative style. The second implementation, in each language, should be in functional style.
+
+Suggestion: Start with one language. Write the code in that languages, evolve it using reviews. Once you've completed code in one language (and gotten a satisfactory review), then create in another language.
+
+After completing the coding (and only after that), answer the following questions:
+
+1. Discuss some of the things you have learned from working on this assignment.
+
+It was interesting to realize that most of what is taught regarding programming follows the imperative style without naming it such.  
+While some functional style programming does appear when discussing recursion, most of the focus is strictly on imperative style.  
+Beyond the differences in style, exposure to the build tools gradle and rake was informative.  
+Having the ability to time your functions while testing them is greatly beneficial.  
+Test driven development has benefits beyond ensuring you are returned the expected value.       
+
+2. Were there any thing that surprised you or things that you did not expect.
+
+One of the most surprising aspects of this assignment was working with the gradle and rake files. 
+It was surprisingly difficult to setup the rake file, and the amount of effort expended making it functional was unexpected.  
+It is interesting to see how you can run code independent from an environment. Additionally, though it was assumed difficult to learn Ruby, 
+coding in Ruby felt very straight forward and pleasant to work with.
+
+3. Given this experience, draw a comparison between the imperative style and the functional style.
+
+Imperative style seems to rely heavily on accumulators and iteration.  The accumulative nature of imperative style 
+requires that values be mutable.  Functional style instead seems driven by recursion and collection traversal.  
+Mutable values seem a liability in functional programming, instead of a necessity.  Additionally, functional programming seems 
+more natural for processing lists or other collections.  Returning a specific calculated result from a list took one easy to 
+read line in functional style; however, the same task in imperative style required a separate function for clarity. 
+
+4. Given this experience, draw a comparison between static typing and dynamic typing.
+
+With dynamic typing, not having to specify types during the compile time provided leeway and freedom. 
+It also made the code seem more presentable and easier to read. For example, in Ruby it isn't necessary 
+to declare types which made code more pleasant and nice to look at. Additionally it's easier to code in 
+a functional style in the dynamic typed languages because most support it. Static languages, however, 
+enforce type checking which promotes type consistency to the code. This makes sure the programmer is aware 
+which type of variable they are declaring and that as they progress through their program that 
+they don't incorrectly modify and misuse the variable. For example, Java requires one to specify the type of every variable.  
+It slightly makes code less pleasant to read but it does provide type checking.
+
+Total[100]: 100
+Build and tests [10]:
+Imperative Language 1 [20]:
+Functional Language 1 [20]:
+Imperative Language 2 [20]:
+Functional Language 2 [20]:
+Answers for questions in assign1.txt [10]:
+
+Check ins (concerned about Ahmed's [lack of] participation):
+akoluguri@uh.edu 23
+ahmed.a.sleem@gmail.com 12
+miketicer@gmail.com 20
