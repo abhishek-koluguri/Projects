@@ -1,5 +1,6 @@
 Steps to start the app and use it:
 
+Please use the pmms folder inside this folder.
 In cmd, navigate the pmms project and run the following commands: npm install, npm install express
 Download mongodb and have it running.
 Now run the following command to start the nodeJS server: node ./bin/www
