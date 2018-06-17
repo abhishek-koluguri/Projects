@@ -12,3 +12,7 @@ Front-End:
 Back-End:
 
 Exception handling that can make the app server crash.
+TenantID
+Tests for all api calls
+see if toArray is needed
+Authentication mechanism overview
